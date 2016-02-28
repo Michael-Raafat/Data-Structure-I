@@ -62,10 +62,6 @@ public class HangMan implements IHangman {
 		}
 		if(k==1)
 		{
-			if (dictionary[m]==r)
-			{
-				return String.format("%s You Won",r );
-			}
 		    return r;
 		}
 		else

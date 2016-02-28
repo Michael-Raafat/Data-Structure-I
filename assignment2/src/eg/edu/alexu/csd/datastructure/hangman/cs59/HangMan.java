@@ -9,7 +9,7 @@ public class HangMan implements IHangman {
 	int max;
 	int j,m;
 	char[] a = new char [1000];
-	@Override
+
 	public void setDictionary(String[] words) {
 		int i ;
 		for(i =0 ; i< words.length;i++)
@@ -19,7 +19,7 @@ public class HangMan implements IHangman {
 		j=i;
 	}
 
-	@Override
+	
 	public String selectRandomSecretWord() {
 		Random word = new Random ();
 		int right = word.nextInt(j);
@@ -43,7 +43,6 @@ public class HangMan implements IHangman {
 	
 	
 
-	@Override
 	public String guess(Character c) {
 		int k =0 ;
 		for(int i = 0 ; i<dictionary[m].length();i++)
@@ -76,7 +75,6 @@ public class HangMan implements IHangman {
 		}
 	}
 
-	@Override
 	public void setMaxWrongGuesses(Integer max) {
 		if(max== null)
 		{

@@ -46,9 +46,15 @@ public class HangMan implements IHangman {
 
 	public String guess(Character c) {
 		int k =0 ;
-		for(int i = 0 ; i<dictionary[m].length();i++)
+		char[] b = dictionary[m].toCharArray();
+		String secret = String.valueOf(a);
+		if (c== null)
 		{
-			if(c== dictionary[m].charAt(i))
+			return secret;
+		}
+		for(int i = 0 ; i<b.length;i++)
+		{
+			if(c==b[i])
 			{
 				a[i]= c ;
 				k=1;
@@ -56,10 +62,6 @@ public class HangMan implements IHangman {
 		}
 		String r ;
 		r= String.copyValueOf(a);
-		if (c== null)
-		{
-			return r;
-		}
 		if(k==1)
 		{
 		    return r;

@@ -48,15 +48,20 @@ public class HangMan implements IHangman {
 		int k =0 ;
 		char[] b = dictionary[m].toCharArray();
 		String secret = String.valueOf(a);
+		secret.toLowerCase();
+		String h = dictionary[m];
+		h.toLowerCase();
+		char[]p= h.toCharArray();
 		if (c== null)
 		{
 			return secret;
 		}
 		for(int i = 0 ; i<b.length;i++)
 		{
-			if(c==b[i])
+			if(c== p[i] || c==b[i] )
 			{
-				a[i]= c ;
+				
+				a[i]= b[i]  ;
 				k=1;
 			}
 		}

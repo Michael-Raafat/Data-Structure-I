@@ -1,12 +1,13 @@
-package eg.edu.alexu.csd.datastructure.hangman.cs59;
 
+package eg.edu.alexu.csd.datastructure.hangman.cs59;
+import java.util.Random;
 import eg.edu.alexu.csd.datastructure.hangman.IHangman;
 
-import java.util.Random;
+
 public class HangMan implements IHangman {
 
 	String[] dictionary = new String [1000];
-	int max;
+	int maximum;
 	int j,m;
 	char[] a = new char [1000];
 
@@ -65,8 +66,8 @@ public class HangMan implements IHangman {
 		}
 		else
 		{
-			max--;
-			if (max==0)
+			maximum--;
+			if (maximum==0)
 			{
 				return null ;
 			}
@@ -78,11 +79,11 @@ public class HangMan implements IHangman {
 	public void setMaxWrongGuesses(Integer max) {
 		if(max== null)
 		{
-			this.max = 0 ;
+			maximum = 0 ;
 		}
 		else 
 		{
-			this.max = max ;
+		   maximum = max ;
 		}
 		
 	}

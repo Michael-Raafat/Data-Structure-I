@@ -13,25 +13,24 @@ public class HangMan implements IHangman {
 
 	public void setDictionary(String[] words) {
 		int i ;
+		j=words.length;
 		for(i =0 ; i< words.length;i++)
 		{
 			dictionary[i]=words[i];
 		}
-		j=words.length;
 	}
 
 	
 	public String selectRandomSecretWord() {
 		Random word = new Random ();
+		if (j==0)
+			  return null;
 		int right = word.nextInt(j);
 		m=right;
-        if (j==0)
-		  return null;
-        else 
-        {
+        
         	setting();
         	return dictionary[right];
-        }
+
 	}
 	public void setting()
 	{
@@ -45,6 +44,8 @@ public class HangMan implements IHangman {
 	
 
 	public String guess(Character c) {
+		if (j==0)
+			  return "";
 		int k =0 ;
 		char[] b = dictionary[m].toUpperCase().toCharArray();
 		String secret = String.valueOf(a);

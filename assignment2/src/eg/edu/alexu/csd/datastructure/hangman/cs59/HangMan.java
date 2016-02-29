@@ -16,7 +16,9 @@ public class HangMan implements IHangman {
 		j=words.length;
 		for(i =0 ; i< words.length;i++)
 		{
+			
 			dictionary[i]=words[i];
+		
 		}
 	}
 
@@ -26,40 +28,41 @@ public class HangMan implements IHangman {
 		if (j==0)
 			  return null;
 		int right = word.nextInt(j);
-		m=right;
-        
-		for(int i = 0 ; i<dictionary[m].length();i++)
-		{
-			if(dictionary[m].charAt(i)!= ' ')
-			a[i]='-';
-		}
+		 m=right;
+		 for(int i =0 ;i<dictionary[right].length();i++)
+		 {
+			 if(dictionary[right].charAt(i)!=' ')
+			 a[i]= '-';
+		 } 
         	return dictionary[right];
 
 	}
-	
-	
-
 	public String guess(Character c) {
 		if (j==0)
-			  return "";
+		{	 
+			return "";
+		}
 		int k =0 ;
+		if(c!=null)
+		{
+			c= Character.toUpperCase(c);
+		}
 		char[] b = dictionary[m].toUpperCase().toCharArray();
-		String secret = String.valueOf(a);
+		String r = String.valueOf(a);
 		if (c== null || c.equals(null))
 		{
-			return secret;
+			return r;
 		}
 		for(int i = 0 ; i<b.length;i++)
 		{
-			if(c.toUpperCase(c)==b[i] )
+			if(c==b[i] )
 			{
 				
-				a[i]= dictionary[m].charAt(i)  ;
+				a[i]=dictionary[m].charAt(i);
 				k=1;
 			}
 		}
-		String r ;
-		r= String.valueOf(a);
+		r=String.valueOf(a);
 		if(k==1)
 		{
 		    return r;

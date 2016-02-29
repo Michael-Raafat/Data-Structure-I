@@ -43,10 +43,6 @@ public class HangMan implements IHangman {
 			return "";
 		}
 		int k =0 ;
-		if(c!=null)
-		{
-			c= Character.toUpperCase(c);
-		}
 		char[] b = dictionary[m].toUpperCase().toCharArray();
 		String r = String.valueOf(a);
 		if (c== null || c.equals(null))
@@ -55,7 +51,7 @@ public class HangMan implements IHangman {
 		}
 		for(int i = 0 ; i<b.length;i++)
 		{
-			if(c==b[i] )
+			if(Character.toUpperCase(c)==b[i] )
 			{
 				
 				a[i]=dictionary[m].charAt(i);

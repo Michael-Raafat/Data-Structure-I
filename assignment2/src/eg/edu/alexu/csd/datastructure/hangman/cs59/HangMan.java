@@ -28,17 +28,13 @@ public class HangMan implements IHangman {
 		int right = word.nextInt(j);
 		m=right;
         
-        	setting();
-        	return dictionary[right];
-
-	}
-	public void setting()
-	{
 		for(int i = 0 ; i<dictionary[m].length();i++)
 		{
 			if(dictionary[m].charAt(i)!= ' ')
 			a[i]='-';
 		}
+        	return dictionary[right];
+
 	}
 	
 	
@@ -49,17 +45,13 @@ public class HangMan implements IHangman {
 		int k =0 ;
 		char[] b = dictionary[m].toUpperCase().toCharArray();
 		String secret = String.valueOf(a);
-		secret.toLowerCase();
-		String h = dictionary[m];
-		char[]p= h.toLowerCase().toCharArray();
-		
 		if (c== null || c.equals(null))
 		{
 			return secret;
 		}
 		for(int i = 0 ; i<b.length;i++)
 		{
-			if(c== p[i] || c==b[i] )
+			if(c.toUpperCase(c)==b[i] )
 			{
 				
 				a[i]= dictionary[m].charAt(i)  ;

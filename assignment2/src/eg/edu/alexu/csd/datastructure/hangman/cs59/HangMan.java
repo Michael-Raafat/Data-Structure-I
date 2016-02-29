@@ -64,7 +64,7 @@ public class HangMan implements IHangman {
 		else
 		{
 			maximum--;
-			if (maximum ==0)
+			if (maximum - 1 == 0)
 			{
 				return null ;
 			}
@@ -76,7 +76,7 @@ public class HangMan implements IHangman {
 	public void setMaxWrongGuesses(Integer max) {
 		if(max== null)
 		{
-			maximum = 1 ;
+			maximum = 0  ;
 		}
 		else 
 		{

@@ -7,7 +7,7 @@ import eg.edu.alexu.csd.datastructure.hangman.IHangman;
 public class HangMan implements IHangman {
 
 	String[] dictionary = new String [1000];
-	int maximum;
+	Integer maximum;
 	int j,m;
 	char[] a = new char [1000];
 

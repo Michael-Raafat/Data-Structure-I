@@ -42,7 +42,7 @@ public class HangMan implements IHangman {
 		}
 		int k =0 ;
 		char[] b = dictionary[m].toUpperCase().toCharArray();
-		String r = a.toString();
+		String r = String.copyValueOf(a, 0, dictionary[m].length());
 		if (c== null)
 		{
 			return r;
@@ -56,7 +56,7 @@ public class HangMan implements IHangman {
 				k=1;
 			}
 		}
-		r=a.toString();
+		r=String.copyValueOf(a, 0, dictionary[m].length());
 		if(k==1)
 		{
 		    return r;

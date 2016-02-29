@@ -7,7 +7,7 @@ import eg.edu.alexu.csd.datastructure.hangman.IHangman;
 public class HangMan implements IHangman {
 
 	String[] dictionary = new String [1000];
-	Integer maximum;
+	int maximum;
 	int j,m;
 	char[] a = new char [1000];
 
@@ -15,10 +15,8 @@ public class HangMan implements IHangman {
 		int i ;
 		j=words.length;
 		for(i =0 ; i< words.length;i++)
-		{
-			
+		{	
 			dictionary[i]=words[i];
-		
 		}
 	}
 
@@ -44,8 +42,8 @@ public class HangMan implements IHangman {
 		}
 		int k =0 ;
 		char[] b = dictionary[m].toUpperCase().toCharArray();
-		String r = String.valueOf(a);
-		if (c== null || c.equals(null))
+		String r = a.toString();
+		if (c== null)
 		{
 			return r;
 		}
@@ -58,7 +56,7 @@ public class HangMan implements IHangman {
 				k=1;
 			}
 		}
-		r=String.valueOf(a);
+		r=a.toString();
 		if(k==1)
 		{
 		    return r;

@@ -99,7 +99,7 @@ public class HangMan implements IHangman {
 		}
 		else 
 		{
-		   maximum = max - 1 ;
+		   maximum = max  ;
 		}
 		
 	}

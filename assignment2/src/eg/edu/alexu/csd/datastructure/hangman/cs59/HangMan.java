@@ -7,7 +7,7 @@ import eg.edu.alexu.csd.datastructure.hangman.IHangman;
 public class HangMan implements IHangman {
 
 	String[] dictionary = new String [1000];
-	int maximum;
+	int maximum,y=0;
 	int j,m;
 	char[] a = new char [1000];
 
@@ -63,9 +63,9 @@ public class HangMan implements IHangman {
 		}
 		else
 		{
-			maximum--;
+			y++;
 		}
-		if (maximum <= 0)
+		if (y> maximum)
 		{
 			return null ;
 		}
@@ -75,17 +75,13 @@ public class HangMan implements IHangman {
 	}
 
 	public void setMaxWrongGuesses(Integer max) {
-		if(max== null || max==1)
+		if(max== null || max==0)
 		{
 			maximum = 0  ;
 		}
-		else if  (max==0)
-		{
-			maximum = -1;
-		}
 		else 
 		{
-		   maximum = max ;
+		   maximum = max - 1 ;
 		}
 		
 	}

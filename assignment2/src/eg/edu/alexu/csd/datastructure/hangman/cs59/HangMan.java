@@ -71,7 +71,7 @@ public class HangMan implements IHangman {
 			{
 				for(int j=0;j<n.length();j++)
 				{
-					if(n.charAt(j)== c)
+					if(n.charAt(j)== Character.toUpperCase(c))
 					{
 						l=1;
 					}
@@ -93,13 +93,13 @@ public class HangMan implements IHangman {
 	}
 
 	public void setMaxWrongGuesses(Integer max) {
-		if(max== null || max==0)
+		if(max== null)
 		{
 			maximum = 0  ;
 		}
 		else 
 		{
-		   maximum = max  ;
+		   maximum = max - 1  ;
 		}
 		
 	}

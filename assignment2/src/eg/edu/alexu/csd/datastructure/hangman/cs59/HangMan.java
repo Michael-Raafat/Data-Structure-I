@@ -64,7 +64,7 @@ public class HangMan implements IHangman {
 		else
 		{
 			maximum--;
-			if (maximum <= 0)
+			if (maximum < 0)
 			{
 				return null ;
 			}
@@ -80,7 +80,7 @@ public class HangMan implements IHangman {
 		}
 		else 
 		{
-		   maximum = max ;
+		   maximum = max - 1 ;
 		}
 		
 	}

@@ -47,6 +47,8 @@ public class HangMan implements IHangman {
 		{
 			return r;
 		}
+		//if(dictionary[m].equals(null))
+			//return null;
 		for(int i = 0 ; i<b.length;i++)
 		{
 			if(Character.toUpperCase(c)==b[i] )
@@ -64,17 +66,18 @@ public class HangMan implements IHangman {
 		else
 		{
 			maximum--;
-			if (maximum < 0)
-			{
-				return null ;
-			}
-			else 
-		       return r ;
 		}
+		if (maximum < 0)
+		{
+			return null ;
+		}
+		else 
+		       return r ;
+	
 	}
 
 	public void setMaxWrongGuesses(Integer max) {
-		if(max== null)
+		if(max== null || max==1)
 		{
 			maximum = 0  ;
 		}

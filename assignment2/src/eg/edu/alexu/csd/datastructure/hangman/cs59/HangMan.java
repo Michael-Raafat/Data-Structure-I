@@ -82,7 +82,12 @@ public class HangMan implements IHangman {
 						if(b[i]==p.charAt(j))
 						{
 							a[i]= dictionary[m].charAt(i);
+							w=1;
 						}
+					}
+					if (w==0)
+					{
+						a[i]='-';
 					}
 				}
 				r=String.copyValueOf(a, 0, dictionary[m].length());

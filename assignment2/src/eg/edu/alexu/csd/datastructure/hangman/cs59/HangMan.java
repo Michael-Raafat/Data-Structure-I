@@ -13,7 +13,8 @@ public class HangMan implements IHangman {
 	int j,m;
 	char[] a = new char [1000];
 	char[] n = new char [1000];
-	StringBuilder f = new StringBuilder("") ;
+	static StringBuilder f = new StringBuilder("") ;
+	static StringBuilder p = new StringBuilder("") ;
 	public void setDictionary(String[] words) {
 		int i ;
 		j=words.length;
@@ -43,10 +44,11 @@ public class HangMan implements IHangman {
 		{	 
 			return "";
 		}
-		int k =0 , l=0;
+		int k =0 , l=0 , e=0 ,w=0;
 		char[] b = dictionary[m].toUpperCase().toCharArray();
 		String r = String.copyValueOf(a, 0, dictionary[m].length());
 		String n = f.toString().toUpperCase() ;
+		String t = p.toString().toUpperCase();
 		if (c== null)
 		{
 			return r;
@@ -55,7 +57,11 @@ public class HangMan implements IHangman {
 		{
 			if(Character.toUpperCase(c)==b[i] )
 			{
-				
+				if(e==0)
+				{
+				   p=p.append(c);
+				   e=1;
+				}				
 				a[i]=dictionary[m].charAt(i);
 				k=1;
 			}
@@ -69,8 +75,20 @@ public class HangMan implements IHangman {
 		{
 			if(k==0)
 			{
-				for(int j=0;j<n.length();j++)
+				t = p.toString().toUpperCase();
+				for(int i=0;i<dictionary[m].length();i++)
 				{
+					for(int j = 0 ;j<t.length();j++ )
+					{
+						if(b[i]==t.charAt(j))
+						{
+							a[i]= dictionary[m].charAt(i);
+						}
+					}
+				}
+				r=String.copyValueOf(a, 0, dictionary[m].length());
+				for(int j=0;j<n.length();j++)
+				{	
 					if(n.charAt(j)== Character.toUpperCase(c))
 					{
 						l=1;

@@ -91,18 +91,7 @@ public class HangMan implements IHangman {
 					}
 				}
 				r=String.copyValueOf(a, 0, dictionary[m].length());
-				for(int j=0;j<n.length();j++)
-				{	
-					if(n.charAt(j)== Character.toUpperCase(c))
-					{
-						l=1;
-					}
-				}
-				if(l==0)
-					{
-					   f=f.append(c);
 					   maximum--;
-					}
 			}
 		}
 		if (maximum <= 0)

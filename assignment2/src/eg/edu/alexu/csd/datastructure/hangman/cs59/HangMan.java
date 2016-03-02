@@ -13,8 +13,8 @@ public class HangMan implements IHangman {
 	int j,m;
 	char[] a = new char [1000];
 	char[] n = new char [1000];
-	static StringBuilder f = new StringBuilder("") ;
-	static StringBuilder p = new StringBuilder("") ;
+	 StringBuilder f = new StringBuilder("") ;
+	StringBuilder p = new StringBuilder("") ;
 	public void setDictionary(String[] words) {
 		int i ;
 		j=words.length;

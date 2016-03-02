@@ -13,7 +13,7 @@ public class HangMan implements IHangman {
 	int j,m;
 	char[] a = new char [1000];
 	char[] n = new char [1000];
-	 StringBuilder f = new StringBuilder("") ;
+	StringBuilder f = new StringBuilder("") ;
 	StringBuilder p = new StringBuilder("") ;
 	public void setDictionary(String[] words) {
 		int i ;
@@ -75,12 +75,11 @@ public class HangMan implements IHangman {
 		{
 			if(k==0)
 			{
-				t = p.toString().toUpperCase();
 				for(int i=0;i<dictionary[m].length();i++)
 				{
-					for(int j = 0 ;j<t.length();j++ )
+					for(int j = 0 ;j<p.length();j++ )
 					{
-						if(b[i]==t.charAt(j))
+						if(b[i]==p.charAt(j))
 						{
 							a[i]= dictionary[m].charAt(i);
 						}

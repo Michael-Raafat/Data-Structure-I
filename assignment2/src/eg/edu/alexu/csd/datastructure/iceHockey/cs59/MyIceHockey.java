@@ -107,6 +107,10 @@ public class MyIceHockey implements IPlayersFinder {
             left = 0 ;
             right = 0 ;
 			zew = 1;
+			m=-1;
+			t=-1;
+			t2=-1;
+			p=-1;
 			int centrex = x + j*2 ; 
 			int centrey = y + i*2 ;
 			 Point point = new java.awt.Point(centrex , centrey);
@@ -120,6 +124,10 @@ public class MyIceHockey implements IPlayersFinder {
             left = 0 ;
             right = 0 ;
 			zew = 1;
+			m=-1;
+			t2=-1;
+			t=-1;
+			p=-1;
 			Point point = null ; 
 		  return point ;
 		}

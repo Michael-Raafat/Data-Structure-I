@@ -29,16 +29,16 @@ public class MyIceHockey implements IPlayersFinder {
 		{
 			for(int j =0 ; j< photo[i].length() ; j++)
 			{
+				
 				if (a[i][j]== (char) team)
 				{
 				Point hhh =	centre(i,j,a,threshold,photo[i].length());
-				if (hhh == null)
-					{}
-				else 
-					{
+		     	 if (hhh == null);
+		    	 else 
+		     	 {			
 						it[f]=hhh ;
 						f++;
-				}
+		      	 }
 				}
 			}
 		}
@@ -114,7 +114,15 @@ public class MyIceHockey implements IPlayersFinder {
 			return point ;
 		}
 		else
-		  return null;
+		{
+			up = 0 ;
+            down = 0; 
+            left = 0 ;
+            right = 0 ;
+			zew = 1;
+			Point point = null ; 
+		  return point ;
+		}
 	}
 
 }

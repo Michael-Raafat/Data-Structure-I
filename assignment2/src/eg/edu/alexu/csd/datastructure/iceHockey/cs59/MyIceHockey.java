@@ -6,7 +6,7 @@ import java.awt.Point;
 import eg.edu.alexu.csd.datastructure.iceHockey.IPlayersFinder;
 
 public class MyIceHockey implements IPlayersFinder {
-	String[][] a = new String [100][100];
+	char[][] a = new char [100][100];
 	Point[] it = new Point [100] ;
 	int down = 0  , zew = 1 , up=0 , left = 0 , right = 0 ;
 	int t = -1 , t2= -1 ;
@@ -16,7 +16,7 @@ public class MyIceHockey implements IPlayersFinder {
 		{
 			for(int j = 0 ; j < photo[i].length() ; j++ )
 			{
-				a[i][j]= Character.toString(photo[i].charAt(j));
+				a[i][j]= photo[i].charAt(j);
 			}
 		}
 		
@@ -29,7 +29,7 @@ public class MyIceHockey implements IPlayersFinder {
 		{
 			for(int j =0 ; j< photo[i].length() ; j++)
 			{
-				if (a[i][j]== String.valueOf(team))
+				if (a[i][j]== team)
 				{
 				Point hhh =	centre(i,j,a,threshold,photo[i].length());
 				//	if (hhh == null)
@@ -51,11 +51,11 @@ public class MyIceHockey implements IPlayersFinder {
 		
 		return real;
 	}
-	public Point centre(int i ,int j , String[][]s, int threshold , int length)
+	public Point centre(int i ,int j , char[][]s, int threshold , int length)
 	{
 		if( i+1<length && s[i+1][j]==s[i][j])
 		{
-			s[i+1][j]="-";
+			s[i+1][j]='-';
 			zew++;
 			if(i+1>p)
 			{
@@ -66,7 +66,7 @@ public class MyIceHockey implements IPlayersFinder {
 		}
 		if(j+1<length && s[i][j+1]==s[i][j])
 		{
-			s[i][j+1]="-";
+			s[i][j+1]='-';
 			zew++;
 			if(j+1 > t2)
 			{
@@ -77,7 +77,7 @@ public class MyIceHockey implements IPlayersFinder {
 		}
 		if(j-1>=0 && s[i][j-1]==s[i][j])
 		{
-			s[i][j-1]="-";
+			s[i][j-1]='-';
 			zew++;
 			if(j-1<t)
 			{
@@ -88,7 +88,7 @@ public class MyIceHockey implements IPlayersFinder {
 		}
 		if(i-1>=0 && s[i-1][j]==s[i][j])
 		{
-			s[i-1][j]="-";
+			s[i-1][j]='-';
 			zew++;
 			if(i-1>m)
 			{

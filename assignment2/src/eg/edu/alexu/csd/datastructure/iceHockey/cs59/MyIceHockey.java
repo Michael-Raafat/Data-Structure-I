@@ -110,7 +110,8 @@ public class MyIceHockey implements IPlayersFinder {
 			
 			return point ;
 		}
-		return null;
+		else
+		  return null;
 	}
 
 }

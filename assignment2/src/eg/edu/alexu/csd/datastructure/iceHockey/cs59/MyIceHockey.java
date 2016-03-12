@@ -16,7 +16,7 @@ public class MyIceHockey implements IPlayersFinder {
 		{
 			for(int j = 0 ; j < photo[i].length() ; j++ )
 			{
-				a[i][j]=photo[i].substring(j, j);
+				a[i][j]= Character.toString(photo[i].charAt(j));
 			}
 		}
 		

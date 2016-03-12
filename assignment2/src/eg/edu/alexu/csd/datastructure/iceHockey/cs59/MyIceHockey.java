@@ -32,13 +32,13 @@ public class MyIceHockey implements IPlayersFinder {
 				if (a[i][j]== String.valueOf(team))
 				{
 				Point hhh =	centre(i,j,a,threshold,photo[i].length());
-					if (hhh == null)
-					{}
-					else 
-					{
+				//	if (hhh == null)
+					//{}
+				//	else 
+					//{
 						it[f]=hhh ;
 						f++;
-					}
+				//	}
 				}
 			}
 		}

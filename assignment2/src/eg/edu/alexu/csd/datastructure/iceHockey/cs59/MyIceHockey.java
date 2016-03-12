@@ -45,7 +45,13 @@ public class MyIceHockey implements IPlayersFinder {
 		Point [] real = new Point [f] ;
 		for(int i = 0 ; i<f ; i++)
 		{
-			real[i]=it[i] ;
+			for(int j = 0 ; j<i ; j++)
+			{
+				if(it[i]!=real[j])
+				{
+					real[i]=it[i] ;
+				}
+			}
 		}
 		
 		
@@ -55,7 +61,6 @@ public class MyIceHockey implements IPlayersFinder {
 	{
 		if( i+1<s.length && s[i+1][j]==s[i][j])
 		{
-			s[i+1][j]='-';
 			zew++;
 			if(i+1>p)
 			{
@@ -66,7 +71,6 @@ public class MyIceHockey implements IPlayersFinder {
 		}
 		if(j+1<length && s[i][j+1]==s[i][j])
 		{
-			s[i][j+1]='-';
 			zew++;
 			if(j+1 > t2)
 			{
@@ -77,7 +81,7 @@ public class MyIceHockey implements IPlayersFinder {
 		}
 		if(j-1>=0 && s[i][j-1]==s[i][j])
 		{
-			s[i][j-1]='-';
+			
 			zew++;
 			if(j-1<t)
 			{
@@ -88,7 +92,7 @@ public class MyIceHockey implements IPlayersFinder {
 		}
 		if(i-1>=0 && s[i-1][j]==s[i][j])
 		{
-			s[i-1][j]='-';
+			
 			zew++;
 			if(i-1>m)
 			{

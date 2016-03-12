@@ -53,7 +53,7 @@ public class MyIceHockey implements IPlayersFinder {
 	}
 	public Point centre(int i ,int j , char[][]s, int threshold , int length)
 	{
-		if( i+1<length && s[i+1][j]==s[i][j])
+		if( i+1<s.length && s[i+1][j]==s[i][j])
 		{
 			s[i+1][j]='-';
 			zew++;

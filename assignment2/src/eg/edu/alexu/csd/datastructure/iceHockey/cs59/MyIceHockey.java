@@ -10,8 +10,8 @@ public class MyIceHockey implements IPlayersFinder {
 	Point[] it = new Point [100] ;
 	int down = 0  , zew = 1 , up=0 , left = 0 , right = 0 ;
 	int t = -1 , t2= -1 ;
-	int  p = -1 , m = -1  ;
-	static int f = 0 ;
+	int  p = -1 , ioo = 0 , ioo1=0 , foo=0 , joo=0 , joo1=0 , joo2=0 ;
+	int f = 0 ;
 	public void settingarray(String[] photo ){
 		for(int i = 0 ; i < photo.length ; i++ )
 		{
@@ -23,17 +23,56 @@ public class MyIceHockey implements IPlayersFinder {
 		
 		
 	}
-
+    public void arraysort (Point [] real  ){
+    	Point temp = new java.awt.Point(1000,1000); 
+    	int k = 0 ;
+    	if(real.length>= 0 && real[0]!=null)
+    	{
+    		for(int i =0 ; i<real.length-1 ; i++)
+    	{
+    		for(int j=i+1 ; j< real.length ;j++)
+    		{
+    			  
+    			if(real[i].x > real[j].x)
+    			{
+    			
+    					temp=real[j];
+    					real[j]=real[i];
+    					real[i]=temp;
+    			}
+    			else if (real[i].x == real[j].x)
+    			{
+    				if ( real[i].y > real[j].y)
+    				{
+    					temp=real[j];
+    					real[j]=real[i];
+    					real[i]=temp;
+    				}
+    				
+    			}
+    				
+    		}
+    	}
+    	}
+    	
+    	
+    }
 	public Point[] findPlayers(String[] photo, int team, int threshold) {
 		settingarray(photo);
 		for(int i = 0 ; i < photo.length ; i++)
 		{
 			for(int j =0 ; j< photo[i].length() ; j++)
 			{
-				
+				foo=i;
+				ioo=i;
+				ioo1=i;
 				if (a[i][j]== String.valueOf(team).toCharArray()[0])
 				{
-				Point hhh =	centre(i,j,a,threshold,photo[i].length());
+					
+					joo= j;
+					joo1=j;
+					joo2=j;
+				Point hhh =	centre(i,j,a,threshold,photo[i].length(),team);
 		     	   if (hhh == null);
 		    	   else 
 		     	   {			
@@ -46,76 +85,93 @@ public class MyIceHockey implements IPlayersFinder {
 		Point [] real = new Point [f] ;
 		for(int i = 0 ; i<f ; i++)
 		{
-			for(int j = 0 ; j<i ; j++)
-			{
-				if(it[i]!=real[j])
-				{
 					real[i]=it[i] ;
-				}
-			}
 		}
-		
-		
+		arraysort(real);
+		f=0;
 		return real;
 	}
-	public Point centre(int i ,int j , char[][]s, int threshold , int length)
+	public Point centre(int i ,int j , char[][]s, int threshold , int length ,int  team)
 	{
-		if( i+1<s.length && s[i+1][j]==s[i][j])
+		s[i][j]='-';
+		if( i+1<s.length && s[i+1][j]==String.valueOf(team).toCharArray()[0])
 		{
+			if(i+1<s.length)
+			s[i+1][j]='-';
 			zew++;
-			if(i+1>p)
+			if(i+1>ioo1)
 			{
 				down++;
-				p=i+1;
+				ioo1=i+1;
 			}
-			centre(i+1 , j , a , threshold , length  );
+			if(i+1<s.length)
+			centre(i+1 , j , a , threshold , length , team  );
 		}
-		if(j+1<length && s[i][j+1]==s[i][j])
+		if(j+1<length && s[i][j+1]==String.valueOf(team).toCharArray()[0])
 		{
+			if(j+1<s.length)
+			s[i][j+1]='-';
 			zew++;
-			if(j+1 > t2)
+			if(j+1 > joo1)
 			{
 				right++;
-				t2=j-1 ;
+				joo1=j-1 ;
 			}
-			centre(i , j+1 , a , threshold , length );
+			centre(i , j+1 , a , threshold , length , team );
 		}
-		if(j-1>=0 && s[i][j-1]==s[i][j])
+		if(j-1>=0 && s[i][j-1]==String.valueOf(team).toCharArray()[0])
 		{
-			
+			if(j-1>=0)
+			s[i][j-1]='-';
 			zew++;
-			if(j-1<t)
+			if(j-1<joo2)
 			{
 				left++;
-				t=j-1;
+				joo2=j-1;
 			}
-			centre(i , j-1 , a , threshold , length );
+			if(j-1>=0)
+			centre(i , j-1 , a , threshold , length , team );
 		}
-		if(i-1>=0 && s[i-1][j]==s[i][j])
+		if(i-1>=0 && s[i-1][j]==String.valueOf(team).toCharArray()[0])
 		{
-			
+			if(i>=0)
+			s[i-1][j]='-';
 			zew++;
-			if(i-1>m)
+			if(i-1<ioo)
 			{
 				up++;
-				m=i-1;
+				ioo=i-1;
 			}
-			centre(i-1 , j , a , threshold , length  );
+			if(i-1>=0)
+			centre(i-1 , j , a , threshold , length , team  );
 			
 		}
-		if ((4*zew) >= threshold )
+		if(foo==i && joo==j)
+		{if ((4*zew) >= threshold )
 		{
-			int y = up + down + 1 ;
+			int y = up + down +1 ;
 			int x = left + right + 1;
+			if(j>joo2 && joo2!=0)
+			{
+			 j = joo2 ;	
+			}
+			if ( i > ioo && ioo!=0)
+			{
+				i= ioo ;
+			}
             up = 0 ;
             down = 0; 
             left = 0 ;
             right = 0 ;
 			zew = 1;
-			m=-1;
+			joo1=0;
+			joo2=0;
+			ioo1=0;
+			ioo=0;
 			t=-1;
 			t2=-1;
 			p=-1;
+			
 			int centrex = x + j*2 ; 
 			int centrey = y + i*2 ;
 			 Point point = new java.awt.Point(centrex , centrey);
@@ -129,13 +185,19 @@ public class MyIceHockey implements IPlayersFinder {
             left = 0 ;
             right = 0 ;
 			zew = 1;
-			m=-1;
+			joo1=0;
+			joo2=0;
+			ioo1=0;
+			ioo=0;
 			t2=-1;
 			t=-1;
 			p=-1;
 			Point point = null ; 
 		  return point ;
 		}
+		}
+		else 
+			return null ;
 	}
 
 }

@@ -152,11 +152,11 @@ public class MyIceHockey implements IPlayersFinder {
 		{
 			int y = up + down +1 ;
 			int x = left + right + 1;
-			if(j>joo2 && joo2!=0)
+			if(j>joo2)
 			{
 			 j = joo2 ;	
 			}
-			if ( i > ioo && ioo!=0)
+			if ( i > ioo)
 			{
 				i= ioo ;
 			}

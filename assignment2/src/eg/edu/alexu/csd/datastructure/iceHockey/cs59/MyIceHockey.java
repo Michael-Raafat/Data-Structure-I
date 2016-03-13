@@ -33,12 +33,12 @@ public class MyIceHockey implements IPlayersFinder {
 				if (a[i][j]== (char) team)
 				{
 				Point hhh =	centre(i,j,a,threshold,photo[i].length());
-		     	 if (hhh == null);
-		    	 else 
-		     	 {			
+		     	   if (hhh == null);
+		    	   else 
+		     	   {			
 						it[f]=hhh ;
 						f++;
-		      	 }
+		      	   }
 				}
 			}
 		}
@@ -67,7 +67,7 @@ public class MyIceHockey implements IPlayersFinder {
 				down++;
 				p=i+1;
 			}
-			centre(i+1 , j , s , threshold , length  );
+			centre(i+1 , j , a , threshold , length  );
 		}
 		if(j+1<length && s[i][j+1]==s[i][j])
 		{
@@ -77,7 +77,7 @@ public class MyIceHockey implements IPlayersFinder {
 				right++;
 				t2=j-1 ;
 			}
-			centre(i , j+1 , s , threshold , length );
+			centre(i , j+1 , a , threshold , length );
 		}
 		if(j-1>=0 && s[i][j-1]==s[i][j])
 		{
@@ -88,7 +88,7 @@ public class MyIceHockey implements IPlayersFinder {
 				left++;
 				t=j-1;
 			}
-			centre(i , j-1 , s , threshold , length );
+			centre(i , j-1 , a , threshold , length );
 		}
 		if(i-1>=0 && s[i-1][j]==s[i][j])
 		{
@@ -99,10 +99,10 @@ public class MyIceHockey implements IPlayersFinder {
 				up++;
 				m=i-1;
 			}
-			centre(i-1 , j , s , threshold , length  );
+			centre(i-1 , j , a , threshold , length  );
 			
 		}
-		if (4*zew >= threshold )
+		if ((4*zew) >= threshold )
 		{
 			int y = up + down + 1 ;
 			int x = left + right + 1;

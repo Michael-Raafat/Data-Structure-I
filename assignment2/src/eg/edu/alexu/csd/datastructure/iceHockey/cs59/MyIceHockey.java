@@ -10,7 +10,8 @@ public class MyIceHockey implements IPlayersFinder {
 	Point[] it = new Point [100] ;
 	int down = 0  , zew = 1 , up=0 , left = 0 , right = 0 ;
 	int t = -1 , t2= -1 ;
-	int f = 0 , p = -1 , m = -1  ;
+	int  p = -1 , m = -1  ;
+	static int f = 0 ;
 	public void settingarray(String[] photo ){
 		for(int i = 0 ; i < photo.length ; i++ )
 		{

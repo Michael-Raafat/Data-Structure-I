@@ -31,7 +31,7 @@ public class MyIceHockey implements IPlayersFinder {
 			for(int j =0 ; j< photo[i].length() ; j++)
 			{
 				
-				if (a[i][j]== (char) team)
+				if (a[i][j]== String.valueOf(team).toCharArray()[0])
 				{
 				Point hhh =	centre(i,j,a,threshold,photo[i].length());
 		     	   if (hhh == null);

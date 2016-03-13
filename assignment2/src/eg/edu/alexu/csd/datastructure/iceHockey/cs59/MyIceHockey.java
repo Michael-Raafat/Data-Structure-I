@@ -169,7 +169,6 @@ public class MyIceHockey implements IPlayersFinder {
 			joo2=0;
 			ioo1=0;
 			ioo=0;
-			t=-1;
 			t2=-1;
 			p=-1;
 			

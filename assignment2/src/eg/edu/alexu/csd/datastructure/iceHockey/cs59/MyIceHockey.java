@@ -115,7 +115,7 @@ public class MyIceHockey implements IPlayersFinder {
 			if(j+1 > joo1)
 			{
 				right++;
-				joo1=j-1 ;
+				joo1=j+1 ;
 			}
 			centre(i , j+1 , a , threshold , length , team );
 		}

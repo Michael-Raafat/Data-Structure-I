@@ -23,7 +23,7 @@ public class testTest {
 		String[] photo = { "1J1U1B1U1", "R1U1R1E1W", "1P1R1N1B1", "P1O1N1S1D", "1E1E1E1E1" };
 		Assert.assertArrayEquals("test2", points,pl.findPlayers(photo, 1, 5));
 	}
-	
+	//2
 	@Test
 	public void test3() {
 		MyIceHockey pl = new MyIceHockey();

@@ -1,6 +1,5 @@
 package eg.edu.alexu.csd.datastructure.iceHockey.cs59;
 
-import static org.junit.Assert.*;
 
 import java.awt.Point;
 

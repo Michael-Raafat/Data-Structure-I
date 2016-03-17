@@ -31,6 +31,7 @@ public class testTest {
 		String[] photo = {"8888888888888","8888888888888", "8888888888888", "8888888888888", "8QJ88R8SG88TY", "88V88B88OUZ8O", "88WF8Q8GG88B8", "8MX88D88888T8K8"};
 		Assert.assertArrayEquals("test3", points,pl.findPlayers(photo, 8, 9));
 	}
+	//3
 	@Test
 	public void test4() {
 		MyIceHockey pl = new MyIceHockey();

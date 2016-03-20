@@ -7,7 +7,7 @@ import eg.edu.alexu.csd.datastructure.iceHockey.IPlayersFinder;
 
 public class MyIceHockey implements IPlayersFinder {
 	char[][] a = new char [100][100];
-	Point[] it = new Point [100] ;
+	Point[] it = new Point [2500] ;
 	int down = 0  , zew = 1 , up=0 , left = 0 , right = 0 ;
 	int t = -1 , t2= -1 ;
 	int  p = -1 , ioo = 0 , ioo1=0 , foo=0 , joo=0 , joo1=0 , joo2=0 ;

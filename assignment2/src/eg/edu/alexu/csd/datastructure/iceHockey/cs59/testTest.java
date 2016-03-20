@@ -2,13 +2,12 @@ package eg.edu.alexu.csd.datastructure.iceHockey.cs59;
 
 
 import java.awt.Point;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 public class testTest {
     @Test
-	public void test1() {
+	public void testCorner() {
 		MyIceHockey pl = new MyIceHockey();
 		java.awt.Point[] points = { new java.awt.Point(1,6),new java.awt.Point(13,6)};
 		String[] photo = { "4QW4QW4", "T4REW4Q", "4Q4W4E4", "4ER4TY4"  };
@@ -16,7 +15,7 @@ public class testTest {
 	}
     
 	@Test
-	public void test2() {
+	public void testDirections() {
 		MyIceHockey pl = new MyIceHockey();
 		java.awt.Point[] points = {};
 		String[] photo = { "1J1U1B1U1", "R1U1R1E1W", "1P1R1N1B1", "P1O1N1S1D", "1E1E1E1E1" };
@@ -24,7 +23,7 @@ public class testTest {
 	}
 	//2
 	@Test
-	public void test3() {
+	public void testMonster() {
 		MyIceHockey pl = new MyIceHockey();
 		java.awt.Point[] points = { new java.awt.Point(13 , 8)};
 		String[] photo = {"8888888888888","8888888888888", "8888888888888", "8888888888888", "8QJ88R8SG88TY", "88V88B88OUZ8O", "88WF8Q8GG88B8", "8MX88D88888T8K8"};
@@ -41,7 +40,7 @@ public class testTest {
 		
 	}
 	@Test 
-	public void test5() {
+	public void testBigMan() {
 		MyIceHockey pl = new MyIceHockey();
 		java.awt.Point[] points = { new java.awt.Point(9, 8)};
 		String[] photo = { "33KEEL333", "33JERT3X3", "33OEVI3F3", "3333333D3", "3VY3KBYM3", "3EW3H4ER3", "3UR4DUS3", "333333333" };

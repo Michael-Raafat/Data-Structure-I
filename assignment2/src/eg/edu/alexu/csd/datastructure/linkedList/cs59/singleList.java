@@ -84,12 +84,11 @@ public class singleList implements ILinkedList{
 	@Override
 	public void set(int index, Object element) {
 		// TODO Auto-generated method stub
-		if(index>=size)
+		if(index>=size && size !=0)
 			throw new RuntimeException("ERROR") ;
 		if (index == 0)
 		{
 				head.setelement(element);
-				
 		}
 		else
 		{

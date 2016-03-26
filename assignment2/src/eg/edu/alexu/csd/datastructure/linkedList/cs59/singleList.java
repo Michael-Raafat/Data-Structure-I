@@ -3,15 +3,15 @@ package eg.edu.alexu.csd.datastructure.linkedList.cs59;
 import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
 
 public class singleList implements ILinkedList{
-    private int size = 0;
-    private node head ;
+	 private int size = 0;
+	    private node head =new node();
 	@Override
 	public void add(int index, Object element) {
 		
 		// TODO Auto-generated method stub
 		if(element.equals(null))
 			throw new RuntimeException("ERROR") ;
-		if(index>=size)
+		if(index>size)
 			throw new RuntimeException("ERROR") ;
 		if (index == 0)
 		{
@@ -97,7 +97,8 @@ public class singleList implements ILinkedList{
 			{
 				p=p.getnext();
 			}
-			p.setelement(element);	
+			p.setelement(element);
+			
 		}
 	}
 
@@ -155,42 +156,50 @@ public class singleList implements ILinkedList{
 	@Override
 	public ILinkedList sublist(int fromIndex, int toIndex) {
 		// TODO Auto-generated method stub
-		singleList List = new singleList();
-		if(fromIndex>=0 && toIndex<size && toIndex>=fromIndex)
+		
+		if(fromIndex>=0 && toIndex<size && toIndex>=fromIndex && size !=0)
 		{
+			
+			singleList List = new singleList();
 			int i = 0;
 			node temp = head ;
 			for(i = 0 ; i<fromIndex ; i++)
 			{
 				temp = temp.getnext();
 			}
-			List.head=temp;
-			node p = head;
-			List.size=1;
-			for(; i< toIndex ; i++)
+			
+			for(; i<=toIndex ; i++)
 			{
-				p=p.getnext();
-				List.add(p.getele());
+				List.add(temp.getele());
+				temp=temp.getnext();
+				
 			}
 			return List;
 		}
 		else
 			throw new RuntimeException();
+
+		}
+		
 	
-	}
+	
 
 	@Override
 	public boolean contains(Object o) {
 		// TODO Auto-generated method stub
 		node p =head;
 		boolean flag=false;
+		if(p.getele().equals(o))
+		{
+			flag=true;
+		}
 		while(!flag && p.getnext()!= null)
 		{
+			p=p.getnext();
 			if(p.getele()==o)
 			{
 				flag=true;
 			}
-			p=p.getnext();
 		}
 		return flag;
 	}

@@ -105,7 +105,7 @@ public class singleList implements ILinkedList{
 	public void clear() {
 		// TODO Auto-generated method stub
 		head= new node(null,null);
-		
+		size=0;
 	}
 
 	@Override

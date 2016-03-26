@@ -187,7 +187,7 @@ public class singleList implements ILinkedList{
 		boolean flag=true;
 		while(flag && p.getnext()!= null)
 		{
-			if(p.getele().equals(o))
+			if(p.getele()==o)
 			{
 				flag=false;
 			}

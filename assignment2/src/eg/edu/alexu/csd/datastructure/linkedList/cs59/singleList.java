@@ -160,14 +160,14 @@ public class singleList implements ILinkedList{
 		{
 			int i = 0;
 			node temp = head ;
-			for(i = 0 ; i<fromIndex ; i++)
+			for(i = 0 ; i<=fromIndex ; i++)
 			{
 				temp = temp.getnext();
 			}
 			List.head=temp;
 			node p = head;
 			List.size=1;
-			for(; i< toIndex ; i++)
+			for(; i< toIndex-1 ; i++)
 			{
 				List.size++;
 				p=p.getnext();

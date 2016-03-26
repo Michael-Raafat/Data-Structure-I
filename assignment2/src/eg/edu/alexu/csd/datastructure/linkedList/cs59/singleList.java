@@ -55,7 +55,7 @@ public class singleList implements ILinkedList{
 		}
 		else
 		{
-			while(temp.getnext().equals(null))
+			while(temp.getnext()!= null)
 			{
 				temp=temp.getnext();
 			}
@@ -69,7 +69,7 @@ public class singleList implements ILinkedList{
 		// TODO Auto-generated method stub
 		if(index>=size)
 		{
-			throw new RuntimeException("ERROR");
+			throw new RuntimeException();
 		}
 		node temp = head;
 		int i=0;
@@ -85,7 +85,7 @@ public class singleList implements ILinkedList{
 	public void set(int index, Object element) {
 		// TODO Auto-generated method stub
 		if(index>=size && size !=0)
-			throw new RuntimeException("ERROR") ;
+			throw new RuntimeException() ;
 		if (index == 0)
 		{
 				head.setelement(element);

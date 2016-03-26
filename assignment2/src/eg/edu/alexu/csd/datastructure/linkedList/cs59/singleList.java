@@ -166,7 +166,7 @@ public class singleList implements ILinkedList{
 			}
 			List.head=temp;
 			node p = head;
-			List.size++;
+			List.size=1;
 			for(; i< toIndex ; i++)
 			{
 				List.size++;
@@ -185,7 +185,7 @@ public class singleList implements ILinkedList{
 		// TODO Auto-generated method stub
 		node p =head;
 		boolean flag=false;
-		while(flag && p.getnext()!= null)
+		while(!flag && p.getnext()!= null)
 		{
 			if(p.getele()==o)
 			{

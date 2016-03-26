@@ -169,7 +169,6 @@ public class singleList implements ILinkedList{
 			List.size=1;
 			for(; i< toIndex ; i++)
 			{
-				List.size++;
 				p=p.getnext();
 				List.add(p.getele());
 			}

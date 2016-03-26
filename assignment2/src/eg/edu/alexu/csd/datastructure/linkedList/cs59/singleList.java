@@ -184,16 +184,16 @@ public class singleList implements ILinkedList{
 	public boolean contains(Object o) {
 		// TODO Auto-generated method stub
 		node p =head;
-		boolean flag=true;
+		boolean flag=false;
 		while(flag && p.getnext()!= null)
 		{
 			if(p.getele()==o)
 			{
-				flag=false;
+				flag=true;
 			}
 			p=p.getnext();
 		}
-		return !flag;
+		return flag;
 	}
 
 }

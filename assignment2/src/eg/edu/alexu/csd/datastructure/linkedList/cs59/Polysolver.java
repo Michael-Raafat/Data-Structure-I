@@ -8,6 +8,7 @@ public class Polysolver implements IPolynomialSolver {
 	singleList A= new singleList();
 	singleList B= new singleList();
 	singleList C = new singleList();
+	int a =0 , b=0 , c= 0;
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {
 		// TODO Auto-generated method stub
@@ -15,6 +16,7 @@ public class Polysolver implements IPolynomialSolver {
 		{
 			case 'A':
 			{
+				a=1;
 				boolean error=false;
 				for(int i=0;i<terms.length &&!error;i++)
 				{
@@ -34,6 +36,7 @@ public class Polysolver implements IPolynomialSolver {
 			}
 			case 'B':
 			{
+				b=1;
 				boolean error=false;
 				for(int i=0;i<terms.length &&!error;i++)
 				{
@@ -53,6 +56,7 @@ public class Polysolver implements IPolynomialSolver {
 			}
 			case 'C':
 			{
+				c=1;
 				boolean error=false;
 				for(int i=0;i<terms.length &&!error;i++)
 				{
@@ -79,6 +83,19 @@ public class Polysolver implements IPolynomialSolver {
 	
 	public String PrintL(singleList A)
 	{
+		if(this.A==A && a==0)
+		{
+		return null	;
+		}
+		else if(this.B==A && b==0)
+		{
+		return null	;
+		}
+		else if(this.C==A && c==0)
+		{
+		return null	;
+		}
+		else{
 		String equation="";
 		for(int i=0;i<A.size()-2;i+=2)
 		{
@@ -99,6 +116,7 @@ public class Polysolver implements IPolynomialSolver {
 				equation+=String.valueOf(A.get(A.size()-2))+"x^" +String.valueOf(A.get(A.size()-1));
 			}
 			return equation;
+		}
 		}
 	}
 	@Override
@@ -133,14 +151,17 @@ public class Polysolver implements IPolynomialSolver {
 			case 'A':
 			{
 				A.clear();
+				a=0;
 			}
 			case 'B':
 			{
 				B.clear();
+				b=0;
 			}
 			case 'C':
 			{
 				C.clear();
+				c=0;
 			}
 			default:
 			{
@@ -176,16 +197,29 @@ public class Polysolver implements IPolynomialSolver {
 	@Override
 	public float evaluatePolynomial(char poly, float value) {
 		// TODO Auto-generated method stub
+		     
 		     if(poly == 'A')
 		     {
+		    	 if(a==0)
+		    	 {
+		    		 throw new RuntimeException("ERROR");
+		    	 }
 		    	 return eva(A,value);
 		     }
 		     else if(poly == 'B')
 		     {
+		    	 if(b==0)
+		    	 {
+		    		 throw new RuntimeException("ERROR");
+		    	 }
 		    	 return eva(B,value);
 		     }
 		     else
 		     {
+		    	 if(c==0)
+		    	 {
+		    		 throw new RuntimeException("ERROR");
+		    	 }
 		    	 return eva(C,value);
 		     }
 			}

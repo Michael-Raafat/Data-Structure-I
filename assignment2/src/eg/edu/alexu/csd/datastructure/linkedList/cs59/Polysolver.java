@@ -167,7 +167,7 @@ public class Polysolver implements IPolynomialSolver {
 			case 'C':
 			{
 				C.clear();
-				B=null;
+				C=null;
 				c=0;
 			}
 			default:
@@ -403,12 +403,12 @@ public class Polysolver implements IPolynomialSolver {
 	    {
 	    	if(poly1=='B' || poly2=='B')
 	    	{
-	    		if(a!=0 && b!=0 && A!=null && B!=null)
+	    		if(a!=0 && b!=0)
 	    		return addlist(A , B) ;
 	    		else
 	    			return null;
 	    	}
-	    	else if (poly1=='A' && poly2=='A' && A!=null)
+	    	else if (poly1=='A' && poly2=='A')
 	    	{
 	    		if(a!=0 )
 		    		return addlist(A , A) ;
@@ -417,7 +417,7 @@ public class Polysolver implements IPolynomialSolver {
 	    	}
 	    	else 
 	    	{
-	    		if(a!=0 && c!=0 && A!=null && C!=null)
+	    		if(a!=0 && c!=0)
 		    		return addlist(A , C) ;
 		    		else
 		    			return null;
@@ -427,20 +427,20 @@ public class Polysolver implements IPolynomialSolver {
 		{
 			if (poly1=='B' && poly2=='B')
 	    	{
-	    		if(b!=0 && B!=null)
+	    		if(b!=0)
 		    		return addlist(B , B) ;
 		    		else
 		    			return null;
 	    	}
 			
-			if(c!=0 && b!=0 && C!=null && B!=null)
+			if(c!=0 && b!=0)
 	    		return addlist(B , C) ;
 	    		else
 	    			return null;
 		}
 		else if (poly1=='C' && poly2=='C')
     	{
-    		if(c!=0 && C!=null )
+    		if(c!=0)
 	    		return addlist(C , C) ;
 	    		else
 	    			return null;

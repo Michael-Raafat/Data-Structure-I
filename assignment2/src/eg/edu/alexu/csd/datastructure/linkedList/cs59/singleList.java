@@ -28,9 +28,21 @@ public class singleList implements ILinkedList {
 			
 			}
 		}
+		else if (index==size)
+		{
+			node temp = new node(element);
+			node p = head ;
+			for(int i =0 ; i<size-1 ; i++)
+			{
+				p=p.getnext();
+			}
+			temp.setnext(null);
+			p.setnext(temp);
+			
+		}
 		else
 		{
-			node temp = new node(null , element);
+			node temp = new node(element);
 			node p = head ;
 			for(int i =0 ; i<index-1 ; i++)
 			{
@@ -45,7 +57,6 @@ public class singleList implements ILinkedList {
 	@Override
 	public void add(Object element) {
 		// TODO Auto-generated method stub
-		node temp = head ;
 		if(element.equals(null))
 			throw new RuntimeException("ERROR");
 		if(size==0)
@@ -55,6 +66,7 @@ public class singleList implements ILinkedList {
 		}
 		else
 		{
+			node temp = head ;
 			while(temp.getnext()!= null)
 			{
 				temp=temp.getnext();

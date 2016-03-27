@@ -1,6 +1,6 @@
 package eg.edu.alexu.csd.datastructure.linkedList.cs59;
 
-
+//ccxc
 public class node {
 
 	private Object element ;

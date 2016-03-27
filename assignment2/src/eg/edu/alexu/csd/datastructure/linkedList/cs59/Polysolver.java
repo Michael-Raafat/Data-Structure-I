@@ -494,33 +494,51 @@ public class Polysolver implements IPolynomialSolver {
 		{
 			if(poly2=='B')
 			{
-				return subtlist(A,B);
+				if(a!=0 && b!=0)
+		    		return subtlist(A , B) ;
+		    		else
+		    			throw new RuntimeException();
 			}
 			else
 			{
-				return subtlist(A,C);
+				if(a!=0 && c!=0)
+		    		return subtlist(A , C) ;
+		    		else
+		    			throw new RuntimeException();
 			}
 		}
 		else if(poly1=='B')
 		{
 			if(poly2=='A')
 			{
-				return subtlist(B,A);
+				if(a!=0 && b!=0)
+		    		return subtlist(B , A) ;
+		    		else
+		    			throw new RuntimeException();
 			}
 			else
 			{
-				return subtlist(B,C);
+				if(b!=0 && c!=0)
+		    		return subtlist(B , C) ;
+		    		else
+		    			throw new RuntimeException();
 			}
 		}
 		else
 		{
 			if(poly2=='A')
 			{
-				return subtlist(C,A);
+				if(a!=0 && c!=0)
+		    		return subtlist(C , A) ;
+		    		else
+		    			throw new RuntimeException();
 			}
 			else
 			{
-				return subtlist(C,B);
+				if(b!=0 && c!=0)
+		    		return subtlist(C , B) ;
+		    		else
+		    			throw new RuntimeException();
 			}
 		}
 	}

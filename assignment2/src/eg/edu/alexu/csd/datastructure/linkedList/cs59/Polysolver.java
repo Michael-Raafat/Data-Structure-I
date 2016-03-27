@@ -8,8 +8,28 @@ public class Polysolver implements IPolynomialSolver {
 	singleList A= new singleList();
 	singleList B= new singleList();
 	singleList C = new singleList();
+	singleList R = new singleList();
 	int a =0 , b=0 , c= 0;
 	private Float float1;
+	public void setR(int[][]terms)
+	{
+		R.clear();
+		boolean error=false;
+		for(int i=0;i<terms.length &&!error;i++)
+		{
+			if(terms[i][1]<0)
+				error=true;
+			if( i !=terms.length-1 && terms[i][1]<terms[i+1][1])
+				error=true;
+			R.add(terms[i][0]);
+			R.add(terms[i][1]);
+		}
+		if(error)
+		{
+			R.clear();
+			throw new RuntimeException();
+		}
+	}
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {
 		// TODO Auto-generated method stub
@@ -99,6 +119,10 @@ public class Polysolver implements IPolynomialSolver {
 		{
 		return null	;
 		}
+		else if(this.R==A && R.isEmpty())
+		{
+			return null;
+		}
 		else{
 		String equation="";
 		for(int i=0;i<A.size()-2;i+=2)
@@ -140,6 +164,10 @@ public class Polysolver implements IPolynomialSolver {
 			{
 				return PrintL(C);
 			}
+			case 'R':
+			{
+				return PrintL(R);
+			}
 			default:
 			{
 				return null;
@@ -166,6 +194,10 @@ public class Polysolver implements IPolynomialSolver {
 			{
 				C.clear();
 				c=0;
+			}
+			case 'R':
+			{
+				R.clear();
 			}
 			default:
 			{
@@ -226,6 +258,14 @@ public class Polysolver implements IPolynomialSolver {
 		    		 return float1;
 		    	 }
 		    	 return eva(C,value);
+		     }
+		     else if (poly == 'R')
+		     {
+		    	 if(R.isEmpty())
+		    	 {
+		    		 return float1;
+		    	 }
+		    	 return eva(R,value);
 		     }
 		     else
 		     {
@@ -386,6 +426,7 @@ public class Polysolver implements IPolynomialSolver {
             	a[p][1]=A.get(l+1);
             	l+=2;
             }
+            setR(a);
             return a;
 
 		
@@ -395,56 +436,57 @@ public class Polysolver implements IPolynomialSolver {
 	@Override
 	public int[][] add(char poly1, char poly2) {
 		// TODO Auto-generated method stub
-	    
+	    if((poly1!='A'&&poly1!='B'&&poly1!='C')||(poly2!='A'&&poly2!='B'&&poly2!='C'))
+	    	throw new RuntimeException("HAAAAAAAAAH");
 		if(poly1=='A' || poly2=='A' )
 	    {
 	    	if(poly1=='B' || poly2=='B')
 	    	{
-	    		if(a!=0 && b!=0)
-	    		return addlist(A , B) ;
+	    		if(!A.isEmpty() && !B.isEmpty())
+	    			return addlist(A , B) ;
 	    		else
-	    			return null;
+	    			throw new RuntimeException("HAAAAAAAAAH1");
 	    	}
 	    	else if (poly1=='A' && poly2=='A')
 	    	{
-	    		if(a!=0 )
+	    		if(!A.isEmpty() )
 		    		return addlist(A , A) ;
 		    	else
-		    			return null;
+		    		throw new RuntimeException("HAAAAAAAAAH2");
 	    	}
 	    	else 
 	    	{
-	    		if(a!=0 && c!=0)
-		    		return addlist(A , C) ;
-		    		else
-		    			return null;
+	    		if(!A.isEmpty() && !C.isEmpty())
+	    			return addlist(A , C) ;
+		    	else
+		    		throw new RuntimeException("HAAAAAAAAAH3");
 	    	}
 	    }
 		else if (poly1=='B' || poly2=='B')
 		{
 			if (poly1=='B' && poly2=='B')
 	    	{
-	    		if(b!=0)
+	    		if(!B.isEmpty())
 		    		return addlist(B , B) ;
-		    		else
-		    			return null;
+		    	else
+		    		throw new RuntimeException("HAAAAAAAAAH4");
 	    	}
 			
-			if(c!=0 && b!=0)
+			if(!C.isEmpty() && !B.isEmpty())
 	    		return addlist(B , C) ;
-	    		else
-	    			return null;
+	    	else
+	    		throw new RuntimeException("HAAAAAAAAAH5");
 		}
 		else if (poly1=='C' && poly2=='C')
     	{
-    		if(c!=0)
+    		if(!C.isEmpty())
 	    		return addlist(C , C) ;
-	    		else
-	    			return null;
+	    	else
+	    		throw new RuntimeException("HAAAAAAAAAH6");
     	}
 		else 
 		{
-			return null ;
+			throw new RuntimeException("HAAAAAAAAAH7");
 		}
 		
 	}
@@ -515,7 +557,7 @@ public class Polysolver implements IPolynomialSolver {
             		
             	l+=2;
             }
-            
+            setR(a);
             return a;
 
 		
@@ -644,6 +686,7 @@ public class Polysolver implements IPolynomialSolver {
         	a[p][1]=Integer.valueOf(String.valueOf(N.get(l+1)));
         	l+=2;
         }
+        setR(a);
         return a;
 		
 	}

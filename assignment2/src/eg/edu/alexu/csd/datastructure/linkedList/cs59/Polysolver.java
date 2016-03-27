@@ -165,7 +165,7 @@ public class Polysolver implements IPolynomialSolver {
 			}
 			default:
 			{
-				return null;
+				return ;
 			}
 		}
 	}

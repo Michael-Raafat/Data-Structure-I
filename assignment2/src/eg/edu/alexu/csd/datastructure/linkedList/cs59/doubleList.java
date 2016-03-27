@@ -102,6 +102,7 @@ public class doubleList implements ILinkedList {
 		head=new node(dumtail,null,null);
 		size=0;
 		dumtail = new node(null,head,null);
+		size=0;
 	}
 
 	@Override
@@ -150,23 +151,25 @@ public class doubleList implements ILinkedList {
 	@Override
 	public ILinkedList sublist(int fromIndex, int toIndex) {
 		// TODO Auto-generated method stub
-		if(fromIndex <0 || toIndex>=size || fromIndex>toIndex || size==0)
-		{
-			throw new RuntimeException();
-		}
-		node m =head;
-		for(int i=1;i<=fromIndex;i++)
-		{
-			m = m.getnext();
-		}
-		doubleList dd = new doubleList();
-		dd.add(m.getele());
-		for(int i=fromIndex;i<toIndex;i++)
-		{
-			m=m.getnext();
-			dd.add(m.getele());
-		}
-		return dd;
+				if(fromIndex <0 || toIndex>=size || fromIndex>toIndex || size==0)
+				{
+					throw new RuntimeException();
+				}
+				node m =head;
+				for(int i=1;i<=fromIndex;i++)
+				{
+					m = m.getnext();
+				}
+				doubleList dd = new doubleList();
+				dd.add(m.getele());
+				for(int i=fromIndex;i<toIndex;i++)
+				{
+					m=m.getnext();
+					dd.add(m.getele());
+				}
+				return dd;
+			
+
 	}
 
 	@Override

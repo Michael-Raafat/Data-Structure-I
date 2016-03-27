@@ -5,12 +5,13 @@ import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
 
 public class doubleList implements ILinkedList {
 
-	private node head ;
+	private node head,dumtail ;
 	private int size;
 	public doubleList()
 	{
-		head=new node(null,null,null);
+		head=new node(dumtail,null,null);
 		size=0;
+		dumtail = new node(null,head,null);
 	}
 	@Override
 	public void add(int index, Object element) {
@@ -19,7 +20,7 @@ public class doubleList implements ILinkedList {
 			throw new RuntimeException();
 		if(index==0 && size ==0)
 		{
-			node U = new node(null,null,element);
+			node U = new node(dumtail,null,element);
 			head=U;
 			size++;
 		}
@@ -27,34 +28,21 @@ public class doubleList implements ILinkedList {
 		{
 			throw new RuntimeException();
 		}
-		else if(index<size)
+		else if(index<=size)
 		{
 			node s = head;
-			node m= new node(element);
+			
 			for(int i=1;i<index;i++)
 			{
 				s=s.getnext();
 			}
 			node x=s.getnext();
-			m.setnext(x);
-			m.setprev(s);
+			node m= new node(x,s,element);
 			x.setprev(m);
 			s.setnext(m);
 			size++;
 		}
-		else
-		{
-			node p= new node(element);
-			node s = head;
-			while(s.getnext()!=null)
-			{
-				s=s.getnext();
-			}
-			s.setnext(p);
-			p.setprev(s);
-			size++;
-		}
-		}
+	}
 
 	@Override
 	public void add(Object element) {
@@ -67,14 +55,11 @@ public class doubleList implements ILinkedList {
 		}
 		else
 		{
-			node temp = head ;
-			while(temp.getnext()!= null)
-			{
-				temp=temp.getnext();
-			}
-			node q = new node(element);
-			temp.setnext(q);
-			q.setprev(temp);
+			node f = new node(dumtail,element);
+			node x = dumtail.getprev();
+			x.setnext(f);
+			f.setprev(x);
+			dumtail.setprev(f);
 		}
 		size++;
 		
@@ -113,8 +98,9 @@ public class doubleList implements ILinkedList {
 	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
-		head=new node(null,null,null);
+		head=new node(dumtail,null,null);
 		size=0;
+		dumtail = new node(null,head,null);
 	}
 
 	@Override
@@ -133,14 +119,15 @@ public class doubleList implements ILinkedList {
 			throw new RuntimeException();
 		}
 		node m =head;
-		if(size==1 )
+		if(size==1)
 		{
 			this.clear();
 			return;
 		}
 		else if(index==0)
 		{
-			head=head.getnext();
+			node n = head.getnext();
+			head=n;
 			head.setprev(null);
 			size--;
 			return;
@@ -151,6 +138,8 @@ public class doubleList implements ILinkedList {
 		}
 		node p = m.getprev();
 		node n = m.getnext();
+		m.setnext(null);
+		m.setprev(null);
 		p.setnext(n);
 		n.setprev(p);
 		size--;
@@ -165,25 +154,23 @@ public class doubleList implements ILinkedList {
 	@Override
 	public ILinkedList sublist(int fromIndex, int toIndex) {
 		// TODO Auto-generated method stub
-				if(fromIndex <0 || toIndex>=size || fromIndex>toIndex || size==0)
-				{
-					throw new RuntimeException();
-				}
-				node m =head;
-				for(int i=1;i<=fromIndex;i++)
-				{
-					m = m.getnext();
-				}
-				doubleList dd = new doubleList();
-				dd.add(m.getele());
-				for(int i=fromIndex;i<toIndex;i++)
-				{
-					m=m.getnext();
-					dd.add(m.getele());
-				}
-				return dd;
-			
-
+		if(fromIndex <0 || toIndex>=size || fromIndex>toIndex || size==0)
+		{
+			throw new RuntimeException();
+		}
+		node m =head;
+		for(int i=1;i<=fromIndex;i++)
+		{
+			m = m.getnext();
+		}
+		doubleList dd = new doubleList();
+		dd.add(m.getele());
+		for(int i=fromIndex;i<toIndex;i++)
+		{
+			m=m.getnext();
+			dd.add(m.getele());
+		}
+		return dd;
 	}
 
 	@Override
@@ -195,7 +182,7 @@ public class doubleList implements ILinkedList {
 		node z = head;
 		if (z.getele().equals(o))
 			found=true;
-		while(z.getnext()!=null && !found)
+		while(z.getnext()!=dumtail && !found)
 		{
 			z=z.getnext();
 			if (z.getele().equals(o))

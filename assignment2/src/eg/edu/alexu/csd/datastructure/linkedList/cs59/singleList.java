@@ -146,10 +146,25 @@ public class singleList implements ILinkedList {
 		if(index>=size || index<0)
 			throw new RuntimeException();
 		node temp ;
-		if(index==0)
+		if(size==1)
+		{
+			this.clear();
+		}
+		else if(index==0)
 		{
 			temp = head;
 			head=head.getnext();
+			size--;
+		}
+		else if(index==size-1)
+		{
+			int i = 0 ;
+			temp=head;
+			while(i<index-1)
+			{
+				temp = temp.getnext();
+				i++;
+			}
 			temp.setnext(null);
 			size--;
 		}
@@ -183,7 +198,7 @@ public class singleList implements ILinkedList {
 		// TODO Auto-generated method stub
 		if(fromIndex <0 || toIndex>=size || fromIndex>toIndex || size==0)
 		{
-			throw new RuntimeException();
+			throw new RuntimeException("SUBBLIST");
 		}
 		node m =head;
 		for(int i=1;i<=fromIndex;i++)

@@ -313,7 +313,7 @@ public class Polysolver implements IPolynomialSolver {
 	
 	public int[][] addlist(singleList x, singleList y)
 	{
-		ArrayList <Integer>A = new ArrayList() ;
+		ArrayList <Integer>A = new ArrayList<Integer>() ;
 		
 			int j =0 , i = 0 ;
             while(i<x.size() && j<y.size())
@@ -446,7 +446,7 @@ public class Polysolver implements IPolynomialSolver {
      
 	public int[][] subtlist(singleList x, singleList y)
 	{
-		ArrayList <Integer>A = new ArrayList() ;
+		ArrayList <Integer>A = new ArrayList<Integer>() ;
 		
 			int j =0 , i = 0 ;
             while(i<x.size() && j<y.size())
@@ -520,12 +520,14 @@ public class Polysolver implements IPolynomialSolver {
 	@Override
 	public int[][] subtract(char poly1, char poly2) {
 		// TODO Auto-generated method stub
+		int [][]tal5ees = new int [1][2];
+		tal5ees[0][1]=0; tal5ees[0][0]=0;
 		if(poly1=='A')
 		{
 			if(poly2=='A')
 			{
 				if(a!=0 )
-		    		return subtlist(A , A) ;
+		    		return tal5ees ;
 		    		else
 		    			return null;
 			}
@@ -553,7 +555,7 @@ public class Polysolver implements IPolynomialSolver {
 			if(poly2=='B')
 			{
 				if(b!=0 )
-		    		return subtlist(B , B) ;
+		    		return tal5ees ;
 		    		else
 		    			return null;
 			}
@@ -581,7 +583,7 @@ public class Polysolver implements IPolynomialSolver {
 			if(poly2=='C')
 			{
 				if(c!=0 )
-		    		return subtlist(C , C) ;
+		    		return tal5ees ;
 		    		else
 		    			return null;
 			}
@@ -648,22 +650,53 @@ public class Polysolver implements IPolynomialSolver {
 	    {
 	    	if(poly1=='B' || poly2=='B')
 	    	{
+	    		if(a!=0 && b!=0)
 	    		return multiL(A , B) ;
+	    		else
+	    			return null;
 	    	}
-	    	else
+	    	else if (poly1=='A' && poly2=='A')
 	    	{
-	    		return multiL(A , C);
+	    		if(a!=0 )
+		    		return multiL(A , A) ;
+		    	else
+		    			return null;
+	    	}
+	    	else 
+	    	{
+	    		if(a!=0 && c!=0)
+		    		return multiL(A , C) ;
+		    		else
+		    			return null;
 	    	}
 	    }
-		else if(poly1=='B' || poly2=='B')
+		else if (poly1=='B' || poly2=='B')
 		{
-			return multiL(B,C);
+			if (poly1=='B' && poly2=='B')
+	    	{
+	    		if(b!=0)
+		    		return multiL(B , B) ;
+		    		else
+		    			return null;
+	    	}
+			
+			if(c!=0 && b!=0)
+	    		return multiL(B , C) ;
+	    		else
+	    			return null;
 		}
-		else
+		else if (poly1=='C' && poly2=='C')
+    	{
+    		if(c!=0)
+	    		return multiL(C , C) ;
+	    		else
+	    			return null;
+    	}
+		else 
 		{
 			return null ;
 		}
+		
 	}
-
 	
 }

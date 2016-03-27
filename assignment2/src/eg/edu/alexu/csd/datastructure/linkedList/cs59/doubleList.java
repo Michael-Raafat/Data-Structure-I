@@ -34,7 +34,7 @@ public class doubleList implements ILinkedList {
 			node m= new node(element);
 			for(int i=1;i<index;i++)
 			{
-				s.getnext();
+				s=s.getnext();
 			}
 			node x=s.getnext();
 			m.setnext(x);
@@ -43,7 +43,7 @@ public class doubleList implements ILinkedList {
 			s.setnext(m);
 			size++;
 		}
-	}
+		}
 
 	@Override
 	public void add(Object element) {

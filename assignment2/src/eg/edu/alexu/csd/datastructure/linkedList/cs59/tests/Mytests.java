@@ -100,6 +100,11 @@ public class Mytests {
 		Assert.assertEquals(11, dd.get(0));
 		dd.remove(0);
 		Assert.assertEquals(true, dd.isEmpty());
+		dd.add(0);
+		dd.add(1,'r');
+		dd.add(2,2);
+		Assert.assertEquals(3, dd.size());
+		Assert.assertEquals(true, dd.contains('r'));
 		
 	}
 }

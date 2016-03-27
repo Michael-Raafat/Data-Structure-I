@@ -30,13 +30,13 @@ public class singleList implements ILinkedList {
 		}
 		else if (index==size)
 		{
-			node temp = new node(element);
+			node temp = new node(null,element);
 			node p = head ;
 			for(int i =0 ; i<size-1 ; i++)
 			{
 				p=p.getnext();
 			}
-			temp.setnext(null);
+		
 			p.setnext(temp);
 			
 		}

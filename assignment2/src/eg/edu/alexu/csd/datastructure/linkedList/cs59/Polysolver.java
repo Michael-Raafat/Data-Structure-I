@@ -260,10 +260,11 @@ public class Polysolver implements IPolynomialSolver {
             			j+=2;
             		}
             		else
-            		{A.add(secondc+firstc);
-            		A.add(first);
-            		i+=2;
-            		j+=2;}
+            		{
+            			A.add(secondc+firstc);
+            		    A.add(first);
+            		    i+=2;
+            		    j+=2;}
             	}
             	
             }
@@ -278,7 +279,7 @@ public class Polysolver implements IPolynomialSolver {
             		
             	}
             }
-            if(i==x.size())
+            else if(i==x.size())
             {
             	for(int k = j ; k < y.size() ; k+=2 )
             	{
@@ -362,7 +363,7 @@ public class Polysolver implements IPolynomialSolver {
             		
             	}
             }
-            if(i==x.size())
+            else if(i==x.size())
             {
             	for(int k = j ; k < y.size() ; k+=2 )
             	{

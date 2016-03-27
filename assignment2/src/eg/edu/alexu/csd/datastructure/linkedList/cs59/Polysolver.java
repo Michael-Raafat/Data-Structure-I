@@ -5,10 +5,11 @@ import eg.edu.alexu.csd.datastructure.linkedList.IPolynomialSolver;
 import java.util.ArrayList;
 public class Polysolver implements IPolynomialSolver {
 
-	singleList A= new singleList();
-	singleList B= new singleList();
-	singleList C = new singleList();
+	singleList A= null;
+	singleList B= null;
+	singleList C = null;
 	int a =0 , b=0 , c= 0;
+	private Float float1;
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {
 		// TODO Auto-generated method stub
@@ -16,6 +17,7 @@ public class Polysolver implements IPolynomialSolver {
 		{
 			case 'A':
 			{
+				A= new singleList();
 				a=1;
 				boolean error=false;
 				for(int i=0;i<terms.length &&!error;i++)
@@ -36,6 +38,7 @@ public class Polysolver implements IPolynomialSolver {
 			}
 			case 'B':
 			{
+				B= new singleList();
 				b=1;
 				boolean error=false;
 				for(int i=0;i<terms.length &&!error;i++)
@@ -56,6 +59,7 @@ public class Polysolver implements IPolynomialSolver {
 			}
 			case 'C':
 			{
+				C= new singleList();
 				c=1;
 				boolean error=false;
 				for(int i=0;i<terms.length &&!error;i++)
@@ -151,16 +155,19 @@ public class Polysolver implements IPolynomialSolver {
 			case 'A':
 			{
 				A.clear();
+				A=null;
 				a=0;
 			}
 			case 'B':
 			{
 				B.clear();
+				B=null;
 				b=0;
 			}
 			case 'C':
 			{
 				C.clear();
+				B=null;
 				c=0;
 			}
 			default:
@@ -198,11 +205,12 @@ public class Polysolver implements IPolynomialSolver {
 	public float evaluatePolynomial(char poly, float value) {
 		// TODO Auto-generated method stub
 		     
-		     if(poly == 'A')
+		     float1 = (Float)null;
+			if(poly == 'A')
 		     {
 		    	 if(a==0)
 		    	 {
-		    		 return (Float)null;
+		    		 return float1;
 		    	 }
 		    	 return eva(A,value);
 		     }
@@ -210,7 +218,7 @@ public class Polysolver implements IPolynomialSolver {
 		     {
 		    	 if(b==0)
 		    	 {
-		    		 return (Float) null;
+		    		 return float1;
 		    	 }
 		    	 return eva(B,value);
 		     }
@@ -218,19 +226,19 @@ public class Polysolver implements IPolynomialSolver {
 		     {
 		    	 if(c==0)
 		    	 {
-		    		 return (Float) null;
+		    		 return float1;
 		    	 }
 		    	 return eva(C,value);
 		     }
 		     else
 		     {
-		    	 return (Float)null;
+		    	 return float1;
 		     }
 			}
 	public singleList addto(singleList x, singleList y)
 	{
 		
-		ArrayList <Integer>A = new ArrayList() ;
+		ArrayList <Integer>A = new ArrayList<Integer>() ;
 		
 			int j =0 , i = 0 ;
             while(i<x.size() && j<y.size())
@@ -395,12 +403,12 @@ public class Polysolver implements IPolynomialSolver {
 	    {
 	    	if(poly1=='B' || poly2=='B')
 	    	{
-	    		if(a!=0 && b!=0)
+	    		if(a!=0 && b!=0 && A!=null && B!=null)
 	    		return addlist(A , B) ;
 	    		else
 	    			return null;
 	    	}
-	    	else if (poly1=='A' && poly2=='A')
+	    	else if (poly1=='A' && poly2=='A' && A!=null)
 	    	{
 	    		if(a!=0 )
 		    		return addlist(A , A) ;
@@ -409,7 +417,7 @@ public class Polysolver implements IPolynomialSolver {
 	    	}
 	    	else 
 	    	{
-	    		if(a!=0 && c!=0)
+	    		if(a!=0 && c!=0 && A!=null && C!=null)
 		    		return addlist(A , C) ;
 		    		else
 		    			return null;
@@ -419,20 +427,20 @@ public class Polysolver implements IPolynomialSolver {
 		{
 			if (poly1=='B' && poly2=='B')
 	    	{
-	    		if(b!=0)
+	    		if(b!=0 && B!=null)
 		    		return addlist(B , B) ;
 		    		else
 		    			return null;
 	    	}
 			
-			if(c!=0 && b!=0)
+			if(c!=0 && b!=0 && C!=null && B!=null)
 	    		return addlist(B , C) ;
 	    		else
 	    			return null;
 		}
 		else if (poly1=='C' && poly2=='C')
     	{
-    		if(c!=0)
+    		if(c!=0 && C!=null )
 	    		return addlist(C , C) ;
 	    		else
 	    			return null;

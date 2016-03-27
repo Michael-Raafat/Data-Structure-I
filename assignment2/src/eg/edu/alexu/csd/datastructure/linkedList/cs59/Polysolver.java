@@ -10,8 +10,7 @@ public class Polysolver implements IPolynomialSolver {
 	singleList C = new singleList();
 	singleList R = new singleList();
 	int a =0 , b=0 , c= 0;
-	private Float float1;
-	public void setR(int[][]terms)
+	public void setR(singleList R,int[][]terms)
 	{
 		R.clear();
 		boolean error=false;
@@ -52,7 +51,7 @@ public class Polysolver implements IPolynomialSolver {
 				{
 					A.clear();
 					a=0;
-					throw new RuntimeException();
+					throw new RuntimeException("A cleared yo!");
 				}
 				break;
 			}
@@ -73,7 +72,7 @@ public class Polysolver implements IPolynomialSolver {
 				{
 					B.clear();
 					b=0;
-					throw new RuntimeException();
+					throw new RuntimeException("B cleared yo!");
 				}
 				break;
 			}
@@ -94,36 +93,19 @@ public class Polysolver implements IPolynomialSolver {
 				{
 					C.clear();
 					c=0;
-					throw new RuntimeException();
+					throw new RuntimeException("C cleared too");
 				}
 				break;
 			}
 			default:
 			{
-				throw new RuntimeException();
+				throw new RuntimeException("Invalid poly set try");
 			}
 		}
 	}
 	
 	public String PrintL(singleList A)
 	{
-		if(this.A==A && a==0)
-		{
-		return null	;
-		}
-		else if(this.B==A && b==0)
-		{
-		return null	;
-		}
-		else if(this.C==A && c==0)
-		{
-		return null	;
-		}
-		else if(this.R==A && R.isEmpty())
-		{
-			return null;
-		}
-		else{
 		String equation="";
 		for(int i=0;i<A.size()-2;i+=2)
 		{
@@ -145,7 +127,6 @@ public class Polysolver implements IPolynomialSolver {
 			}
 			return equation;
 		}
-		}
 	}
 	@Override
 	public String print(char poly) {
@@ -154,23 +135,31 @@ public class Polysolver implements IPolynomialSolver {
 		{
 			case 'A':
 			{
+				if(A.isEmpty())
+					return null;
 				return PrintL(A);
 			}
 			case 'B':
 			{
+				if(B.isEmpty())
+					return null;
 				return PrintL(B);
 			}
 			case 'C':
 			{
+				if(C.isEmpty())
+					return null;
 				return PrintL(C);
 			}
 			case 'R':
 			{
+				if(R.isEmpty())
+					return null;
 				return PrintL(R);
 			}
 			default:
 			{
-				return null;
+				throw new RuntimeException("invalid printer call");
 			}
 		}
 	}
@@ -201,7 +190,7 @@ public class Polysolver implements IPolynomialSolver {
 			}
 			default:
 			{
-				return ;
+				break;
 			}
 		}
 	}
@@ -223,7 +212,7 @@ public class Polysolver implements IPolynomialSolver {
 		}
 		if(A.isEmpty())
 		{
-			return 0;
+			throw new RuntimeException();
 		}
 		else
 		{
@@ -234,12 +223,11 @@ public class Polysolver implements IPolynomialSolver {
 	public float evaluatePolynomial(char poly, float value) {
 		// TODO Auto-generated method stub
 		     
-		     float1 = (Float)null;
 			if(poly == 'A')
 		     {
 		    	 if(a==0)
 		    	 {
-		    		 return float1;
+		    		 throw new RuntimeException();
 		    	 }
 		    	 return eva(A,value);
 		     }
@@ -247,7 +235,7 @@ public class Polysolver implements IPolynomialSolver {
 		     {
 		    	 if(b==0)
 		    	 {
-		    		 return float1;
+		    		 throw new RuntimeException();
 		    	 }
 		    	 return eva(B,value);
 		     }
@@ -255,7 +243,7 @@ public class Polysolver implements IPolynomialSolver {
 		     {
 		    	 if(c==0)
 		    	 {
-		    		 return float1;
+		    		 throw new RuntimeException();
 		    	 }
 		    	 return eva(C,value);
 		     }
@@ -263,13 +251,13 @@ public class Polysolver implements IPolynomialSolver {
 		     {
 		    	 if(R.isEmpty())
 		    	 {
-		    		 return float1;
+		    		 throw new RuntimeException();
 		    	 }
 		    	 return eva(R,value);
 		     }
 		     else
 		     {
-		    	 return float1;
+		    	 throw new RuntimeException();
 		     }
 			}
 	public singleList addto(singleList x, singleList y)
@@ -420,24 +408,24 @@ public class Polysolver implements IPolynomialSolver {
             }
             int [][]a=new int [A.size()/2][2];
             int l=0;
+            singleList temp = new singleList();
             for(int p = 0 ; p < A.size()/2 ; p++ )
             {
             	a[p][0]=A.get(l);
             	a[p][1]=A.get(l+1);
+            	temp.add(a[p][0]);
+            	temp.add(a[p][1]);
             	l+=2;
             }
-            setR(a);
+            accumulate(temp);
             return a;
-
-		
-		
 	}
     
 	@Override
 	public int[][] add(char poly1, char poly2) {
 		// TODO Auto-generated method stub
 	    if((poly1!='A'&&poly1!='B'&&poly1!='C')||(poly2!='A'&&poly2!='B'&&poly2!='C'))
-	    	throw new RuntimeException("HAAAAAAAAAH");
+	    	throw new RuntimeException();
 		if(poly1=='A' || poly2=='A' )
 	    {
 	    	if(poly1=='B' || poly2=='B')
@@ -445,21 +433,21 @@ public class Polysolver implements IPolynomialSolver {
 	    		if(!A.isEmpty() && !B.isEmpty())
 	    			return addlist(A , B) ;
 	    		else
-	    			throw new RuntimeException("HAAAAAAAAAH1");
+	    			throw new RuntimeException();
 	    	}
 	    	else if (poly1=='A' && poly2=='A')
 	    	{
 	    		if(!A.isEmpty() )
 		    		return addlist(A , A) ;
 		    	else
-		    		throw new RuntimeException("HAAAAAAAAAH2");
+		    		throw new RuntimeException();
 	    	}
 	    	else 
 	    	{
 	    		if(!A.isEmpty() && !C.isEmpty())
 	    			return addlist(A , C) ;
 		    	else
-		    		throw new RuntimeException("HAAAAAAAAAH3");
+		    		throw new RuntimeException();
 	    	}
 	    }
 		else if (poly1=='B' || poly2=='B')
@@ -469,24 +457,24 @@ public class Polysolver implements IPolynomialSolver {
 	    		if(!B.isEmpty())
 		    		return addlist(B , B) ;
 		    	else
-		    		throw new RuntimeException("HAAAAAAAAAH4");
+		    		throw new RuntimeException();
 	    	}
 			
 			if(!C.isEmpty() && !B.isEmpty())
 	    		return addlist(B , C) ;
 	    	else
-	    		throw new RuntimeException("HAAAAAAAAAH5");
+	    		throw new RuntimeException();
 		}
 		else if (poly1=='C' && poly2=='C')
     	{
     		if(!C.isEmpty())
 	    		return addlist(C , C) ;
 	    	else
-	    		throw new RuntimeException("HAAAAAAAAAH6");
+	    		throw new RuntimeException();
     	}
 		else 
 		{
-			throw new RuntimeException("HAAAAAAAAAH7");
+			throw new RuntimeException();
 		}
 		
 	}
@@ -550,18 +538,17 @@ public class Polysolver implements IPolynomialSolver {
             }
             int [][]a=new int [A.size()/2][2];
             int l=0;
+            singleList temp = new singleList();
             for(int p = 0 ; p < A.size()/2 ; p++ )
             {
-            		a[p][0]=A.get(l);
-            		a[p][1]=A.get(l+1);
-            		
+           		a[p][0]=A.get(l);
+           		a[p][1]=A.get(l+1);
+           		temp.add(a[p][0]);
+            	temp.add(a[p][1]);
             	l+=2;
             }
-            setR(a);
+            accumulate(temp);
             return a;
-
-		
-		
 	}
 
 	@Override
@@ -575,26 +562,26 @@ public class Polysolver implements IPolynomialSolver {
 			{
 				if(a!=0 )
 		    		return tal5ees ;
-		    		else
-		    			return null;
+		    	else
+		    		throw new RuntimeException();
 			}
 			if(poly2=='B')
 			{
 				if(a!=0 && b!=0)
 		    		return subtlist(A , B) ;
-		    		else
-		    			return null;
+		    	else
+		    		throw new RuntimeException();
 			}
 			else if (poly2=='C')
 			{
 				if(a!=0 && c!=0)
 		    		return subtlist(A , C) ;
-		    		else
-		    			return null;
+		   		else
+		   			throw new RuntimeException();
 			}
 			else
 			{
-				return null ;
+				throw new RuntimeException();
 			}
 		}
 		else if(poly1=='B')
@@ -603,26 +590,26 @@ public class Polysolver implements IPolynomialSolver {
 			{
 				if(b!=0 )
 		    		return tal5ees ;
-		    		else
-		    			return null;
+		    	else
+		    		throw new RuntimeException();
 			}
 			if(poly2=='A')
 			{
 				if(a!=0 && b!=0)
 		    		return subtlist(B , A) ;
 		    		else
-		    			return null;
+		    			throw new RuntimeException();
 			}
 			else if (poly2=='C')
 			{
 				if(b!=0 && c!=0)
 		    		return subtlist(B , C) ;
 		    		else
-		    			return null;
+		    			throw new RuntimeException();
 			}
 			else
 			{
-				return null ;
+				throw new RuntimeException();
 			}
 		}
 		else if (poly1=='C')
@@ -632,30 +619,30 @@ public class Polysolver implements IPolynomialSolver {
 				if(c!=0 )
 		    		return tal5ees ;
 		    		else
-		    			return null;
+		    			throw new RuntimeException();
 			}
 			if(poly2=='A')
 			{
 				if(a!=0 && c!=0)
 		    		return subtlist(C , A) ;
 		    		else
-		    			return null;
+		    			throw new RuntimeException();
 			}
 			else if (poly2=='B')
 			{
 				if(b!=0 && c!=0)
 		    		return subtlist(C , B) ;
 		    		else
-		    			return null;
+		    			throw new RuntimeException();
 			}
 			else
 			{
-				return null;
+				throw new RuntimeException();
 			}
 		}
 		else
 		{
-			return null ;
+			throw new RuntimeException();
 		}
 	}
 	public int[][] multiL(singleList X , singleList Y){
@@ -686,7 +673,7 @@ public class Polysolver implements IPolynomialSolver {
         	a[p][1]=Integer.valueOf(String.valueOf(N.get(l+1)));
         	l+=2;
         }
-        setR(a);
+        accumulate(N);
         return a;
 		
 	}
@@ -701,21 +688,21 @@ public class Polysolver implements IPolynomialSolver {
 	    		if(a!=0 && b!=0)
 	    		return multiL(A , B) ;
 	    		else
-	    			return null;
+	    			throw new RuntimeException();
 	    	}
 	    	else if (poly1=='A' && poly2=='A')
 	    	{
 	    		if(a!=0 )
 		    		return multiL(A , A) ;
 		    	else
-		    			return null;
+		    		throw new RuntimeException();
 	    	}
 	    	else 
 	    	{
 	    		if(a!=0 && c!=0)
 		    		return multiL(A , C) ;
 		    		else
-		    			return null;
+		    			throw new RuntimeException();
 	    	}
 	    }
 		else if (poly1=='B' || poly2=='B')
@@ -725,26 +712,45 @@ public class Polysolver implements IPolynomialSolver {
 	    		if(b!=0)
 		    		return multiL(B , B) ;
 		    		else
-		    			return null;
+		    			throw new RuntimeException();
 	    	}
 			
 			if(c!=0 && b!=0)
 	    		return multiL(B , C) ;
 	    		else
-	    			return null;
+	    			throw new RuntimeException();
 		}
 		else if (poly1=='C' && poly2=='C')
     	{
     		if(c!=0)
 	    		return multiL(C , C) ;
 	    		else
-	    			return null;
+	    			throw new RuntimeException();
     	}
 		else 
 		{
-			return null ;
+			throw new RuntimeException();
 		}
 		
 	}
-	
+	public void accumulate(singleList A)
+	{
+		int i;
+		i=0;
+		int x;
+		int y;
+		while(i<A.size() && i<R.size())
+		{
+			x= Integer.valueOf(String.valueOf(A.get(i)));
+			y= Integer.valueOf(String.valueOf(R.get(i)));
+			R.set(i, x+y);
+			i++;
+		}
+		while(i<A.size())
+		{
+			x= Integer.valueOf(String.valueOf(A.get(i)));
+			R.add(x);
+			i++;
+		}
+	}
 }

@@ -1,27 +1,13 @@
 package eg.edu.alexu.csd.datastructure.linkedList.cs59;
 
-//ccxc
 public class node {
 
 	private Object element ;
 	private node next,prev;
-	public node()
-	{
-		this.element=null;
-		this.next=null;
-		this.prev=null;
-	}
-	public node(Object here)
-	{
-		this.element=here;
-		this.next=null;
-		this.prev=null;
-	}
 	public node(node there,Object here)
 	{
 		this.element=here;
 		this.next=there;
-		this.prev=null;
 	}
 	public node(node there,node thiss,Object here)
 	{
@@ -54,4 +40,3 @@ public class node {
 		return this.prev;
 	}
 }
-

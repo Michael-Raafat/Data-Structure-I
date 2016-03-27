@@ -2,15 +2,15 @@ package eg.edu.alexu.csd.datastructure.linkedList.cs59;
 
 import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
 
-public class singleList implements ILinkedList{
-	 private int size = 0;
-	    private node head =new node();
+public class singleList implements ILinkedList {
+    private int size = 0;
+    private node head =new node();
 	@Override
 	public void add(int index, Object element) {
 		
 		// TODO Auto-generated method stub
 		if(element.equals(null))
-			return ;
+			return;
 		if(index>size)
 			throw new RuntimeException("ERROR") ;
 		if (index == 0)
@@ -47,7 +47,7 @@ public class singleList implements ILinkedList{
 		// TODO Auto-generated method stub
 		node temp = head ;
 		if(element.equals(null))
-			return ;
+			return;
 		if(size==0)
 		{
 			node p = new node(null,element);
@@ -97,8 +97,7 @@ public class singleList implements ILinkedList{
 			{
 				p=p.getnext();
 			}
-			p.setelement(element);
-			
+			p.setelement(element);	
 		}
 	}
 
@@ -156,53 +155,45 @@ public class singleList implements ILinkedList{
 	@Override
 	public ILinkedList sublist(int fromIndex, int toIndex) {
 		// TODO Auto-generated method stub
-		
-		if(fromIndex>=0 && toIndex<size && toIndex>=fromIndex && size !=0)
+		if(fromIndex <0 || toIndex>=size || fromIndex>toIndex || size==0)
 		{
-			
-			singleList List = new singleList();
-			int i = 0;
-			node temp = head ;
-			for(i = 0 ; i<fromIndex ; i++)
-			{
-				temp = temp.getnext();
-			}
-			
-			for(; i<=toIndex ; i++)
-			{
-				List.add(temp.getele());
-				temp=temp.getnext();
-				
-			}
-			return List;
-		}
-		else
 			throw new RuntimeException();
-
 		}
-		
+		node m =head;
+		for(int i=1;i<=fromIndex;i++)
+		{
+			m = m.getnext();
+		}
+		singleList dd = new singleList();
+		dd.add(m.getele());
+		for(int i=fromIndex;i<toIndex;i++)
+		{
+			m=m.getnext();
+			dd.add(m.getele());
+		}
+		return dd;
 	
-	
+	}
 
 	@Override
 	public boolean contains(Object o) {
 		// TODO Auto-generated method stub
 		node p =head;
-		boolean flag=false;
+		boolean flag=true;
 		if(p.getele().equals(o))
 		{
-			flag=true;
+			flag=false;
 		}
-		while(!flag && p.getnext()!= null)
-		{
+		while(flag && p.getnext()!= null)
+		{	
 			p=p.getnext();
-			if(p.getele()==o)
+			if(p.getele().equals(o))
 			{
-				flag=true;
+				flag=false;
 			}
+			
 		}
-		return flag;
+		return !flag;
 	}
 
 }
-

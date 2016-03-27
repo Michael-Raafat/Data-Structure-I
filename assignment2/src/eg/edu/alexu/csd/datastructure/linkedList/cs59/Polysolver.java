@@ -165,7 +165,7 @@ public class Polysolver implements IPolynomialSolver {
 			}
 			default:
 			{
-				throw new RuntimeException("ERROR");
+				return null;
 			}
 		}
 	}

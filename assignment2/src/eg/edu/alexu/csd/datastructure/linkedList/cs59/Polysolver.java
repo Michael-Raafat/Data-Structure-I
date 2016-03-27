@@ -165,7 +165,7 @@ public class Polysolver implements IPolynomialSolver {
 			}
 			default:
 			{
-				throw new RuntimeException();
+				throw new RuntimeException("ERROR");
 			}
 		}
 	}
@@ -390,16 +390,25 @@ public class Polysolver implements IPolynomialSolver {
 	    {
 	    	if(poly1=='B' || poly2=='B')
 	    	{
+	    		if(a!=0 && b!=0)
 	    		return addlist(A , B) ;
+	    		else
+	    			throw new RuntimeException();
 	    	}
 	    	else
 	    	{
-	    		return addlist(A , C);
+	    		if(a!=0 && c!=0)
+		    		return addlist(A , C) ;
+		    		else
+		    			throw new RuntimeException();
 	    	}
 	    }
 		else
 		{
-			return addlist(B,C);
+			if(c!=0 && b!=0)
+	    		return addlist(B , C) ;
+	    		else
+	    			throw new RuntimeException();
 		}
 		
 		

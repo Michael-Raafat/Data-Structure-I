@@ -202,7 +202,7 @@ public class Polysolver implements IPolynomialSolver {
 		     {
 		    	 if(a==0)
 		    	 {
-		    		 throw new RuntimeException("ERROR");
+		    		 return (Float)null;
 		    	 }
 		    	 return eva(A,value);
 		     }
@@ -210,7 +210,7 @@ public class Polysolver implements IPolynomialSolver {
 		     {
 		    	 if(b==0)
 		    	 {
-		    		 throw new RuntimeException("ERROR");
+		    		 return (Float) null;
 		    	 }
 		    	 return eva(B,value);
 		     }
@@ -218,7 +218,7 @@ public class Polysolver implements IPolynomialSolver {
 		     {
 		    	 if(c==0)
 		    	 {
-		    		 throw new RuntimeException("ERROR");
+		    		 return (Float) null;
 		    	 }
 		    	 return eva(C,value);
 		     }
@@ -393,14 +393,14 @@ public class Polysolver implements IPolynomialSolver {
 	    		if(a!=0 && b!=0)
 	    		return addlist(A , B) ;
 	    		else
-	    			throw new RuntimeException();
+	    			return null;
 	    	}
 	    	else
 	    	{
 	    		if(a!=0 && c!=0)
 		    		return addlist(A , C) ;
 		    		else
-		    			throw new RuntimeException();
+		    			return null;
 	    	}
 	    }
 		else
@@ -408,7 +408,7 @@ public class Polysolver implements IPolynomialSolver {
 			if(c!=0 && b!=0)
 	    		return addlist(B , C) ;
 	    		else
-	    			throw new RuntimeException();
+	    			return null;
 		}
 		
 		
@@ -497,14 +497,14 @@ public class Polysolver implements IPolynomialSolver {
 				if(a!=0 && b!=0)
 		    		return subtlist(A , B) ;
 		    		else
-		    			throw new RuntimeException();
+		    			return null;
 			}
 			else
 			{
 				if(a!=0 && c!=0)
 		    		return subtlist(A , C) ;
 		    		else
-		    			throw new RuntimeException();
+		    			return null;
 			}
 		}
 		else if(poly1=='B')
@@ -514,14 +514,14 @@ public class Polysolver implements IPolynomialSolver {
 				if(a!=0 && b!=0)
 		    		return subtlist(B , A) ;
 		    		else
-		    			throw new RuntimeException();
+		    			return null;
 			}
 			else
 			{
 				if(b!=0 && c!=0)
 		    		return subtlist(B , C) ;
 		    		else
-		    			throw new RuntimeException();
+		    			return null;
 			}
 		}
 		else
@@ -531,14 +531,14 @@ public class Polysolver implements IPolynomialSolver {
 				if(a!=0 && c!=0)
 		    		return subtlist(C , A) ;
 		    		else
-		    			throw new RuntimeException();
+		    			return null;
 			}
 			else
 			{
 				if(b!=0 && c!=0)
 		    		return subtlist(C , B) ;
 		    		else
-		    			throw new RuntimeException();
+		    			return null;
 			}
 		}
 	}

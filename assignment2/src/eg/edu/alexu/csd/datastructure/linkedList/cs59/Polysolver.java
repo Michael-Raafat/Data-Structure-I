@@ -588,9 +588,13 @@ public class Polysolver implements IPolynomialSolver {
 	    		return multiL(A , C);
 	    	}
 	    }
-		else
+		else if(poly1=='B' || poly2=='B')
 		{
 			return multiL(B,C);
+		}
+		else
+		{
+			return null ;
 		}
 	}
 

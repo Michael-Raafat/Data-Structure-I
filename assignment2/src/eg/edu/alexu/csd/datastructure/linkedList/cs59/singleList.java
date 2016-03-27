@@ -10,7 +10,7 @@ public class singleList implements ILinkedList{
 		
 		// TODO Auto-generated method stub
 		if(element.equals(null))
-			throw new RuntimeException("ERROR") ;
+			return ;
 		if(index>size)
 			throw new RuntimeException("ERROR") ;
 		if (index == 0)
@@ -47,7 +47,7 @@ public class singleList implements ILinkedList{
 		// TODO Auto-generated method stub
 		node temp = head ;
 		if(element.equals(null))
-			throw new RuntimeException("ERROR") ;
+			return ;
 		if(size==0)
 		{
 			node p = new node(null,element);

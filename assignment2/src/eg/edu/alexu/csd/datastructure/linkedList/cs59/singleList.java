@@ -143,7 +143,7 @@ public class singleList implements ILinkedList {
 	@Override
 	public void remove(int index) {
 		// TODO Auto-generated method stub
-		if(index>=size)
+		if(index>=size || index<0)
 			throw new RuntimeException();
 		node temp ;
 		if(index==0)
@@ -151,6 +151,7 @@ public class singleList implements ILinkedList {
 			temp = head;
 			head=head.getnext();
 			temp.setnext(null);
+			size--;
 		}
 		else
 		{
@@ -166,8 +167,9 @@ public class singleList implements ILinkedList {
 			temp=temp.getnext();
 			p.setnext(temp.getnext());
 			temp.setnext(null);
+			size--;
 		}
-		size--;
+		
 	}
 
 	@Override

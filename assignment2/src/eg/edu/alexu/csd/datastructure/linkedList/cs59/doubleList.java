@@ -135,8 +135,6 @@ public class doubleList implements ILinkedList {
 		}
 		node p = m.getprev();
 		node n = m.getnext();
-		m.setnext(null);
-		m.setprev(null);
 		p.setnext(n);
 		n.setprev(p);
 		size--;

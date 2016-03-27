@@ -107,4 +107,30 @@ public class Mytests {
 		Assert.assertEquals(true, dd.contains('r'));
 		
 	}
+	@Test
+	public void testdobulee(){
+		doubleList dd = new doubleList();
+		dd.add(1);
+		dd.add(9);
+		dd.add(8);
+		dd.add(7);
+		dd.add(6);
+		dd.add(5);
+		dd.add(4);
+		dd.add(3);
+		dd.add(2);
+		dd.add(10);
+		dd.remove(0);
+		dd.remove(0);
+		dd.remove(0);
+		dd.remove(0);
+		dd.remove(0);
+		dd.remove(0);
+		dd.remove(0);
+		dd.remove(0);
+		dd.remove(0);
+		dd.remove(0);
+		Assert.assertEquals(0, dd.size());
+		
+	}
 }

@@ -5,13 +5,12 @@ import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
 
 public class doubleList implements ILinkedList {
 
-	private node head,dumtail ;
+	private node head ;
 	private int size;
 	public doubleList()
 	{
-		head=new node(dumtail,null,null);
+		head=new node(null,null,null);
 		size=0;
-		dumtail = new node(null,head,null);
 	}
 	@Override
 	public void add(int index, Object element) {
@@ -20,9 +19,8 @@ public class doubleList implements ILinkedList {
 			throw new RuntimeException();
 		if(index==0 && size ==0)
 		{
-			node U = new node(dumtail,null,element);
+			node U = new node(null,null,element);
 			head=U;
-			dumtail.setprev(head);
 			size++;
 		}
 		else if(index<0 || index > size)
@@ -47,11 +45,13 @@ public class doubleList implements ILinkedList {
 		else
 		{
 			node p= new node(element);
-			node ff = dumtail.getprev();
-			ff.setnext(p);
-			dumtail.setprev(p);
-			p.setnext(dumtail);
-			p.setprev(ff);
+			node s = head;
+			while(s.getnext()!=null)
+			{
+				s=s.getnext();
+			}
+			s.setnext(p);
+			p.setprev(s);
 			size++;
 		}
 		}
@@ -67,11 +67,14 @@ public class doubleList implements ILinkedList {
 		}
 		else
 		{
-			node f = new node(dumtail,element);
-			node x = dumtail.getprev();
-			x.setnext(f);
-			f.setprev(x);
-			dumtail.setprev(f);
+			node temp = head ;
+			while(temp.getnext()!= null)
+			{
+				temp=temp.getnext();
+			}
+			node q = new node(element);
+			temp.setnext(q);
+			q.setprev(temp);
 		}
 		size++;
 		
@@ -110,9 +113,7 @@ public class doubleList implements ILinkedList {
 	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
-		head=new node(dumtail,null,null);
-		size=0;
-		dumtail = new node(null,head,null);
+		head=new node(null,null,null);
 		size=0;
 	}
 
@@ -190,7 +191,7 @@ public class doubleList implements ILinkedList {
 		node z = head;
 		if (z.getele().equals(o))
 			found=true;
-		while(z.getnext()!=dumtail && !found)
+		while(z.getnext()!=null && !found)
 		{
 			z=z.getnext();
 			if (z.getele().equals(o))

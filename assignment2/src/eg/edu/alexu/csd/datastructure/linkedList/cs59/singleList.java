@@ -102,6 +102,18 @@ public class singleList implements ILinkedList {
 		{
 				head.setelement(element);
 		}
+		else if (index==size)
+		{
+			node temp = new node(element);
+			node p = head ;
+			for(int i =0 ; i<size-1 ; i++)
+			{
+				p=p.getnext();
+			}
+			temp.setnext(null);
+			p.setnext(temp);
+			
+		}
 		else
 		{
 			node p = head ;

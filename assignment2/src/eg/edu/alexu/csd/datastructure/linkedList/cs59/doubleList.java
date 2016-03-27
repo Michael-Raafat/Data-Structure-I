@@ -22,13 +22,14 @@ public class doubleList implements ILinkedList {
 		{
 			node U = new node(dumtail,null,element);
 			head=U;
+			dumtail.setprev(head);
 			size++;
 		}
 		else if(index<0 || index > size)
 		{
 			throw new RuntimeException();
 		}
-		else if(index<=size)
+		else if(index<size)
 		{
 			node s = head;
 			node m= new node(element);
@@ -41,6 +42,16 @@ public class doubleList implements ILinkedList {
 			m.setprev(s);
 			x.setprev(m);
 			s.setnext(m);
+			size++;
+		}
+		else
+		{
+			node p= new node(element);
+			node ff = dumtail.getprev();
+			ff.setnext(p);
+			dumtail.setprev(p);
+			p.setnext(dumtail);
+			p.setprev(ff);
 			size++;
 		}
 		}

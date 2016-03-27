@@ -155,19 +155,16 @@ public class Polysolver implements IPolynomialSolver {
 			case 'A':
 			{
 				A.clear();
-				A=null;
 				a=0;
 			}
 			case 'B':
 			{
 				B.clear();
-				B=null;
 				b=0;
 			}
 			case 'C':
 			{
 				C.clear();
-				C=null;
 				c=0;
 			}
 			default:

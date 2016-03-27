@@ -32,7 +32,7 @@ public class Polysolver implements IPolynomialSolver {
 				{
 					A.clear();
 					a=0;
-					return;
+					throw new RuntimeException();
 				}
 				break;
 			}
@@ -53,7 +53,7 @@ public class Polysolver implements IPolynomialSolver {
 				{
 					B.clear();
 					b=0;
-					return ;
+					throw new RuntimeException();
 				}
 				break;
 			}
@@ -74,13 +74,13 @@ public class Polysolver implements IPolynomialSolver {
 				{
 					C.clear();
 					c=0;
-					return ;
+					throw new RuntimeException();
 				}
 				break;
 			}
 			default:
 			{
-				return ;
+				throw new RuntimeException();
 			}
 		}
 	}

@@ -133,10 +133,14 @@ public class doubleList implements ILinkedList {
 			throw new RuntimeException();
 		}
 		node m =head;
-		if(index==0)
+		if(size==1 )
 		{
-			node n = head.getnext();
-			head=n;
+			this.clear();
+			return;
+		}
+		else if(index==0)
+		{
+			head=head.getnext();
 			head.setprev(null);
 			size--;
 			return;

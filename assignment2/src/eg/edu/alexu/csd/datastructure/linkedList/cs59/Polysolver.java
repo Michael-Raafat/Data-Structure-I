@@ -5,9 +5,9 @@ import eg.edu.alexu.csd.datastructure.linkedList.IPolynomialSolver;
 import java.util.ArrayList;
 public class Polysolver implements IPolynomialSolver {
 
-	singleList A= null;
-	singleList B= null;
-	singleList C = null;
+	singleList A= new singleList();
+	singleList B= new singleList();
+	singleList C = new singleList();
 	int a =0 , b=0 , c= 0;
 	private Float float1;
 	@Override
@@ -17,7 +17,6 @@ public class Polysolver implements IPolynomialSolver {
 		{
 			case 'A':
 			{
-				A= new singleList();
 				a=1;
 				boolean error=false;
 				for(int i=0;i<terms.length &&!error;i++)
@@ -38,7 +37,6 @@ public class Polysolver implements IPolynomialSolver {
 			}
 			case 'B':
 			{
-				B= new singleList();
 				b=1;
 				boolean error=false;
 				for(int i=0;i<terms.length &&!error;i++)
@@ -59,7 +57,6 @@ public class Polysolver implements IPolynomialSolver {
 			}
 			case 'C':
 			{
-				C= new singleList();
 				c=1;
 				boolean error=false;
 				for(int i=0;i<terms.length &&!error;i++)

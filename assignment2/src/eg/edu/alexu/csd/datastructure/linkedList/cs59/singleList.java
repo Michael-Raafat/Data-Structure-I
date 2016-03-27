@@ -79,7 +79,7 @@ public class singleList implements ILinkedList {
 	@Override
 	public Object get(int index) {
 		// TODO Auto-generated method stub
-		if(index>=size)
+		if(index>=size || index<0)
 		{
 			throw new RuntimeException();
 		}
@@ -96,7 +96,7 @@ public class singleList implements ILinkedList {
 	@Override
 	public void set(int index, Object element) {
 		// TODO Auto-generated method stub
-		if(index>=size && size !=0)
+		if((index>=size && size !=0)||index<0 )
 			throw new RuntimeException() ;
 		if (index == 0)
 		{

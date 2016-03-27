@@ -51,6 +51,8 @@ public class doubleList implements ILinkedList {
 			}
 			node m= new node(element);
 			s.setnext(m);
+			m.setprev(s);
+			m.setnext(dumtail);
 			dumtail.setprev(m);
 			dumtail.setnext(head);
 			size++;

@@ -1,6 +1,6 @@
 package eg.edu.alexu.csd.datastructure.linkedList.cs59.tests;
 
-import static org.junit.Assert.*;
+
 
 import org.junit.Assert;
 import org.junit.Test;

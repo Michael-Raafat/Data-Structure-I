@@ -214,13 +214,17 @@ public class Polysolver implements IPolynomialSolver {
 		    	 }
 		    	 return eva(B,value);
 		     }
-		     else
+		     else if (poly == 'C')
 		     {
 		    	 if(c==0)
 		    	 {
 		    		 return (Float) null;
 		    	 }
 		    	 return eva(C,value);
+		     }
+		     else
+		     {
+		    	 return (Float)null;
 		     }
 			}
 	public singleList addto(singleList x, singleList y)

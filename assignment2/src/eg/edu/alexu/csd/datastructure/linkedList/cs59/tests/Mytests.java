@@ -1,15 +1,16 @@
 package eg.edu.alexu.csd.datastructure.linkedList.cs59.tests;
 
+import static org.junit.Assert.*;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import eg.edu.alexu.csd.datastructure.linkedList.cs59.doubleList;
 import eg.edu.alexu.csd.datastructure.linkedList.cs59.singleList;
-
+import junit.framework.Assert;
 
 public class Mytests {
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testdoubleList() {
 		doubleList dd = new doubleList();
@@ -54,6 +55,7 @@ public class Mytests {
 		dd.remove(0);
 		Assert.assertEquals(true, dd.isEmpty());
 	}
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testsingleList() {
 		singleList dd = new singleList();

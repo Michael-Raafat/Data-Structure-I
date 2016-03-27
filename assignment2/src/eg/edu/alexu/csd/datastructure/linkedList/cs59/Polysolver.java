@@ -399,7 +399,14 @@ public class Polysolver implements IPolynomialSolver {
 	    		else
 	    			return null;
 	    	}
-	    	else
+	    	else if (poly1=='A' && poly2=='A')
+	    	{
+	    		if(a!=0 )
+		    		return addlist(A , A) ;
+		    	else
+		    			return null;
+	    	}
+	    	else 
 	    	{
 	    		if(a!=0 && c!=0)
 		    		return addlist(A , C) ;
@@ -409,12 +416,27 @@ public class Polysolver implements IPolynomialSolver {
 	    }
 		else if (poly1=='B' || poly2=='B')
 		{
+			if (poly1=='B' && poly2=='B')
+	    	{
+	    		if(b!=0)
+		    		return addlist(B , B) ;
+		    		else
+		    			return null;
+	    	}
+			
 			if(c!=0 && b!=0)
 	    		return addlist(B , C) ;
 	    		else
 	    			return null;
 		}
-		else
+		else if (poly1=='C' && poly2=='C')
+    	{
+    		if(c!=0)
+	    		return addlist(C , C) ;
+	    		else
+	    			return null;
+    	}
+		else 
 		{
 			return null ;
 		}
@@ -499,6 +521,13 @@ public class Polysolver implements IPolynomialSolver {
 		// TODO Auto-generated method stub
 		if(poly1=='A')
 		{
+			if(poly2=='A')
+			{
+				if(a!=0 )
+		    		return subtlist(A , A) ;
+		    		else
+		    			return null;
+			}
 			if(poly2=='B')
 			{
 				if(a!=0 && b!=0)
@@ -506,16 +535,27 @@ public class Polysolver implements IPolynomialSolver {
 		    		else
 		    			return null;
 			}
-			else
+			else if (poly2=='C')
 			{
 				if(a!=0 && c!=0)
 		    		return subtlist(A , C) ;
 		    		else
 		    			return null;
 			}
+			else
+			{
+				return null ;
+			}
 		}
 		else if(poly1=='B')
 		{
+			if(poly2=='B')
+			{
+				if(b!=0 )
+		    		return subtlist(B , B) ;
+		    		else
+		    			return null;
+			}
 			if(poly2=='A')
 			{
 				if(a!=0 && b!=0)
@@ -523,16 +563,27 @@ public class Polysolver implements IPolynomialSolver {
 		    		else
 		    			return null;
 			}
-			else
+			else if (poly2=='C')
 			{
 				if(b!=0 && c!=0)
 		    		return subtlist(B , C) ;
 		    		else
 		    			return null;
 			}
+			else
+			{
+				return null ;
+			}
 		}
 		else if (poly1=='C')
 		{
+			if(poly2=='C')
+			{
+				if(c!=0 )
+		    		return subtlist(C , C) ;
+		    		else
+		    			return null;
+			}
 			if(poly2=='A')
 			{
 				if(a!=0 && c!=0)
@@ -540,12 +591,16 @@ public class Polysolver implements IPolynomialSolver {
 		    		else
 		    			return null;
 			}
-			else
+			else if (poly2=='B')
 			{
 				if(b!=0 && c!=0)
 		    		return subtlist(C , B) ;
 		    		else
 		    			return null;
+			}
+			else
+			{
+				return null;
 			}
 		}
 		else

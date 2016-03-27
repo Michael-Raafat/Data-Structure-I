@@ -403,14 +403,17 @@ public class Polysolver implements IPolynomialSolver {
 		    			return null;
 	    	}
 	    }
-		else
+		else if (poly1=='B' || poly2=='B')
 		{
 			if(c!=0 && b!=0)
 	    		return addlist(B , C) ;
 	    		else
 	    			return null;
 		}
-		
+		else
+		{
+			return null ;
+		}
 		
 	}
      
@@ -524,7 +527,7 @@ public class Polysolver implements IPolynomialSolver {
 		    			return null;
 			}
 		}
-		else
+		else if (poly1=='C')
 		{
 			if(poly2=='A')
 			{
@@ -540,6 +543,10 @@ public class Polysolver implements IPolynomialSolver {
 		    		else
 		    			return null;
 			}
+		}
+		else
+		{
+			return null ;
 		}
 	}
 	public int[][] multiL(singleList X , singleList Y){

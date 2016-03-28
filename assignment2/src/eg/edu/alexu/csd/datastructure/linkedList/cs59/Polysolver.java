@@ -25,11 +25,11 @@ public class Polysolver implements IPolynomialSolver {
 		}
 		StringBuilder x = new StringBuilder();
 		x.append(terms[0][0]);
-		x.append(""+terms[0][1]);
+		x.append(" "+terms[0][1]);
 		x.append(terms[1][0]);
-		x.append(""+terms[1][1]);
+		x.append(" "+terms[1][1]);
 		x.append(terms[2][0]);
-		x.append(""+terms[2][1]);
+		x.append(" "+terms[2][1]);
 		throw new RuntimeException(x.toString());
 	}
 	@Override

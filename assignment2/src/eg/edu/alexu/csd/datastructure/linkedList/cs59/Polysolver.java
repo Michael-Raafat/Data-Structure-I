@@ -417,6 +417,7 @@ public class Polysolver implements IPolynomialSolver {
             	temp.add(a[p][1]);
             	l+=2;
             }
+            R.clear();
             setR(R, a);
             return a;
 	}
@@ -547,6 +548,7 @@ public class Polysolver implements IPolynomialSolver {
             	temp.add(a[p][1]);
             	l+=2;
             }
+            R.clear();
             setR(R, a);
             return a;
 	}
@@ -673,6 +675,7 @@ public class Polysolver implements IPolynomialSolver {
         	a[p][1]=Integer.valueOf(String.valueOf(N.get(l+1)));
         	l+=2;
         }
+        R.clear();
         setR(R, a);
         return a;
 		

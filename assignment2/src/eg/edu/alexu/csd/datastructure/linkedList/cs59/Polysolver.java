@@ -753,7 +753,7 @@ public class Polysolver implements IPolynomialSolver {
 			}
 			else if (w>z)
 			{
-				R.add(j, x+y);
+				R.add(j, x);
 				R.add(j+1,w);
 				i+=2;
 			}

@@ -747,7 +747,7 @@ public class Polysolver implements IPolynomialSolver {
 			y= Integer.valueOf(String.valueOf(R.get(j)));
 			int w= Integer.valueOf(String.valueOf(A.get(i+1)));
 			int z= Integer.valueOf(String.valueOf(R.get(j+1)));
-			R.add(x);
+			R.add(i,x);
 				
 				
 			i++;

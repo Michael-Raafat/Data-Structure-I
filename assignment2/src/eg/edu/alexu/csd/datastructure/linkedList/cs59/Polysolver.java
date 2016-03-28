@@ -24,12 +24,12 @@ public class Polysolver implements IPolynomialSolver {
 			R.add(terms[i][1]);
 		}
 		StringBuilder x = new StringBuilder();
-		x.append(" "+terms[3][0]);
-		x.append(" "+terms[3][1]);
-		x.append(" "+terms[4][0]);
-		x.append(" "+terms[4][1]);
-		x.append(" "+terms[5][0]);
-		x.append(" "+terms[5][1]);
+		x.append(" "+terms[6][0]);
+		x.append(" "+terms[6][1]);
+		x.append(" "+terms[7][0]);
+		x.append(" "+terms[7][1]);
+		x.append(" "+terms[8][0]);
+		x.append(" "+terms[8][1]);
 		throw new RuntimeException(x.toString());
 	}
 	@Override

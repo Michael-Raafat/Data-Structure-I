@@ -23,11 +23,9 @@ public class Polysolver implements IPolynomialSolver {
 			R.add(terms[i][0]);
 			R.add(terms[i][1]);
 		}
-		if(error)
-		{
-			R.clear();
-			throw new RuntimeException();
-		}
+		StringBuilder x = new StringBuilder();
+		x.append(R.size());
+		throw new RuntimeException(x.toString());
 	}
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {

@@ -671,9 +671,11 @@ public class Polysolver implements IPolynomialSolver {
         {
         	a[p][0]=Integer.valueOf(String.valueOf(N.get(l)));
         	a[p][1]=Integer.valueOf(String.valueOf(N.get(l+1)));
+        	R.add(N.get(l));
+        	R.add(N.get(l+1));
         	l+=2;
         }
-        accumulate(N);
+        //accumulate(N);
         return a;
 		
 	}
@@ -738,7 +740,7 @@ public class Polysolver implements IPolynomialSolver {
 		int i;
 		i=0;
 		int x;
-		while(i<A.size() )
+		while(i<A.size())
 		{
 			x= Integer.valueOf(String.valueOf(A.get(i)));
 			R.add(x);

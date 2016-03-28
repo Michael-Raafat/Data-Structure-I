@@ -406,7 +406,6 @@ public class Polysolver implements IPolynomialSolver {
             		A.add(second);
             	}
             }
-            
             int [][]a=new int [A.size()/2][2];
             int l=0;
             singleList temp = new singleList();
@@ -418,8 +417,7 @@ public class Polysolver implements IPolynomialSolver {
             	temp.add(a[p][1]);
             	l+=2;
             }
-            R=addto(R,temp);
-            //accumulate(temp);
+            accumulate(temp);
             return a;
 	}
     
@@ -549,8 +547,7 @@ public class Polysolver implements IPolynomialSolver {
             	temp.add(a[p][1]);
             	l+=2;
             }
-            R=addto(R,temp);
-            //accumulate(temp);
+            accumulate(temp);
             return a;
 	}
 
@@ -668,17 +665,15 @@ public class Polysolver implements IPolynomialSolver {
 			}
 			N=addto(N, M);
 		}
-		R=addto(R,N);
 		int [][]a=new int [N.size()/2][2];
         int l=0;
         for(int p = 0 ; p <N.size()/2 ; p++ )
         {
-        	a[p][0]=Integer.valueOf(String.valueOf(R.get(l)));
-        	a[p][1]=Integer.valueOf(String.valueOf(R.get(l+1)));
-        	
+        	a[p][0]=Integer.valueOf(String.valueOf(N.get(l)));
+        	a[p][1]=Integer.valueOf(String.valueOf(N.get(l+1)));
         	l+=2;
         }
-        //accumulate(N);
+        accumulate(N);
         return a;
 		
 	}
@@ -743,12 +738,7 @@ public class Polysolver implements IPolynomialSolver {
 		int i;
 		i=0;
 		int x;
-		while(i<A.size())
-		{
-			x= Integer.valueOf(String.valueOf(A.get(i)));
-			R.add(x);
-			i++;
-		}
+		R=addto(R,A);
 		
 	}
 }

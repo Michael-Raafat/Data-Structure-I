@@ -756,6 +756,7 @@ public class Polysolver implements IPolynomialSolver {
 				R.add(j, x);
 				R.add(j+1,w);
 				i+=2;
+				j+=2;
 			}
 			j+=2;
 			

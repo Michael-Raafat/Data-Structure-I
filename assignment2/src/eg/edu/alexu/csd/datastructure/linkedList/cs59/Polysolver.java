@@ -406,6 +406,7 @@ public class Polysolver implements IPolynomialSolver {
             		A.add(second);
             	}
             }
+            
             int [][]a=new int [A.size()/2][2];
             int l=0;
             singleList temp = new singleList();
@@ -417,7 +418,8 @@ public class Polysolver implements IPolynomialSolver {
             	temp.add(a[p][1]);
             	l+=2;
             }
-            accumulate(temp);
+            R=addto(R,temp);
+            //accumulate(temp);
             return a;
 	}
     
@@ -547,7 +549,8 @@ public class Polysolver implements IPolynomialSolver {
             	temp.add(a[p][1]);
             	l+=2;
             }
-            accumulate(temp);
+            R=addto(R,temp);
+            //accumulate(temp);
             return a;
 	}
 

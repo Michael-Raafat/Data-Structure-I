@@ -23,13 +23,11 @@ public class Polysolver implements IPolynomialSolver {
 			R.add(terms[i][0]);
 			R.add(terms[i][1]);
 		}
-		StringBuilder x = new StringBuilder();
-		x.append(" "+terms[6][0]);
-		x.append(" "+terms[6][1]);
-		x.append(" "+terms[7][0]);
-		x.append(" "+terms[7][1]);
-		
-		throw new RuntimeException(x.toString());
+		if(error)
+		{
+			R.clear();
+			throw new RuntimeException();
+		}
 	}
 	@Override
 	public void setPolynomial(char poly, int[][] terms) {

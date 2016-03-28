@@ -740,34 +740,20 @@ public class Polysolver implements IPolynomialSolver {
 		int j=0;
 		int x;
 		int y;
-		while(i+1<A.size() && j+1<R.size())
+		while(i<A.size() )
 		{
 			x= Integer.valueOf(String.valueOf(A.get(i)));
 			y= Integer.valueOf(String.valueOf(R.get(j)));
 			int w= Integer.valueOf(String.valueOf(A.get(i+1)));
 			int z= Integer.valueOf(String.valueOf(R.get(j+1)));
-			if(z==w)
-			{
-				R.set(i, x+y);
-				i+=2;
-			}
-			else if (w>z)
-			{
-				R.add(j, x);
-				R.add(j+1,w);
-				i+=2;
-				j+=2;
-			}
-			j+=2;
 			
-			
-			
-		}
-		while(i<A.size())
-		{
-			x= Integer.valueOf(String.valueOf(A.get(i)));
-			R.add(x);
+				R.set(R.size()-1+i, x);
+				
 			i++;
+			
+			
+			
 		}
+		
 	}
 }

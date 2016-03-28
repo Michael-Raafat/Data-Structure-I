@@ -4,7 +4,7 @@ import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
 
 public class singleList implements ILinkedList {
     private int size = 0;
-    private node head =new node();
+     node head =new node();
 	@Override
 	public void add(int index, Object element) {
 		

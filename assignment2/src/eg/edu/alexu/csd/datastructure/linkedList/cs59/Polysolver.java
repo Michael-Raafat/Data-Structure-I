@@ -28,8 +28,7 @@ public class Polysolver implements IPolynomialSolver {
 		x.append(" "+terms[6][1]);
 		x.append(" "+terms[7][0]);
 		x.append(" "+terms[7][1]);
-		x.append(" "+terms[8][0]);
-		x.append(" "+terms[8][1]);
+		
 		throw new RuntimeException(x.toString());
 	}
 	@Override

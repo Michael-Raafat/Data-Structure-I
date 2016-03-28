@@ -176,22 +176,18 @@ public class Mytests {
 		subtract2[0][1]=3;
 		subtract2[1][0]=-9;
 		subtract2[1][1]=0;
-		int [][] multi =new int [5][2];
-		multi[0][0]=12;
-		multi[0][1]=4;
-		multi[1][0]=-12;
-		multi[1][1]=3;
+		int [][] multi =new int [3][2];
+		multi[0][0]=16;
+		multi[0][1]=2;
+		multi[1][0]=-32;
+		multi[1][1]=1;
 		multi[2][0]=16;
-		multi[2][1]=2;
-		multi[3][0]=4;
-		multi[3][1]=1;
-		multi[4][0]=-20;
-		multi[4][1]=0;
+		multi[2][1]=0;
          Assert.assertArrayEquals(add, pl.add('A', 'A'));
          Assert.assertArrayEquals(add1, pl.add('B', 'B'));
          Assert.assertArrayEquals(subtract1, pl.subtract('A', 'B'));
         Assert.assertArrayEquals(subtract2, pl.subtract('B', 'A'));
-         Assert.assertArrayEquals(multi, pl.multiply('A', 'B'));
+         Assert.assertArrayEquals(multi, pl.multiply('B', 'B'));
 		
 	}
 }

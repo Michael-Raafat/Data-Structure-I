@@ -665,14 +665,14 @@ public class Polysolver implements IPolynomialSolver {
 			}
 			N=addto(N, M);
 		}
+		R=addto(R,N);
 		int [][]a=new int [N.size()/2][2];
         int l=0;
         for(int p = 0 ; p <N.size()/2 ; p++ )
         {
-        	a[p][0]=Integer.valueOf(String.valueOf(N.get(l)));
-        	a[p][1]=Integer.valueOf(String.valueOf(N.get(l+1)));
-        	R.add(N.get(l));
-        	R.add(N.get(l+1));
+        	a[p][0]=Integer.valueOf(String.valueOf(R.get(l)));
+        	a[p][1]=Integer.valueOf(String.valueOf(R.get(l+1)));
+        	
         	l+=2;
         }
         //accumulate(N);

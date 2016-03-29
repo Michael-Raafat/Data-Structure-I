@@ -36,14 +36,10 @@ public class Polysolver implements IPolynomialSolver {
 		{
 			case 'A':
 			{
-				String you = " ";
+				
 				a=1;
 				boolean error=false;
-				for(int i=0;i<terms.length &&!error;i++)
-				{
-					you+=terms[i][0] + " " + terms[i][1] + "    " ;
-					
-				}
+				
 				for(int i=0;i<terms.length &&!error;i++)
 				{
 					if(terms[i][1]<0)
@@ -60,8 +56,8 @@ public class Polysolver implements IPolynomialSolver {
 					a=0;
 					throw new RuntimeException("A cleared yo!");
 				}
-				throw new RuntimeException(you);
-				//break;
+			
+				break;
 			}
 			case 'B':
 			{
@@ -88,6 +84,12 @@ public class Polysolver implements IPolynomialSolver {
 			{
 				c=1;
 				boolean error=false;
+				String you = " ";
+				for(int i=0;i<terms.length &&!error;i++)
+				{
+					you+=terms[i][0] + " " + terms[i][1] + "       " ;
+					
+				}
 				for(int i=0;i<terms.length &&!error;i++)
 				{
 					if(terms[i][1]<0)
@@ -103,7 +105,8 @@ public class Polysolver implements IPolynomialSolver {
 					c=0;
 					throw new RuntimeException("C cleared too");
 				}
-				break;
+				throw new RuntimeException(you);
+				//break;
 			}
 			default:
 			{

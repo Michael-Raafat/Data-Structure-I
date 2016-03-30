@@ -555,6 +555,7 @@ public class Polysolver implements IPolynomialSolver {
             	l+=2;
             }
             R.clear();
+            // set the R
             setR(R, a);
             return a;
 	}

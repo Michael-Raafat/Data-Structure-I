@@ -424,6 +424,7 @@ public class Polysolver implements IPolynomialSolver {
             R.clear();
             setR(R, a);
             return a;
+            //no error
 	}
     
 	@Override

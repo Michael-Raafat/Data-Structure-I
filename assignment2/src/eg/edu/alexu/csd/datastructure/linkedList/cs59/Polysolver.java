@@ -424,7 +424,7 @@ public class Polysolver implements IPolynomialSolver {
             R.clear();
             setR(R, a);
             return a;
-            //no error
+            
 	}
     
 	@Override
@@ -556,10 +556,10 @@ public class Polysolver implements IPolynomialSolver {
             	l+=2;
             }
             R.clear();
-            // set the R
+            
             setR(R, a);
             return a;
-            // no error in subtlist it's confusing :/
+            
 	}
 
 	@Override

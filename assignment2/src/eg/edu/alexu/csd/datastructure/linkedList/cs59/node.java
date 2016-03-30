@@ -6,6 +6,7 @@ public class node {
 	private node next,prev;
 	public node()
 	{
+		// for double linked list
 		this.element=null;
 		this.next=null;
 		this.prev=null;

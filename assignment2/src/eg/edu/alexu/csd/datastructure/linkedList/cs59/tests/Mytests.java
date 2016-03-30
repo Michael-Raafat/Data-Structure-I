@@ -105,6 +105,7 @@ public class Mytests {
 	}
 	@Test
 	public void equ(){
+		// test polynomial
 		Polysolver pl = new Polysolver();
 		int [][]eq1 = new int[3][2];
 		eq1[0][0]= 3;

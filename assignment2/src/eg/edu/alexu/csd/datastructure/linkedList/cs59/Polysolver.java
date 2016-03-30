@@ -607,14 +607,14 @@ public class Polysolver implements IPolynomialSolver {
 			if(poly2=='A')
 			{
 				if(a!=0 && b!=0)
-		    		return subtlist(B , A) ;
+		    		return subtlist(A , B) ;
 		    		else
 		    			throw new RuntimeException();
 			}
 			else if (poly2=='C')
 			{
 				if(b!=0 && c!=0)
-		    		return subtlist(C , B) ;
+		    		return subtlist(B , C) ;
 		    		else
 		    			throw new RuntimeException();
 			}

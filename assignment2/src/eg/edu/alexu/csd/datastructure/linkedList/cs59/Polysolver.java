@@ -510,10 +510,10 @@ public class Polysolver implements IPolynomialSolver {
             	}
             	else
             	{
-            		if(firstc-secondc==0)
+            		if((firstc-secondc)==0)
             			{i+=2;j+=2;}
             		else{
-            		A.add(-secondc+firstc);
+            		A.add(firstc-secondc);
             		A.add(first);
             		i+=2;
             		j+=2;}
@@ -537,7 +537,8 @@ public class Polysolver implements IPolynomialSolver {
             	{
             		int second= Integer.valueOf(String.valueOf(y.get(k+1)));
                 	int secondc= Integer.valueOf(String.valueOf(y.get(k)));
-            		A.add(-secondc);
+                	secondc= -secondc;
+            		A.add(secondc);
             		A.add(second);
             	}
             }

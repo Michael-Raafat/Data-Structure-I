@@ -745,6 +745,7 @@ public class Polysolver implements IPolynomialSolver {
 	}
 	public void accumulate(singleList A)
 	{
+		//not used
 		int i;
 		i=0;
 		int x;

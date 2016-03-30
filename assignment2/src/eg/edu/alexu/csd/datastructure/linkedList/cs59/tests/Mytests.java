@@ -155,6 +155,7 @@ public class Mytests {
 		multi[1][1]=1;
 		multi[2][0]=16;
 		multi[2][1]=0;
+		//test operations
          Assert.assertArrayEquals(add, pl.add('A', 'A'));
          Assert.assertArrayEquals(add1, pl.add('B', 'B'));
          Assert.assertArrayEquals(subtract1, pl.subtract('A', 'B'));

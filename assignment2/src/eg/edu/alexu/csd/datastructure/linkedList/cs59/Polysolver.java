@@ -701,7 +701,7 @@ public class Polysolver implements IPolynomialSolver {
 	    	if(poly1=='B' || poly2=='B')
 	    	{
 	    		if(a!=0 && b!=0)
-	    		return multiL(A , B) ;
+	    		return multiL(B , A) ;
 	    		else
 	    			throw new RuntimeException();
 	    	}
@@ -715,7 +715,7 @@ public class Polysolver implements IPolynomialSolver {
 	    	else 
 	    	{
 	    		if(a!=0 && c!=0)
-		    		return multiL(A , C) ;
+		    		return multiL(C , A) ;
 		    		else
 		    			throw new RuntimeException();
 	    	}

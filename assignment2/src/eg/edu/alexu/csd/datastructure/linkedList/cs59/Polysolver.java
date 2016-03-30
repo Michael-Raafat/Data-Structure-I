@@ -504,7 +504,8 @@ public class Polysolver implements IPolynomialSolver {
             	}
             	else if (second>first)
             	{
-            		A.add(-secondc);
+            		secondc= -secondc;
+            		A.add(secondc);
             		A.add(second);
             		j+=2;
             	}

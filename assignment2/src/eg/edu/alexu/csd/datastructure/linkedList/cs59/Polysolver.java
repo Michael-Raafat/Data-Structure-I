@@ -559,6 +559,7 @@ public class Polysolver implements IPolynomialSolver {
             // set the R
             setR(R, a);
             return a;
+            // no error in subtlist it's confusing :/
 	}
 
 	@Override

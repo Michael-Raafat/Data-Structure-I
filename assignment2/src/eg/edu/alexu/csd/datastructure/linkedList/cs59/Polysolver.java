@@ -368,7 +368,7 @@ public class Polysolver implements IPolynomialSolver {
             	}
             	else if (second>first)
             	{
-            		A.add(secondc);
+            		A.add(-secondc);
             		A.add(second);
             		j+=2;
             	}
@@ -406,7 +406,7 @@ public class Polysolver implements IPolynomialSolver {
             	{
             		int second= Integer.valueOf(String.valueOf(y.get(k+1)));
                 	int secondc= Integer.valueOf(String.valueOf(y.get(k)));
-            		A.add(secondc);
+            		A.add(-secondc);
             		A.add(second);
             	}
             }

@@ -515,7 +515,7 @@ public class Polysolver implements IPolynomialSolver {
             		if((firstc-secondc)==0)
             			{i+=2;j+=2;}
             		else{
-            		A.add(firstc-secondc);
+            		A.add(firstc+secondc);
             		A.add(first);
             		i+=2;
             		j+=2;}

@@ -586,7 +586,7 @@ public class Polysolver implements IPolynomialSolver {
 			else if (poly2=='C')
 			{
 				if(a!=0 && c!=0)
-		    		return subtlist(C , A) ;
+		    		return subtlist(A , C) ;
 		   		else
 		   			throw new RuntimeException();
 			}

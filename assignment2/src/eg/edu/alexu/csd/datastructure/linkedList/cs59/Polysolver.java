@@ -291,7 +291,7 @@ public class Polysolver implements IPolynomialSolver {
             	}
             	else
             	{
-            		if(secondc+firstc==0)
+            		if((secondc+firstc)==0)
             		{
             			i+=2;
             			j+=2;
@@ -374,7 +374,7 @@ public class Polysolver implements IPolynomialSolver {
             	}
             	else
             	{
-            		if(secondc+firstc==0)
+            		if((secondc+firstc)==0)
             		{
             			i+=2;
             			j+=2;

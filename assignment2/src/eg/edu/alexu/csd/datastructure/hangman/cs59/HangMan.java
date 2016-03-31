@@ -42,11 +42,9 @@ public class HangMan implements IHangman {
 		if (j == 0) {
 			return "";
 		}
-		int k = 0, l = 0, e = 0, w = 0;
+		int k = 0, e = 0, w = 0;
 		char[] b = dictionary[m].toUpperCase().toCharArray();
 		String r = String.copyValueOf(a, 0, dictionary[m].length());
-		String n = f.toString().toUpperCase();
-		String t = p.toString().toUpperCase();
 		if (c == null) {
 			return r;
 		}

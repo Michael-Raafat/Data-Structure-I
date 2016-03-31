@@ -2,55 +2,55 @@ package eg.edu.alexu.csd.datastructure.linkedList.cs59;
 
 public class node {
 
-	private Object element ;
-	private node next,prev;
-	public node()
-	{
+	private Object element;
+	private node next, prev;
+
+	public node() {
 		// for double linked list
-		this.element=null;
-		this.next=null;
-		this.prev=null;
+		this.element = null;
+		this.next = null;
+		this.prev = null;
 	}
-	public node(Object here)
-	{
-		this.element=here;
-		this.next=null;
-		this.prev=null;
+
+	public node(Object here) {
+		this.element = here;
+		this.next = null;
+		this.prev = null;
 	}
-	public node(node there,Object here)
-	{
-		this.element=here;
-		this.next=there;
-		this.prev=null;
+
+	public node(node there, Object here) {
+		this.element = here;
+		this.next = there;
+		this.prev = null;
 	}
-	public node(node there,node thiss,Object here)
-	{
-		this.element=here;
-		this.next=there;
-		this.prev=thiss;
+
+	public node(node there, node thiss, Object here) {
+		this.element = here;
+		this.next = there;
+		this.prev = thiss;
 	}
-	public void setelement(Object here)
-	{
-		this.element = here ;
+
+	public void setelement(Object here) {
+		this.element = here;
 	}
-	public void setnext(node there)
-	{
-		this.next =  there;
+
+	public void setnext(node there) {
+		this.next = there;
 	}
-	public void setprev(node there)
-	{
-		this.prev =  there;
+
+	public void setprev(node there) {
+		this.prev = there;
 	}
-	public Object getele()
-	{
+
+	public Object getele() {
 		return this.element;
 	}
-	public node getnext()
-	{
+
+	public node getnext() {
 		return this.next;
 	}
-	public node getprev()
-	{
+
+	public node getprev() {
 		return this.prev;
 	}
 }

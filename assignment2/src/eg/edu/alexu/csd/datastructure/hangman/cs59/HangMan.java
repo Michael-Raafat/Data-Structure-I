@@ -2,8 +2,6 @@
 package eg.edu.alexu.csd.datastructure.hangman.cs59;
 
 import java.util.Random;
-import java.io.*;
-import java.lang.*;
 import eg.edu.alexu.csd.datastructure.hangman.IHangman;
 
 public class HangMan implements IHangman {

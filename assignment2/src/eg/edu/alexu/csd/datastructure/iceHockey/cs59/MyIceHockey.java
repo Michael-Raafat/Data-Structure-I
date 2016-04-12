@@ -23,7 +23,6 @@ public class MyIceHockey implements IPlayersFinder {
 
 	public void arraysort(Point[] real) {
 		Point temp = new java.awt.Point(1000, 1000);
-		int k = 0;
 		if (real.length >= 0 && real[0] != null) {
 			for (int i = 0; i < real.length - 1; i++) {
 				for (int j = i + 1; j < real.length; j++) {

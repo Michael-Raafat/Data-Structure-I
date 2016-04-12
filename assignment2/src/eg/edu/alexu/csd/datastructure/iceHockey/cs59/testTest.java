@@ -1,6 +1,5 @@
 package eg.edu.alexu.csd.datastructure.iceHockey.cs59;
 
-import java.awt.Point;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,7 +20,6 @@ public class testTest {
 		Assert.assertArrayEquals("test2", points, pl.findPlayers(photo, 1, 5));
 	}
 
-	// 2
 	@Test
 	public void testMonster() {
 		MyIceHockey pl = new MyIceHockey();

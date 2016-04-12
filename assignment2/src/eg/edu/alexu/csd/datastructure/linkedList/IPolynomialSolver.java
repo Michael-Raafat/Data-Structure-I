@@ -32,11 +32,11 @@ package eg.edu.alexu.csd.datastructure.linkedList;
 		 * * @param poly2 second polynomial 
 		 * * @return the result polynomial */ 
 		int[][] subtract(char poly1, char poly2);
-		/** 
-		 * * Multiply two polynomials 
+         /** 
+         * * Multiply two polynomials 
 		 * * @param poly1 first polynomial 
-		 * * @param poly2 second polynomial 
-		 * * @return the result polynomial */ 
-		int[][] multiply(char poly1, char poly2); 
+         * * @param poly2 second polynomial 
+         * * @return the result polynomial */ 
+         int[][] multiply(char poly1, char poly2); 
 		}
 

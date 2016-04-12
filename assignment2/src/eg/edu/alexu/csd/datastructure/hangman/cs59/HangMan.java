@@ -26,13 +26,15 @@ public class HangMan implements IHangman {
 
 	public String selectRandomSecretWord() {
 		Random word = new Random();
-		if (j == 0)
+		if (j == 0) {
 			return null;
+		}
 		int right = word.nextInt(j);
 		m = right;
 		for (int i = 0; i < dictionary[right].length(); i++) {
-			if (dictionary[right].charAt(i) != ' ')
+			if (dictionary[right].charAt(i) != ' ') {
 				a[i] = '-';
+			}
 		}
 		return dictionary[right];
 
@@ -63,10 +65,10 @@ public class HangMan implements IHangman {
 			return r;
 		} else {
 			if (k == 0) {
-				for (int i = 0; i < dictionary[m].length(); i++) {
+			  for (int i = 0; i < dictionary[m].length(); i++) {
 					for (int j = 0; j < p.length(); j++) {
 						if (b[i] == p.charAt(j)) {
-							a[i] = dictionary[m].charAt(i);
+					        a[i] = dictionary[m].charAt(i);
 							w = 1;
 						}
 					}
@@ -80,8 +82,9 @@ public class HangMan implements IHangman {
 		}
 		if (maximum <= 0) {
 			return null;
-		} else
+		} else {
 			return r;
+		}
 
 	}
 

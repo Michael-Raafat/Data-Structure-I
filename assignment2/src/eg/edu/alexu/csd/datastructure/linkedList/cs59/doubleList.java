@@ -3,7 +3,7 @@ package eg.edu.alexu.csd.datastructure.linkedList.cs59;
 import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
 
 public class doubleList implements ILinkedList {
-	// node
+
 	private node head;
 	private int size;
 

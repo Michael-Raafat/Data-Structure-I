@@ -14,8 +14,6 @@ public interface ILinkedList {
 	public ILinkedList sublist(int fromIndex, int toIndex) ;
 
 	public boolean contains(Object o) ;
-		
-	
 
 
 }

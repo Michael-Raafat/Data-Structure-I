@@ -1,19 +1,30 @@
 package eg.edu.alexu.csd.datastructure.linkedList.cs59;
 
 import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
-
+/**
+ * @author Michael.
+ *
+ */
 public class singleList implements ILinkedList {
+    /**
+     * size of list.
+     */
 	private int size = 0;
-	node head = new node();
+	/**
+	 * head node.
+	 */
+    private node head = new node();
 
 	@Override
-	public void add(int index, Object element) {
+	public final void add(final int index, final Object element) {
 
 		// TODO Auto-generated method stub
-		if (element.equals(null))
+		if (element.equals(null)) {
 			throw new RuntimeException("ERROR");
-		if (index > size || index < 0)
+		}
+		if (index > size || index < 0) {
 			throw new RuntimeException("ERROR");
+		}
 		if (index == 0) {
 			if (size == 0) {
 				head = new node(null, element);
@@ -37,24 +48,25 @@ public class singleList implements ILinkedList {
 			node temp = new node(element);
 			node p = head;
 			for (int i = 0; i < index - 1; i++) {
-				p = p.getnext();
+              p = p.getnext();
 			}
 			temp.setnext(p.getnext());
-			p.setnext(temp);
+            p.setnext(temp);
 			size++;
 		}
 	}
 
 	@Override
-	public void add(Object element) {
+	public final void add(final Object element) {
 		// TODO Auto-generated method stub
-		if (element.equals(null))
+		if (element.equals(null)) {
 			throw new RuntimeException("ERROR");
+		}
 		if (size == 0) {
 			node p = new node(null, element);
 			head = p;
 		} else {
-			node temp = head;
+		    node temp = head;
 			while (temp.getnext() != null) {
 				temp = temp.getnext();
 			}
@@ -65,7 +77,7 @@ public class singleList implements ILinkedList {
 	}
 
 	@Override
-	public Object get(int index) {
+	public final Object get(final int index) {
 		// TODO Auto-generated method stub
 		if (index >= size || index < 0) {
 			throw new RuntimeException();
@@ -80,10 +92,11 @@ public class singleList implements ILinkedList {
 	}
 
 	@Override
-	public void set(int index, Object element) {
+	public final void set(final int index, final Object element) {
 		// TODO Auto-generated method stub
-		if ((index >= size && size != 0) || index < 0)
+		if ((index >= size && size != 0) || index < 0) {
 			throw new RuntimeException();
+		}
 		if (index == 0) {
 			head.setelement(element);
 		} else if (index == size) {
@@ -94,7 +107,6 @@ public class singleList implements ILinkedList {
 			}
 			temp.setnext(null);
 			p.setnext(temp);
-
 		} else {
 			node p = head;
 			for (int i = 0; i < index; i++) {
@@ -105,25 +117,27 @@ public class singleList implements ILinkedList {
 	}
 
 	@Override
-	public void clear() {
+	public final void clear() {
 		// TODO Auto-generated method stub
 		head = new node(null, null);
 		size = 0;
 	}
 
 	@Override
-	public boolean isEmpty() {
+	public final boolean isEmpty() {
 		// TODO Auto-generated method stub
-		if (size == 0)
+		if (size == 0) {
 			return true;
+		}
 		return false;
 	}
 
 	@Override
-	public void remove(int index) {
+	public final void remove(final int index) {
 		// TODO Auto-generated method stub
-		if (index >= size || index < 0)
+		if (index >= size || index < 0) {
 			throw new RuntimeException();
+		}
 		node temp;
 		if (size == 1) {
 			this.clear();
@@ -158,15 +172,22 @@ public class singleList implements ILinkedList {
 	}
 
 	@Override
-	public int size() {
+	public final int size() {
 		// TODO Auto-generated method stub
 		return size;
 	}
 
 	@Override
-	public ILinkedList sublist(int fromIndex, int toIndex) {
+	public final ILinkedList sublist(
+			final int fromIndex, final int toIndex) {
 		// TODO Auto-generated method stub
-		if (fromIndex < 0 || toIndex >= size || fromIndex > toIndex || size == 0) {
+        if (fromIndex < 0
+        		||
+        		toIndex >= size
+        		||
+        		fromIndex > toIndex
+        		||
+        	    size == 0) {
 			throw new RuntimeException("SUBBLIST");
 		}
 		node m = head;
@@ -184,7 +205,7 @@ public class singleList implements ILinkedList {
 	}
 
 	@Override
-	public boolean contains(Object o) {
+	public final boolean contains(final Object o) {
 		// TODO Auto-generated method stub
 		node p = head;
 		boolean flag = true;

@@ -1,56 +1,108 @@
 package eg.edu.alexu.csd.datastructure.linkedList.cs59;
-
+/**
+ * 
+ * @author Michael.
+ *
+ */
 public class node {
-
-	private Object element;
+    /**
+     * object element.
+     */
+    private Object element;
+    /**
+     * nodes next and previous. 
+     */
 	private node next, prev;
-
+    /**
+     * Any node.
+     */
 	public node() {
-		// for double linked list
+		
 		this.element = null;
 		this.next = null;
 		this.prev = null;
 	}
-
-	public node(Object here) {
+    /**
+     * 
+     * @param here
+     * value of node.
+     */
+	public node(final Object here) {
 		this.element = here;
 		this.next = null;
 		this.prev = null;
 	}
-
-	public node(node there, Object here) {
+	/**
+	 * 
+	 * @param there
+	 * to set next node.
+	 * @param here
+	 * to set the value.
+	 */
+     
+	public node(final node there, final Object here) {
 		this.element = here;
 		this.next = there;
 		this.prev = null;
 	}
-
-	public node(node there, node thiss, Object here) {
+    /**
+     * 
+     * @param there
+     * to set next node.
+     * @param thiss
+     * to set previous node.
+     * @param here
+     * to set value of node.
+     */
+	public node(final node there, final node thiss, final Object here) {
 		this.element = here;
 		this.next = there;
 		this.prev = thiss;
 	}
+	/**
+	 * 
+	 * @param here
+	 * to set element.
+	 */
 
-	public void setelement(Object here) {
+	public final void setelement(final Object here) {
 		this.element = here;
 	}
-
-	public void setnext(node there) {
+    /**
+     * 
+     * @param there
+     * set next node.
+     */
+	public final void setnext(final node there) {
 		this.next = there;
 	}
-
-	public void setprev(node there) {
+    /**
+     * 
+     * @param there
+     * set previous node.
+     */
+	public final void setprev(node there) {
 		this.prev = there;
 	}
-
-	public Object getele() {
+    /**
+     * 
+     * @return value of node.
+     */
+	public final Object getele() {
 		return this.element;
 	}
-
-	public node getnext() {
+	/**
+     * 
+     * @return node of next.
+     */
+	public final node getnext() {
 		return this.next;
 	}
-
-	public node getprev() {
+	/**
+     * 
+     * @return node of previous.
+     */
+	public final node getprev() {
 		return this.prev;
 	}
 }

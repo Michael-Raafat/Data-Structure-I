@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import eg.edu.alexu.csd.datastructure.linkedList.IPolynomialSolver;
 /**
  *
- * @author Amr
+ * @author Michael.
  *
  */
 public class Polysolver implements IPolynomialSolver {

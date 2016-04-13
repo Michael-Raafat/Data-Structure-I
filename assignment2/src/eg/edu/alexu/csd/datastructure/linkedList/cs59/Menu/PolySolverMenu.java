@@ -18,7 +18,7 @@ import javax.swing.SwingConstants;
 import eg.edu.alexu.csd.datastructure.linkedList.cs59.Polysolver;
 /**
  * GUI for the project polysolver.
- * @author Amr
+ * @author Michael.
  *
  */
 public class PolySolverMenu {

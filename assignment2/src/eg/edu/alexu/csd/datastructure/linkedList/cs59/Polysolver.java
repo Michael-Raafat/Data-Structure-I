@@ -5,26 +5,26 @@ import java.util.ArrayList;
 import eg.edu.alexu.csd.datastructure.linkedList.IPolynomialSolver;
 /**
  *
- * @author Michael.
+ * @author Michael
  *
  */
 public class Polysolver implements IPolynomialSolver {
 	/**
 	 * List 1 that contains the first equation.
 	 */
-	private singleList aA = new singleList();
+	private SingleList aA = new SingleList();
 	/**
 	 * List 1 that contains the first equation.
 	 */
-	private singleList bB = new singleList();
+	private SingleList bB = new SingleList();
 	/**
 	 * List 1 that contains the first equation.
 	 */
-	private singleList cC = new singleList();
+	private SingleList cC = new SingleList();
 	/**
 	 * List 1 that contains the first equation.
 	 */
-	private singleList rR = new singleList();
+	private SingleList rR = new SingleList();
 	/**
 	 *
 	 * @param r
@@ -32,7 +32,7 @@ public class Polysolver implements IPolynomialSolver {
 	 * @param terms
 	 * array that represents the equation coeffecients and degrees
 	 */
-	public final void setR(final singleList r, final int[][] terms) {
+	public final void setR(final SingleList r, final int[][] terms) {
 		r.clear();
 		boolean error = false;
 		for (int i = 0; i < terms.length && !error; i++) {
@@ -123,7 +123,7 @@ public class Polysolver implements IPolynomialSolver {
 	 * @return
 	 * A string that represents the equation
 	 */
-	public final String printL(final singleList a) {
+	public final String printL(final SingleList a) {
 		String equation = "";
 		for (int i = 0; i < a.size() - 2; i += 2) {
 			equation += String.valueOf(a.get(i))
@@ -211,7 +211,7 @@ public class Polysolver implements IPolynomialSolver {
 	 * @return
 	 * the result
 	 */
-	public final float eva(final singleList a, final float gogo) {
+	public final float eva(final SingleList a, final float gogo) {
 		int equation = 0;
 		for (int i = 0; i < a.size(); i += 2) {
 			equation += Integer.valueOf(String.valueOf(a.get(i)))
@@ -266,7 +266,7 @@ public class Polysolver implements IPolynomialSolver {
 	 * @return
 	 * A list containing the result of addition.
 	 */
-	public final singleList addto(final singleList x, final singleList y) {
+	public final SingleList addto(final SingleList x, final SingleList y) {
 
 		ArrayList<Integer> smallA = new ArrayList<Integer>();
 
@@ -328,7 +328,7 @@ public class Polysolver implements IPolynomialSolver {
 			ab[p][1] = smallA.get(l + 1);
 			l += 2;
 		}
-		singleList print = new singleList();
+		SingleList print = new SingleList();
 		for (int u = 0; u < ab.length; u++) {
 
 			print.add(ab[u][0]);
@@ -346,7 +346,7 @@ public class Polysolver implements IPolynomialSolver {
 	 * @return
 	 * a matrix containing the result.
 	 */
-	public final int[][] addlist(final singleList x, final singleList y) {
+	public final int[][] addlist(final SingleList x, final SingleList y) {
 		ArrayList<Integer> smallA = new ArrayList<Integer>();
 
 		int j = 0, i = 0;
@@ -401,7 +401,7 @@ public class Polysolver implements IPolynomialSolver {
 		}
 		int[][] ab = new int[smallA.size() / 2][2];
 		int l = 0;
-		singleList temp = new singleList();
+		SingleList temp = new SingleList();
 		for (int p = 0; p < smallA.size() / 2; p++) {
 			ab[p][0] = smallA.get(l);
 			ab[p][1] = smallA.get(l + 1);
@@ -476,8 +476,8 @@ public class Polysolver implements IPolynomialSolver {
 	 * @return
 	 * matrix containing subtraction result.
 	 */
-	public final int[][] subtlist(final singleList x, final singleList y) {
-		singleList temp = new singleList();
+	public final int[][] subtlist(final SingleList x, final SingleList y) {
+		SingleList temp = new SingleList();
 
 		int j = 0, i = 0;
 		while (i < x.size() && j < y.size()) {
@@ -632,9 +632,9 @@ public class Polysolver implements IPolynomialSolver {
 	 * @return
 	 * Matrix containing multiplication result.
 	 */
-	public final int[][] multiL(final singleList x, final singleList y) {
-		singleList m = new singleList();
-		singleList n = new singleList();
+	public final int[][] multiL(final SingleList x, final SingleList y) {
+		SingleList m = new SingleList();
+		SingleList n = new SingleList();
 		for (int i = 0; i < x.size(); i += 2) {
 			m.clear();
 			for (int j = 0; j < y.size(); j += 2) {
@@ -720,7 +720,7 @@ public class Polysolver implements IPolynomialSolver {
 	 * @param a
 	 * list to be copied to rR the accumulator.
 	 */
-	public final void accumulate(final singleList a) {
+	public final void accumulate(final SingleList a) {
 		int i;
 		i = 0;
 		int x;

@@ -2,18 +2,19 @@ package eg.edu.alexu.csd.datastructure.linkedList.cs59;
 
 import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
 /**
- * @author Michael.
+ *
+ * @author Amr
  *
  */
-public class singleList implements ILinkedList {
-    /**
-     * size of list.
-     */
+public class SingleList implements ILinkedList {
+	/**
+	 * list size.
+	 */
 	private int size = 0;
 	/**
-	 * head node.
+	 * list head.
 	 */
-    private node head = new node();
+	private Node head = new Node();
 
 	@Override
 	public final void add(final int index, final Object element) {
@@ -27,17 +28,17 @@ public class singleList implements ILinkedList {
 		}
 		if (index == 0) {
 			if (size == 0) {
-				head = new node(null, element);
+				head = new Node(null, element);
 				size++;
 			} else {
-				node temp;
+				Node temp;
 				temp = head;
-				head = new node(temp, element);
+				head = new Node(temp, element);
 				size++;
 			}
 		} else if (index == size) {
-			node temp = new node(null, element);
-			node p = head;
+			Node temp = new Node(null, element);
+			Node p = head;
 			for (int i = 0; i < size - 1; i++) {
 				p = p.getnext();
 			}
@@ -45,13 +46,13 @@ public class singleList implements ILinkedList {
 			p.setnext(temp);
 			size++;
 		} else if (index > 0) {
-			node temp = new node(element);
-			node p = head;
+			Node temp = new Node(element);
+			Node p = head;
 			for (int i = 0; i < index - 1; i++) {
-              p = p.getnext();
+				p = p.getnext();
 			}
 			temp.setnext(p.getnext());
-            p.setnext(temp);
+			p.setnext(temp);
 			size++;
 		}
 	}
@@ -63,14 +64,14 @@ public class singleList implements ILinkedList {
 			throw new RuntimeException("ERROR");
 		}
 		if (size == 0) {
-			node p = new node(null, element);
+			Node p = new Node(null, element);
 			head = p;
 		} else {
-		    node temp = head;
+			Node temp = head;
 			while (temp.getnext() != null) {
 				temp = temp.getnext();
 			}
-			node q = new node(null, element);
+			Node q = new Node(null, element);
 			temp.setnext(q);
 		}
 		size++;
@@ -82,7 +83,7 @@ public class singleList implements ILinkedList {
 		if (index >= size || index < 0) {
 			throw new RuntimeException();
 		}
-		node temp = head;
+		Node temp = head;
 		int i = 0;
 		while (i < index) {
 			temp = temp.getnext();
@@ -100,15 +101,16 @@ public class singleList implements ILinkedList {
 		if (index == 0) {
 			head.setelement(element);
 		} else if (index == size) {
-			node temp = new node(element);
-			node p = head;
+			Node temp = new Node(element);
+			Node p = head;
 			for (int i = 0; i < size - 1; i++) {
 				p = p.getnext();
 			}
 			temp.setnext(null);
 			p.setnext(temp);
+
 		} else {
-			node p = head;
+			Node p = head;
 			for (int i = 0; i < index; i++) {
 				p = p.getnext();
 			}
@@ -119,7 +121,7 @@ public class singleList implements ILinkedList {
 	@Override
 	public final void clear() {
 		// TODO Auto-generated method stub
-		head = new node(null, null);
+		head = new Node(null, null);
 		size = 0;
 	}
 
@@ -138,7 +140,7 @@ public class singleList implements ILinkedList {
 		if (index >= size || index < 0) {
 			throw new RuntimeException();
 		}
-		node temp;
+		Node temp;
 		if (size == 1) {
 			this.clear();
 		} else if (index == 0) {
@@ -161,7 +163,7 @@ public class singleList implements ILinkedList {
 				temp = temp.getnext();
 				i++;
 			}
-			node p;
+			Node p;
 			p = temp;
 			temp = temp.getnext();
 			p.setnext(temp.getnext());
@@ -181,20 +183,15 @@ public class singleList implements ILinkedList {
 	public final ILinkedList sublist(
 			final int fromIndex, final int toIndex) {
 		// TODO Auto-generated method stub
-        if (fromIndex < 0
-        		||
-        		toIndex >= size
-        		||
-        		fromIndex > toIndex
-        		||
-        	    size == 0) {
+		if (fromIndex < 0 || toIndex >= size
+				|| fromIndex > toIndex || size == 0) {
 			throw new RuntimeException("SUBBLIST");
 		}
-		node m = head;
+		Node m = head;
 		for (int i = 1; i <= fromIndex; i++) {
 			m = m.getnext();
 		}
-		singleList dd = new singleList();
+		SingleList dd = new SingleList();
 		dd.add(m.getele());
 		for (int i = fromIndex; i < toIndex; i++) {
 			m = m.getnext();
@@ -207,7 +204,7 @@ public class singleList implements ILinkedList {
 	@Override
 	public final boolean contains(final Object o) {
 		// TODO Auto-generated method stub
-		node p = head;
+		Node p = head;
 		boolean flag = true;
 		if (p.getele().equals(o)) {
 			flag = false;

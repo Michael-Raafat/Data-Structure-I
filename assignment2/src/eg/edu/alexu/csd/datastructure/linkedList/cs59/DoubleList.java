@@ -1,48 +1,60 @@
 package eg.edu.alexu.csd.datastructure.linkedList.cs59;
 
 import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
-
-public class doubleList implements ILinkedList {
-
-	private node head;
+/**
+ *
+ * @author Michael
+ *
+ */
+public class DoubleList implements ILinkedList {
+	/**
+	 * List head.
+	 */
+	private Node head;
+	/**
+	 * List size.
+	 */
 	private int size;
-
-	public doubleList() {
-		head = new node();
+	/**
+	 * List constructor.
+	 */
+	public DoubleList() {
+		head = new Node();
 		size = 0;
 	}
 
 	@Override
-	public void add(int index, Object element) {
+	public final void add(final int index, final Object element) {
 		// TODO Auto-generated method stub
-		if (element.equals(null))
+		if (element.equals(null)) {
 			throw new RuntimeException();
+		}
 		if (index == 0 && size == 0) {
-			node U = new node(null, null, element);
-			head = U;
+			Node u = new Node(null, null, element);
+			head = u;
 			size++;
 		} else if (index < 0 || index > size) {
 			throw new RuntimeException();
 		} else if (index == 0) {
-			node F = head;
-			node U = new node(F, null, element);
-			head = U;
+			Node f = head;
+			Node u = new Node(f, null, element);
+			head = u;
 			size++;
 		} else if (index < size) {
-			node s = head;
-			node m = new node(element);
+			Node s = head;
+			Node m = new Node(element);
 			for (int i = 1; i < index; i++) {
 				s = s.getnext();
 			}
-			node x = s.getnext();
+			Node x = s.getnext();
 			m.setnext(x);
 			m.setprev(s);
 			x.setprev(m);
 			s.setnext(m);
 			size++;
 		} else {
-			node s = head;
-			node m = new node(element);
+			Node s = head;
+			Node m = new Node(element);
 			for (int i = 1; i < index; i++) {
 				s = s.getnext();
 			}
@@ -53,15 +65,16 @@ public class doubleList implements ILinkedList {
 	}
 
 	@Override
-	public void add(Object element) {
+	public final void add(final Object element) {
 		// TODO Auto-generated method stub
-		if (element.equals(null))
+		if (element.equals(null)) {
 			throw new RuntimeException();
+		}
 		if (size == 0) {
 			head.setelement(element);
 		} else {
-			node s = head;
-			node m = new node(element);
+			Node s = head;
+			Node m = new Node(element);
 			while (s.getnext() != null) {
 				s = s.getnext();
 			}
@@ -73,12 +86,12 @@ public class doubleList implements ILinkedList {
 	}
 
 	@Override
-	public Object get(int index) {
+	public final Object get(final int index) {
 		// TODO Auto-generated method stub
 		if (index < 0 || index >= size) {
 			throw new RuntimeException();
 		}
-		node m = head;
+		Node m = head;
 		for (int i = 1; i <= index; i++) {
 			m = m.getnext();
 		}
@@ -86,12 +99,12 @@ public class doubleList implements ILinkedList {
 	}
 
 	@Override
-	public void set(int index, Object element) {
+	public final void set(final int index, final Object element) {
 		// TODO Auto-generated method stub
 		if (index < 0 || index >= size) {
 			throw new RuntimeException();
 		}
-		node m = head;
+		Node m = head;
 		for (int i = 1; i <= index; i++) {
 			m = m.getnext();
 		}
@@ -99,40 +112,28 @@ public class doubleList implements ILinkedList {
 	}
 
 	@Override
-	public void clear() {
+	public final void clear() {
 		// TODO Auto-generated method stub
-		head = new node(null, null, null);
+		head = new Node(null, null, null);
 		size = 0;
 	}
 
 	@Override
-	public boolean isEmpty() {
+	public final boolean isEmpty() {
 		// TODO Auto-generated method stub
-		if (size == 0)
+		if (size == 0) {
 			return true;
+		}
 		return false;
 	}
 
 	@Override
-	public void remove(int index) {
+	public final void remove(final int index) {
 		// TODO Auto-generated method stub
-		/*
-		 * if(size<1 || index <0 || index >=size) { throw new
-		 * RuntimeException(); } node m =head; if(size==1) { this.clear(); }
-		 * else if(index==0) { node n = head.getnext(); head=n;
-		 * head.setprev(null); size--; } else if(index==size-1) { for(int
-		 * i=1;i<index-1;i++) { m = m.getnext(); } if(m.getnext()!=null) {
-		 * m=m.getnext(); m.setnext(null); size--; } else { return; } } else {
-		 * for(int i=1;i<=index;i++) { m = m.getnext(); } if(m.getprev()==null)
-		 * { node n = m.getnext(); m.setnext(null); m.setprev(null);
-		 * n.setprev(null); } else if(m.getnext()==null) { node p = m.getprev();
-		 * m.setnext(null); m.setprev(null); p.setnext(null); } else { node p =
-		 * m.getprev(); node n = m.getnext(); m.setnext(null); m.setprev(null);
-		 * p.setnext(n); n.setprev(p); } size--; }
-		 */
-		if (index >= size || index < 0)
+		if (index >= size || index < 0) {
 			throw new RuntimeException();
-		node temp;
+		}
+		Node temp;
 		if (size == 1) {
 			this.clear();
 		} else if (index == 0) {
@@ -156,8 +157,8 @@ public class doubleList implements ILinkedList {
 				temp = temp.getnext();
 				i++;
 			}
-			node p;
-			node f;
+			Node p;
+			Node f;
 			p = temp;
 			temp = temp.getnext();
 			f = temp.getnext();
@@ -170,22 +171,24 @@ public class doubleList implements ILinkedList {
 	}
 
 	@Override
-	public int size() {
+	public final int size() {
 		// TODO Auto-generated method stub
 		return size;
 	}
 
 	@Override
-	public ILinkedList sublist(int fromIndex, int toIndex) {
+	public final ILinkedList sublist(
+			final int fromIndex, final int toIndex) {
 		// TODO Auto-generated method stub
-		if (fromIndex < 0 || toIndex >= size || fromIndex > toIndex || size == 0) {
+		if (fromIndex < 0 || toIndex >= size
+				|| fromIndex > toIndex || size == 0) {
 			throw new RuntimeException();
 		}
-		node m = head;
+		Node m = head;
 		for (int i = 1; i <= fromIndex; i++) {
 			m = m.getnext();
 		}
-		doubleList dd = new doubleList();
+		DoubleList dd = new DoubleList();
 		dd.add(m.getele());
 		for (int i = fromIndex; i < toIndex; i++) {
 			m = m.getnext();
@@ -195,20 +198,24 @@ public class doubleList implements ILinkedList {
 	}
 
 	@Override
-	public boolean contains(Object o) {
+	public final boolean contains(final Object o) {
 		// TODO Auto-generated method stub
 		boolean found = false;
-		if (size == 0 || o.equals(null))
+		if (size == 0 || o.equals(null)) {
 			return found;
-		node z = head;
-		if (z.getele().equals(o))
+		}
+		Node z = head;
+		if (z.getele().equals(o)) {
 			found = true;
+		}
 		while (z.getnext() != null && !found) {
 			z = z.getnext();
-			if (z.getele().equals(o))
+			if (z.getele().equals(o)) {
 				found = true;
+			}
 		}
 		return found;
 	}
 
 }
+

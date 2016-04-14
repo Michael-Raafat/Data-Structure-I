@@ -86,8 +86,7 @@ public class MyIceHockey implements IPlayersFinder {
 					Point hhh = centre(
 						i, j, a, threshold,
 						photo[i].length(), team);
-					if (hhh == null) { }
-					else {
+					if (hhh != null) {
 						it[f] = hhh;
 						f++;
 					}
@@ -105,7 +104,7 @@ public class MyIceHockey implements IPlayersFinder {
 		return real;
 	}
    /**
-     * recursive method
+     * recursive method.
      * @param i
      * x.
      * @param j

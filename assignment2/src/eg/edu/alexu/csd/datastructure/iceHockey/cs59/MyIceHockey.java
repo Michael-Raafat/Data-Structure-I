@@ -9,20 +9,29 @@ import eg.edu.alexu.csd.datastructure.iceHockey.IPlayersFinder;
  *
  */
 public class MyIceHockey implements IPlayersFinder {
+   /**
+	 * magic numbers.
+	 */
+	private final int magic0 = 0, magic1 = 1,
+			magic100 = 100, magic2500 = 2500,
+			magic1000 = 1000,
+			magic4 = 4;
 	/**
 	 * array 2d to store picture.
 	 */
-	char[][] a = new char[100][100];
+	private char[][] a = new char[magic100][magic100];
 	/**
 	 * array of points.
 	 */
-	Point[] it = new Point[2500];
+	private Point[] it = new Point[magic2500];
 	/**
 	 * many variables.
 	 */
-	int down = 0, zew = 1, up = 0, left = 0, right = 0,
-			t = -1, t2 = -1, p = -1, ioo = 0, ioo1 = 0,
-			foo = 0, joo = 0, joo1 = 0, joo2 = 0, f = 0;
+	private int down = magic0, zew = magic1, up = magic0, left = magic0,
+			right = magic0,
+			ioo = magic0, ioo1 = magic0,
+			foo = magic0, joo = magic0,
+			joo1 = magic0, joo2 = magic0, f = magic0;
     /**
      * to set the array.
      * @param photo
@@ -42,7 +51,7 @@ public class MyIceHockey implements IPlayersFinder {
      * array of points.
      */
 	public final void arraysort(final Point[] real) {
-		Point temp = new java.awt.Point(1000, 1000);
+		Point temp = new java.awt.Point(magic1000, magic1000);
 		if (real.length >= 0 && real[0] != null) {
 			for (int i = 0; i < real.length - 1; i++) {
 				for (int j = i + 1; j < real.length; j++) {
@@ -182,7 +191,7 @@ public class MyIceHockey implements IPlayersFinder {
 
 		}
 		if (foo == i && joo == j) {
-			if ((4 * zew) >= threshold) {
+			if ((magic4 * zew) >= threshold) {
 				int centrex = 0, centrey = 0;
 				int y = up + down + 1;
 				int x = left + right + 1;
@@ -205,8 +214,6 @@ public class MyIceHockey implements IPlayersFinder {
 				joo2 = 0;
 				ioo1 = 0;
 				ioo = 0;
-				t2 = -1;
-				p = -1;
 				Point point =
 				new java.awt.Point(centrex, centrey);
 
@@ -221,9 +228,6 @@ public class MyIceHockey implements IPlayersFinder {
 				joo2 = 0;
 				ioo1 = 0;
 				ioo = 0;
-				t2 = -1;
-				t = -1;
-				p = -1;
 				Point point = null;
 				return point;
 			}

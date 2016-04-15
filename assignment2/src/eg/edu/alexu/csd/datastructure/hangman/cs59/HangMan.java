@@ -12,7 +12,11 @@ public class HangMan implements IHangman {
     /**
      * dictionary String.
      */
-    private String[] dictionary = new String[1000];
+	/**
+	 * magic numbers.
+	 */
+	private final int magic1000 = 1000;
+    private String[] dictionary = new String[magic1000];
     /**
      * maximum guesses.
      */
@@ -25,7 +29,7 @@ public class HangMan implements IHangman {
      * char array to use in converting from.
      * string to array
      */
-    private char[] a = new char[1000];
+    private char[] a = new char[magic1000];
     /**
      * string builder to append true guess.
      */

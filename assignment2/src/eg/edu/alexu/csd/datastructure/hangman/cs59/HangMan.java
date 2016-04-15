@@ -10,12 +10,12 @@ import eg.edu.alexu.csd.datastructure.hangman.IHangman;
 
 public class HangMan implements IHangman {
     /**
-     * dictionary String.
-     */
-	/**
-	 * magic numbers.
+     * magic numbers.
 	 */
 	private final int magic1000 = 1000;
+	/**
+     * dictionary String.
+     */
     private String[] dictionary = new String[magic1000];
     /**
      * maximum guesses.

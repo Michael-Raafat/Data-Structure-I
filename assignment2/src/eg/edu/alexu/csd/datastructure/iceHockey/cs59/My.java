@@ -8,6 +8,12 @@ import org.junit.Test;
  *
  */
 public class My {
+   /**
+	 * magic numbers.
+	 */
+	private final int magic3 = 3, magic13 = 13, magic8 = 8,
+			magic9 = 9, magic2 = 2, magic6 = 6,
+			magic12 = 12, magic5 = 5, magic4 = 4;
 	/**
 	 * test corner.
 	 */
@@ -15,14 +21,14 @@ public class My {
 	public final void testCorner() {
 		MyIceHockey pl = new MyIceHockey();
 		java.awt.Point[] points = {
-				new java.awt.Point(1, 6),
-				new java.awt.Point(13, 6)};
+				new java.awt.Point(1, magic6),
+				new java.awt.Point(magic13, magic6)};
 		String[] photo = {"4QW4QW4",
 				"T4REW4Q",
 				"4Q4W4E4",
 				"4ER4TY4" };
 		Assert.assertArrayEquals("test1", points,
-				pl.findPlayers(photo, 4, 5));
+				pl.findPlayers(photo, magic4, magic5));
 	}
 	/**
 	 * test direction.
@@ -37,7 +43,7 @@ public class My {
 				"P1O1N1S1D",
 				"1E1E1E1E1" };
 		Assert.assertArrayEquals("test2", points,
-				pl.findPlayers(photo, 1, 5));
+				pl.findPlayers(photo, 1, magic5));
 	}
 	/**
 	 * test monster.
@@ -46,7 +52,7 @@ public class My {
 	public final void testMonster() {
 		MyIceHockey pl = new MyIceHockey();
 		java.awt.Point[] points = {
-				new java.awt.Point(13, 8)};
+				new java.awt.Point(magic13, magic8)};
 		String[] photo = {"8888888888888",
 				"8888888888888",
 				"8888888888888",
@@ -56,7 +62,7 @@ public class My {
 				"88WF8Q8GG88B8",
 				"8MX88D88888T8K8" };
 		Assert.assertArrayEquals("test3", points,
-				pl.findPlayers(photo, 8, 9));
+				pl.findPlayers(photo, magic8, magic9));
 	}
 
 	/**
@@ -65,8 +71,8 @@ public class My {
 	@Test
 	public final void test4() {
 		MyIceHockey pl = new MyIceHockey();
-		java.awt.Point[] points = {new java.awt.Point(8, 2),
-				new java.awt.Point(9, 8)};
+		java.awt.Point[] points = {new java.awt.Point(magic8, magic2),
+				new java.awt.Point(magic9, magic8)};
 		String[] photo = {"44K44L444",
 				"44J44T4X4",
 				"44OEVI4F4",
@@ -76,7 +82,7 @@ public class My {
 				"4U4ZDUS4",
 				"444444444" };
 		Assert.assertArrayEquals("test4", points,
-				pl.findPlayers(photo, 4, 12));
+				pl.findPlayers(photo, magic4, magic12));
 
 	}
 	/**
@@ -85,7 +91,7 @@ public class My {
 	@Test
 	public final void testBigMan() {
 		MyIceHockey pl = new MyIceHockey();
-		java.awt.Point[] points = {new java.awt.Point(9, 8)};
+		java.awt.Point[] points = {new java.awt.Point(magic9, magic8)};
 		String[] photo = {"33KEEL333",
 				"33JERT3X3",
 				"33OEVI3F3",
@@ -95,7 +101,7 @@ public class My {
 				"3UR4DUS3",
 				"333333333" };
 		Assert.assertArrayEquals("test5", points,
-				pl.findPlayers(photo, 3, 3));
+				pl.findPlayers(photo, magic3, magic3));
 
 	}
 }

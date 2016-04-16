@@ -7,12 +7,50 @@ import eg.edu.alexu.csd.datastructure.stack.IExpressionEvaluator;
  *
  */
 public class MyExpression implements IExpressionEvaluator {
-
+    int k = 0;
 	MyStack s = new MyStack();
+	char [] arr = {'(', ')', '-', '+', '*', '/'};
 	@Override
 	public String infixToPostfix(String expression) {
 		// TODO Auto-generated method stub
-		
+		StringBuilder zew = new StringBuilder(); 
+		for (int i = 0; i < expression.length(); i++) {
+			if (arr.toString().indexOf(expression.charAt(i)) >= 0) {
+				switch (expression.charAt(i)) {
+					case '(' :
+						s.push('(');
+						k++;
+						break;
+					case ')' :
+					    if (k == 0) {
+					    	throw new RuntimeException();
+					    }
+					    k--;
+						while(String.valueOf(s.peek()) != "(" ) {
+							zew.append(s.pop());
+						}
+						break;
+					case '*' :
+						if (s.peek().equals('+')
+								|| s.peek().equals('-')
+								|| s.peek().equals('/')) {
+							
+						}
+							
+						s.push('*');
+						break;
+					case '/' :
+						s.push('/');
+						break;
+					case '-' :
+						s.push('-');
+						break;
+					case '+' :
+						s.push('+');
+						break;	
+				
+			}
+		}
 		return null;
 	}
 
@@ -68,8 +106,8 @@ public class MyExpression implements IExpressionEvaluator {
 			
 		}
 		
-		int h = Integer.parseInt(String.valueOf(s.pop()));
-		return Integer.valueOf(String.valueOf(s.pop()));
+		float h = Float.parseFloat((String.valueOf(s.pop())));
+		return (int)h;
 	}
 
 }

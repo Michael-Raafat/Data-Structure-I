@@ -41,7 +41,7 @@ public class MyExpression implements IExpressionEvaluator {
 										s.peek()) != "/")) {
 							zew.append("*");
 						} else {
-							s.push('*');
+							s.push("*");
 						}
 						break;
 					case '/' :
@@ -50,7 +50,7 @@ public class MyExpression implements IExpressionEvaluator {
 						|| String.valueOf(s.peek()) == "-")) {
 							zew.append("/");
 						} else {
-							s.push('/');
+							s.push("/");
 						}
 						break;
 					case '-' :
@@ -58,7 +58,7 @@ public class MyExpression implements IExpressionEvaluator {
 								s.peek()) == "+")) {
 							zew.append("-");
 						} else {
-							s.push('-');
+							s.push("-");
 						}
 						break;
 					case '+' :
@@ -66,7 +66,7 @@ public class MyExpression implements IExpressionEvaluator {
 								s.peek()) == "+")) {
 							zew.append("+");
 						} else {
-							s.push('+');
+							s.push("+");
 						}
 						break;	
 				

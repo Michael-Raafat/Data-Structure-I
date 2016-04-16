@@ -3,7 +3,7 @@ package eg.edu.alexu.csd.datastructure.linkedList.cs59;
 import eg.edu.alexu.csd.datastructure.linkedList.ILinkedList;
 /**
  *
- * @author Amr
+ * @author Michael
  *
  */
 public class SingleList implements ILinkedList {

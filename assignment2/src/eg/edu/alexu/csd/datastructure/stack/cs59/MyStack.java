@@ -42,7 +42,7 @@ public class MyStack implements IStack {
 			top = temp;
 			size++;
 		} else if (index > 0) {
-			for (int i = size - 1; i > index + 1; i--) {
+			for (int i = size - 1; i > index; i--) {
     		  	v = v.getNext();
     	       	}
 			    temp.setNext(v.getNext());

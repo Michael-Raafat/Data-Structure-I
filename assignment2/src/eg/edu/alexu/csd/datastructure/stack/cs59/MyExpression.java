@@ -72,8 +72,7 @@ public class MyExpression implements IExpressionEvaluator {
 						/ (Float.valueOf(
 						 String.valueOf(f)))) ;
 				s.push(k);
-				}
-				if (expression.charAt(i) == '*') {
+				} else if (expression.charAt(i) == '*') {
 					Object f = s.pop();	
 					Object v = s.pop();
 					float k = (Float.valueOf(
@@ -81,8 +80,7 @@ public class MyExpression implements IExpressionEvaluator {
 							* (Float.valueOf(
 							 String.valueOf(f)))) ;
 					s.push(k);
-					}
-				if (expression.charAt(i) == '+') {
+					}else if (expression.charAt(i) == '+') {
 					Object f = s.pop();	
 					Object v = s.pop();
 					float k = (Float.valueOf(
@@ -90,8 +88,7 @@ public class MyExpression implements IExpressionEvaluator {
 							+ (Float.valueOf(
 							 String.valueOf(f)))) ;
 					s.push(k);
-					}
-				if (expression.charAt(i) == '-') {
+					} else if (expression.charAt(i) == '-') {
 					Object f = s.pop();	
 					Object v = s.pop();
 					float k = (Float.valueOf(
@@ -102,7 +99,15 @@ public class MyExpression implements IExpressionEvaluator {
 					}
 			} else {
 				if (expression.charAt(i) != ' ') {
-				s.push(expression.charAt(i));
+					int r = 0;
+					r += Integer.valueOf(expression.charAt(i));
+					while(expression.charAt(i + 1) != ' ') {
+						i++;
+						r *= 10;
+						r+=Integer.valueOf(expression.charAt(i));
+						
+					}
+				s.push(r);
 				}
 			}
 			

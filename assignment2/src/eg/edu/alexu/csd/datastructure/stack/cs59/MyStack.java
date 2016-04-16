@@ -18,20 +18,18 @@ public class MyStack implements IStack {
 	@Override
 	public void add(final int index, final Object element) {
 		// TODO Auto-generated method stub
-		if(index > size || index < 0) {
+		if (index > size || index < 0) {
 			throw new RuntimeException("ERROR");
 		}
 		Node v = top;
 		Node temp = new Node(element, null);
-		if(index == size && size != 0 ) {
+		if (index == size && size != 0) {
 			temp.setNext(top);
 			top = temp;
-		}
-		else if (size == 0 && index == size ) {
+		} else if (size == 0 && index == size) {
 			top.setElement(element);
-		}
-		else {
-	        	for(int i = size-1; i > index+1; i--) {
+		} else {
+	        	for (int i = size - 1; i > index + 1; i--) {
 		     	v = v.getNext();
 	         	}
 		        temp.setNext(v.getNext());
@@ -43,8 +41,8 @@ public class MyStack implements IStack {
 	@Override
 	public Object pop() {
 		// TODO Auto-generated method stub
-		if(isEmpty()) {
-			throw new RuntimeException ("ERROR");
+		if (isEmpty()) {
+			throw new RuntimeException("ERROR");
 		}
 		Object v = top.getElement();
 		top = top.getNext();
@@ -55,14 +53,14 @@ public class MyStack implements IStack {
 	@Override
 	public Object peek() {
 		// TODO Auto-generated method stub
-		if(isEmpty()) {
+		if (isEmpty()) {
 			throw new RuntimeException("ERROR");
 		}
 		return top;
 	}
 
 	@Override
-	public void push(Object element) {
+	public void push(final Object element) {
 		// TODO Auto-generated method stub
 		Node v = new Node(element, top);
 		top = v;

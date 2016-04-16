@@ -1,6 +1,6 @@
 package eg.edu.alexu.csd.datastructure.stack;
 /**
- * 
+ *
  * @author Michael.
  *
  */
@@ -23,11 +23,11 @@ public interface IStack {
 	public Object peek();
 	/**
 	* Pushes an item onto the top of this stack.
-	* @param object to insert
+	* @param element to insert
 	*/
 	public void push(Object element);
 	/**
-	* Tests if this stack is empty
+	* Tests if this stack is empty.
 	* @return true if stack empty
 	*/
 	public boolean isEmpty();

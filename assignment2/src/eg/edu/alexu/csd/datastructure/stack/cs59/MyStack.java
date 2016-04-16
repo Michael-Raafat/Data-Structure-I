@@ -18,6 +18,9 @@ public class MyStack implements IStack {
 	@Override
 	public void add(final int index, final Object element) {
 		// TODO Auto-generated method stub
+		if (element.equals(null)) {
+			throw new RuntimeException("ERROR");
+		}
 		if (index > size || index < 0) {
 			throw new RuntimeException("ERROR");
 		}
@@ -26,8 +29,11 @@ public class MyStack implements IStack {
 		if (index == size && size != 0) {
 			temp.setNext(top);
 			top = temp;
+			size++;
 		} else if (size == 0 && index == size) {
 			top.setElement(element);
+			top.setNext(null);
+			size++;
 		} else {
 	        	for (int i = size - 1; i > index + 1; i--) {
 		     	v = v.getNext();

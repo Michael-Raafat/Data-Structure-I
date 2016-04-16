@@ -73,7 +73,7 @@ public class MyExpression implements IExpressionEvaluator {
 				}
 			} else {
 				if (expression.charAt(i) != ' ') {
-	 				zew.append(expression.charAt(i));
+	 				zew.append(String.valueOf(expression.charAt(i)));
 	 				}
 			}
 		}

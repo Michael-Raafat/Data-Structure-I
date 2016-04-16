@@ -15,7 +15,8 @@ public class MyExpression implements IExpressionEvaluator {
 		// TODO Auto-generated method stub
 		StringBuilder zew = new StringBuilder(); 
 		for (int i = 0; i < expression.length(); i++) {
-			if (arr.toString().indexOf(expression.charAt(i)) >= 0) {
+			if (arr.toString().indexOf(
+					expression.charAt(i)) >= 0) {
 				switch (expression.charAt(i)) {
 					case '(' :
 						s.push('(');
@@ -26,21 +27,26 @@ public class MyExpression implements IExpressionEvaluator {
 					    	throw new RuntimeException();
 					    }
 					    k--;
-						while(String.valueOf(s.peek()) != "(" ) {
+						while(String.valueOf(
+								s.peek()) != "(" ) {
 							zew.append(s.pop());
 						}
+						s.pop();
 						break;
 					case '*' :
-						if (!s.isEmpty() && (String.valueOf(s.peek()) == "+"
+						if (!s.isEmpty() && (String.valueOf(
+								s.peek()) == "+"
 								|| String.valueOf(s.peek()) == "-"
-								|| String.valueOf(s.peek()) != "/")) {
+								|| String.valueOf(
+										s.peek()) != "/")) {
 							zew.append("*");
 						} else {
 							s.push('*');
 						}
 						break;
 					case '/' :
-						if (!s.isEmpty() && (String.valueOf(s.peek()) == "+"
+						if (!s.isEmpty() && (String.valueOf(
+								s.peek()) == "+"
 						|| String.valueOf(s.peek()) == "-")) {
 							zew.append("/");
 						} else {
@@ -48,14 +54,16 @@ public class MyExpression implements IExpressionEvaluator {
 						}
 						break;
 					case '-' :
-						if (!s.isEmpty() && (String.valueOf(s.peek()) == "+")) {
+						if (!s.isEmpty() && (String.valueOf(
+								s.peek()) == "+")) {
 							zew.append("-");
 						} else {
 							s.push('-');
 						}
 						break;
 					case '+' :
-						if (!s.isEmpty() && (String.valueOf(s.peek()) == "+")) {
+						if (!s.isEmpty() && (String.valueOf(
+								s.peek()) == "+")) {
 							zew.append("+");
 						} else {
 							s.push('+');

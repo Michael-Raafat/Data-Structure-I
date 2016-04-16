@@ -78,6 +78,9 @@ public class MyExpression implements IExpressionEvaluator {
 	@Override
 	public int evaluate(String expression) {
 		// TODO Auto-generated method stub
+		if (expression.length() == 0) {
+			throw new RuntimeException();
+		}
 		for (int i = 0; i < expression.length(); i++) {
 			if (expression.charAt(i) == '/'
 					|| expression.charAt(i) == '*'

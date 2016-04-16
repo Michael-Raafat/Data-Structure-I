@@ -31,29 +31,45 @@ public class MyExpression implements IExpressionEvaluator {
 						}
 						break;
 					case '*' :
-						if (s.peek().equals('+')
+						if (!s.isEmpty() && (s.peek().equals('+')
 								|| s.peek().equals('-')
-								|| s.peek().equals('/')) {
-							
+								|| s.peek().equals('/'))) {
+							zew.append("*");
+						} else {
+							s.push('*');
 						}
-							
-						s.push('*');
 						break;
 					case '/' :
-						s.push('/');
+						if (!s.isEmpty() && (s.peek().equals('+')
+								|| s.peek().equals('-') )) {
+							zew.append("/");
+						} else {
+							s.push('/');
+						}
 						break;
 					case '-' :
-						s.push('-');
+						if (!s.isEmpty() && s.peek().equals('+')) {
+							zew.append("-");
+						} else {
+							s.push('-');
+						}
 						break;
 					case '+' :
-						s.push('+');
+						if (!s.isEmpty() && s.peek().equals('-')) {
+							zew.append("+");
+						} else {
+							s.push('+');
+						}
 						break;	
 				
+				}
+			} else {
+				if (expression.charAt(i) != ' ') {
+	 				zew.append(expression.charAt(i));
+	 				}
 			}
-				return null ;
 		}
-		}
-		return null;
+		return zew.toString();
 	}
 
 	@Override

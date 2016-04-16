@@ -26,22 +26,30 @@ public class MyStack implements IStack {
 		}
 		Node v = top;
 		Node temp = new Node(element, null);
-		if (index == size && size != 0) {
+		if (index == 0) {		
+	    	if (size == 0) {
+	        top = temp;
+	        size++;
+	    	} else {
+	    		for (int i = size - 1; i > 0; i--) {
+	    		  	v = v.getNext();
+	    	       	}
+	    	        v.setNext(temp);
+	    	        size++;
+	    	}
+		} else if (index == size) {
 			temp.setNext(top);
 			top = temp;
 			size++;
-		} else if (size == 0 && index == size) {
-			top.setElement(element);
-			top.setNext(null);
-			size++;
-		} else {
-	        	for (int i = size - 1; i > index + 1; i--) {
-		     	v = v.getNext();
-	         	}
-		        temp.setNext(v.getNext());
-		        v.setNext(temp);
-		        size++;
+		} else if (index > 0) {
+			for (int i = size - 1; i > index + 1; i--) {
+    		  	v = v.getNext();
+    	       	}
+			    temp.setNext(v.getNext());
+    	        v.setNext(temp);
+    	        size++;
 		}
+		
 	}
 
 	@Override

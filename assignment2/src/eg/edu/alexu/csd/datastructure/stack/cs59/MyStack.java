@@ -78,6 +78,7 @@ public class MyStack implements IStack {
 		// TODO Auto-generated method stub
 		if(isEmpty()) {
 			top.setElement(element);
+			size++;
 		} else {
 		Node v = new Node(element, top);
 		top = v;

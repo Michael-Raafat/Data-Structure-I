@@ -67,9 +67,7 @@ public class MyExpression implements IExpressionEvaluator {
 			}
 			
 		}
-		if (s.size() != 1) {
-			throw new RuntimeException();
-		}
+		
 		int h = Integer.valueOf(String.valueOf(s.pop()));
 		return h;
 	}

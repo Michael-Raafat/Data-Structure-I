@@ -42,7 +42,7 @@ public class MyStack implements IStack {
 	public Object pop() {
 		// TODO Auto-generated method stub
 		if (isEmpty()) {
-			throw new RuntimeException("ERROR");
+			return null;
 		}
 		Object v = top.getElement();
 		top = top.getNext();

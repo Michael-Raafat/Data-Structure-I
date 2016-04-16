@@ -31,31 +31,31 @@ public class MyExpression implements IExpressionEvaluator {
 						}
 						break;
 					case '*' :
-						if (!s.isEmpty() && (s.peek().equals('+')
-								|| s.peek().equals('-')
-								|| s.peek().equals('/'))) {
+						if (!s.isEmpty() && (String.valueOf(s.peek()) == "+"
+								|| String.valueOf(s.peek()) == "-"
+								|| String.valueOf(s.peek()) != "/")) {
 							zew.append("*");
 						} else {
 							s.push('*');
 						}
 						break;
 					case '/' :
-						if (!s.isEmpty() && (s.peek().equals('+')
-								|| s.peek().equals('-') )) {
+						if (!s.isEmpty() && (String.valueOf(s.peek()) == "+"
+						|| String.valueOf(s.peek()) == "-")) {
 							zew.append("/");
 						} else {
 							s.push('/');
 						}
 						break;
 					case '-' :
-						if (!s.isEmpty() && s.peek().equals('+')) {
+						if (!s.isEmpty() && (String.valueOf(s.peek()) == "+")) {
 							zew.append("-");
 						} else {
 							s.push('-');
 						}
 						break;
 					case '+' :
-						if (!s.isEmpty() && s.peek().equals('-')) {
+						if (!s.isEmpty() && (String.valueOf(s.peek()) == "+")) {
 							zew.append("+");
 						} else {
 							s.push('+');
@@ -68,6 +68,9 @@ public class MyExpression implements IExpressionEvaluator {
 	 				zew.append(expression.charAt(i));
 	 				}
 			}
+		}
+		while (s.size() > 0) {
+			zew.append(s.pop());
 		}
 		return zew.toString();
 	}

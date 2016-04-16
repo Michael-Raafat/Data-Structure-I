@@ -76,11 +76,15 @@ public class MyStack implements IStack {
 	@Override
 	public void push(final Object element) {
 		// TODO Auto-generated method stub
-		if(isEmpty()) {
-			top.setElement(element);
+		if (isEmpty()) {
+			Node temp;
+			temp = top;
+			top = new Node(element, temp);
 			size++;
 		} else {
-		Node v = new Node(element, top);
+		Node temp;
+		temp = top;
+		Node v = new Node(element, temp);
 		top = v;
 		size++;
 		}

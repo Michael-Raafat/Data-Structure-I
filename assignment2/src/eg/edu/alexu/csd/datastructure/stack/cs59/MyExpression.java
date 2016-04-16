@@ -100,11 +100,13 @@ public class MyExpression implements IExpressionEvaluator {
 			} else {
 				if (expression.charAt(i) != ' ') {
 					int r = 0;
-					r += Integer.valueOf(expression.charAt(i));
+					r += Integer.valueOf(
+							String.valueOf(expression.charAt(i)));
 					while(expression.charAt(i + 1) != ' ') {
 						i++;
 						r *= 10;
-						r+=Integer.valueOf(expression.charAt(i));
+						r += Integer.valueOf(
+								String.valueOf(expression.charAt(i)));
 						
 					}
 				s.push(r);

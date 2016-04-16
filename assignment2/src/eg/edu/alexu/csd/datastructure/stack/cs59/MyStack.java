@@ -63,16 +63,14 @@ public class MyStack implements IStack {
 		size--;
 		return v;
 	}
-
 	@Override
 	public Object peek() {
 		// TODO Auto-generated method stub
 		if (isEmpty()) {
 			throw new RuntimeException("ERROR");
 		}
-		return top;
+		return top.getElement();
 	}
-
 	@Override
 	public void push(final Object element) {
 		// TODO Auto-generated method stub
@@ -89,7 +87,6 @@ public class MyStack implements IStack {
 		size++;
 		}
 	}
-
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub

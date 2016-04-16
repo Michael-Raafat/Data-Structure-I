@@ -136,8 +136,10 @@ public class MyExpression implements IExpressionEvaluator {
 			}
 			
 		}
-		
 		float h = Float.parseFloat((String.valueOf(s.pop())));
+		if (s.size() != 0) {
+			throw new RuntimeException();
+		}
 		return (int)h;
 	}
 

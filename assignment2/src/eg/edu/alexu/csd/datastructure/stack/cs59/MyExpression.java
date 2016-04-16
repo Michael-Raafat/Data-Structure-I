@@ -27,25 +27,37 @@ public class MyExpression implements IExpressionEvaluator {
 				if (expression.charAt(i) == '/') {
 				Object f = s.pop();	
 				Object v = s.pop();
-				float k = ((Float)v) / ((Float)f);
+				float k = (Float.valueOf(
+						String.valueOf(v))
+						/ (Float.valueOf(
+						 String.valueOf(f)))) ;
 				s.push(k);
 				}
 				if (expression.charAt(i) == '*') {
 					Object f = s.pop();	
 					Object v = s.pop();
-					int k = ((Integer)v) * ((Integer)f);
+					float k = (Float.valueOf(
+							String.valueOf(v))
+							* (Float.valueOf(
+							 String.valueOf(f)))) ;
 					s.push(k);
 					}
 				if (expression.charAt(i) == '+') {
 					Object f = s.pop();	
 					Object v = s.pop();
-					int k = ((Integer)v) + ((Integer)f);
+					float k = (Float.valueOf(
+							String.valueOf(v))
+							+ (Float.valueOf(
+							 String.valueOf(f)))) ;
 					s.push(k);
 					}
 				if (expression.charAt(i) == '-') {
 					Object f = s.pop();	
 					Object v = s.pop();
-					int k = ((Integer)v) - ((Integer)f);
+					float k = (Float.valueOf(
+							String.valueOf(v))
+							- (Float.valueOf(
+							 String.valueOf(f)))) ;
 					s.push(k);
 					}
 			} else {
@@ -55,7 +67,10 @@ public class MyExpression implements IExpressionEvaluator {
 			}
 			
 		}
-		int h = (Integer)s.pop();
+		if (s.size() != 1) {
+			throw new RuntimeException();
+		}
+		int h = Integer.valueOf(String.valueOf(s.pop()));
 		return h;
 	}
 

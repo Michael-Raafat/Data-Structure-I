@@ -50,6 +50,8 @@ public class MyExpression implements IExpressionEvaluator {
 						break;	
 				
 			}
+				return null ;
+		}
 		}
 		return null;
 	}

@@ -26,7 +26,7 @@ public class MyStack implements IStack {
 		}
 		Node v = top;
 		Node temp = new Node(element, null);
-		if (index == 0) {		
+		if (index == 0) {
 	    	if (size == 0) {
 	        top = temp;
 	        size++;
@@ -49,7 +49,6 @@ public class MyStack implements IStack {
     	        v.setNext(temp);
     	        size++;
 		}
-		
 	}
 
 	@Override

@@ -173,10 +173,11 @@
  				}
  			}
  		}
- 		float h = Float.parseFloat((String.valueOf(s.pop())));
- 		if (s.size() != 0) {
- 			throw new NullPointerException();
+        if (s.size() == 0) {
+ 			throw new RuntimeException();
  		}
+ 		float h = Float.parseFloat((String.valueOf(s.pop())));
+ 		
  		return (int) h;
  	}
  

@@ -81,7 +81,10 @@ public class MyExpression implements IExpressionEvaluator {
 			if(!String.valueOf(s.peek()).equals("(")
 					|| !String.valueOf(s.peek()).equals(")")) {
 			zew.append(s.pop());
-			zew.append(" ");
+			if (s.size() > 0 || (s.size() == 1
+					&& String.valueOf(s.peek()).equals("(" ))) {
+			   zew.append(" ");
+			}
 			} else {
 				s.pop();
 			}

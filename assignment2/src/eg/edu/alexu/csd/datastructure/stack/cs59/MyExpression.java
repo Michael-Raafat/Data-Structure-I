@@ -42,8 +42,13 @@ public class MyExpression implements IExpressionEvaluator {
 					while (!s.isEmpty() && !String.valueOf(s.peek()).equals("(")) {
 						zew.append(s.pop());
 					    zew.append(" ");
+					    if (String.valueOf(s.peek()).equals("(")) {
+					    	s.pop();
+					    	break;
+					    }
+					    	
 					}
-					s.pop();
+					
 				} else if (expression.charAt(i) == '/') {
 				  if (!s.isEmpty() && String.valueOf(s.peek()).equals("*")) {
 					  zew.append(s.pop());

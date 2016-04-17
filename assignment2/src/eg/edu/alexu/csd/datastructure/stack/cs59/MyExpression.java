@@ -37,18 +37,16 @@
  				if (!s.isEmpty() && expression.charAt(i) == '(') {
  					p++;
  					s.push("(");
- 				} else if (!s.isEmpty() && expression.charAt(i) == ')') {
+ 				}  else if (!s.isEmpty() && expression.charAt(i) == ')') {
  					p--;
  					while (!s.isEmpty() && !String.valueOf(s.peek()).equals("(")) {
  						zew.append(s.pop());
  					    zew.append(" ");
 					    if (!s.isEmpty() && String.valueOf(s.peek()).equals("(")) {
-					    	if (!s.isEmpty() && String.valueOf(s.peek()).equals("(")) {
- 					    	s.pop();
- 					    	break;
- 					    }
- 					    	
- 					}
+					    	s.pop();
+					    	break;
+					    }
+					    	
  					}
  					
  				} else if (expression.charAt(i) == '/') {

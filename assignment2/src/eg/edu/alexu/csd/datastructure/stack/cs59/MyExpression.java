@@ -82,7 +82,7 @@ public class MyExpression implements IExpressionEvaluator {
 					|| !String.valueOf(s.peek()).equals(")")) {
 			zew.append(s.pop());
 			} else {
-				zew.append(s.pop());
+				s.pop();
 			}
 		}
 		return zew.toString();

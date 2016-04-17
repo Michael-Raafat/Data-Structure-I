@@ -42,7 +42,7 @@
  					while (!s.isEmpty() && !String.valueOf(s.peek()).equals("(")) {
  						zew.append(s.pop());
  					    zew.append(" ");
-					    if (String.valueOf(s.peek()).equals("(")) {
+					    if (!s.isEmpty() && String.valueOf(s.peek()).equals("(")) {
 					    	if (!s.isEmpty() && String.valueOf(s.peek()).equals("(")) {
  					    	s.pop();
  					    	break;

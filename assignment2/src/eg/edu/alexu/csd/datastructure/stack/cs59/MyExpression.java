@@ -121,14 +121,30 @@
  		if (expression.isEmpty()) {
  			throw new RuntimeException();
  		}
+ 		Object v , f;
  		for (int i = 0; i < expression.length(); i++) {
  			if (expression.charAt(i) == '/'
  					|| expression.charAt(i) == '*'
  					|| expression.charAt(i) == '+'
  					|| expression.charAt(i) == '-') {
  				if (expression.charAt(i) == '/') {
- 				Object f = s.pop();
- 				Object v = s.pop();
+ 					if(!String.valueOf(s.peek()).equals("*")
+ 							&& !String.valueOf(s.peek()).equals("/")
+ 							&& !String.valueOf(s.peek()).equals("+")
+ 							&& !String.valueOf(s.peek()).equals("-")) {
+ 						f = s.pop();
+ 					} else {
+ 						throw new RuntimeException();
+ 					}
+ 					if(!String.valueOf(s.peek()).equals("*")
+ 							&& !String.valueOf(s.peek()).equals("/")
+ 							&& !String.valueOf(s.peek()).equals("+")
+ 							&& !String.valueOf(s.peek()).equals("-")) {
+ 						v = s.pop();
+ 					} else {
+ 						throw new RuntimeException();
+ 					}
+ 				
  				float k = (Float.valueOf(
  						String.valueOf(v))
  						/ (Float.valueOf(
@@ -136,8 +152,22 @@
  				s.push(k);
  				val = 1;
  				} else if (expression.charAt(i) == '*') {
- 					Object f = s.pop();
- 					Object v = s.pop();
+ 					if(!String.valueOf(s.peek()).equals("*")
+ 							&& !String.valueOf(s.peek()).equals("/")
+ 							&& !String.valueOf(s.peek()).equals("+")
+ 							&& !String.valueOf(s.peek()).equals("-")) {
+ 						f = s.pop();
+ 					} else {
+ 						throw new RuntimeException();
+ 					}
+ 					if(!String.valueOf(s.peek()).equals("*")
+ 							&& !String.valueOf(s.peek()).equals("/")
+ 							&& !String.valueOf(s.peek()).equals("+")
+ 							&& !String.valueOf(s.peek()).equals("-")) {
+ 						v = s.pop();
+ 					} else {
+ 						throw new RuntimeException();
+ 					}
  					float k = (Float.valueOf(
  							String.valueOf(v))
  							* (Float.valueOf(
@@ -146,8 +176,22 @@
  					val = 1;
  					} else if (
  						expression.charAt(i) == '+') {
- 					Object f = s.pop();
- 					Object v = s.pop();
+ 						if(!String.valueOf(s.peek()).equals("*")
+ 	 							&& !String.valueOf(s.peek()).equals("/")
+ 	 							&& !String.valueOf(s.peek()).equals("+")
+ 	 							&& !String.valueOf(s.peek()).equals("-")) {
+ 	 						f = s.pop();
+ 	 					} else {
+ 	 						throw new RuntimeException();
+ 	 					}
+ 	 					if(!String.valueOf(s.peek()).equals("*")
+ 	 							&& !String.valueOf(s.peek()).equals("/")
+ 	 							&& !String.valueOf(s.peek()).equals("+")
+ 	 							&& !String.valueOf(s.peek()).equals("-")) {
+ 	 						v = s.pop();
+ 	 					} else {
+ 	 						throw new RuntimeException();
+ 	 					}
  					float k = (Float.valueOf(
  							String.valueOf(v))
  							+ (Float.valueOf(
@@ -156,8 +200,22 @@
  					val = 1;
  					} else if (
  					expression.charAt(i) == '-') {
- 					Object f = s.pop();
- 					Object v = s.pop();
+ 						if(!String.valueOf(s.peek()).equals("*")
+ 	 							&& !String.valueOf(s.peek()).equals("/")
+ 	 							&& !String.valueOf(s.peek()).equals("+")
+ 	 							&& !String.valueOf(s.peek()).equals("-")) {
+ 	 						f = s.pop();
+ 	 					} else {
+ 	 						throw new RuntimeException();
+ 	 					}
+ 	 					if(!String.valueOf(s.peek()).equals("*")
+ 	 							&& !String.valueOf(s.peek()).equals("/")
+ 	 							&& !String.valueOf(s.peek()).equals("+")
+ 	 							&& !String.valueOf(s.peek()).equals("-")) {
+ 	 						v = s.pop();
+ 	 					} else {
+ 	 						throw new RuntimeException();
+ 	 					}
  					float k = (Float.valueOf(
  							String.valueOf(v))
  							- (Float.valueOf(

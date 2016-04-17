@@ -39,7 +39,7 @@ public class MyExpression implements IExpressionEvaluator {
 					s.push("(");
 				} else if (!s.isEmpty() && expression.charAt(i) == ')') {
 					p--;
-					while (!s.isEmpty() && !String.valueOf(s.peek()).equals(")")) {
+					while (!s.isEmpty() && !String.valueOf(s.peek()).equals("(")) {
 						zew.append(s.pop());
 					    zew.append(" ");
 					}

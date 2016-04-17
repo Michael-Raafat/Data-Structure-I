@@ -240,7 +240,10 @@
  			throw new RuntimeException();
  		}
  		float h = Float.parseFloat((String.valueOf(s.pop())));
- 		return (int) h;
+ 		if (s.isEmpty()) {
+ 			return (int) h;
+ 		}
+ 		throw new RuntimeException();
  	}
  
  }

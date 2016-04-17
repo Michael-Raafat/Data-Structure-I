@@ -144,11 +144,11 @@
  					|| expression.charAt(i) == '+'
  					|| expression.charAt(i) == '-') {
  				if (expression.charAt(i) == '/') {
- 					if ( i+1 < expression.length() && (
- 							expression.charAt(i+1) == '/'
- 		 					|| expression.charAt(i+1) == '*'
- 		 					|| expression.charAt(i+1) == '+'
- 		 					|| expression.charAt(i+1) == '-')) {
+ 					if ( i+2 < expression.length() && (
+ 							expression.charAt(i+2) == '/'
+ 		 					|| expression.charAt(i+2) == '*'
+ 		 					|| expression.charAt(i+2) == '+'
+ 		 					|| expression.charAt(i+2) == '-')) {
  						throw new RuntimeException();
  					}
  					if(!s.isEmpty()) {
@@ -169,11 +169,11 @@
  				s.push(k);
  				val = 1;
  				} else if (expression.charAt(i) == '*') {
- 					if ( i+1 < expression.length() && (
- 							expression.charAt(i+1) == '/'
- 		 					|| expression.charAt(i+1) == '*'
- 		 					|| expression.charAt(i+1) == '+'
- 		 					|| expression.charAt(i+1) == '-')) {
+ 					if ( i+2 < expression.length() && (
+ 							expression.charAt(i+2) == '/'
+ 		 					|| expression.charAt(i+2) == '*'
+ 		 					|| expression.charAt(i+2) == '+'
+ 		 					|| expression.charAt(i+2) == '-')) {
  						throw new RuntimeException();
  					}
  					if(!s.isEmpty()) {
@@ -194,11 +194,11 @@
  					val = 1;
  					} else if (
  						expression.charAt(i) == '+') {
- 						if ( i+1 < expression.length() && (
- 	 							expression.charAt(i+1) == '/'
- 	 		 					|| expression.charAt(i+1) == '*'
- 	 		 					|| expression.charAt(i+1) == '+'
- 	 		 					|| expression.charAt(i+1) == '-')) {
+ 						if ( i+2 < expression.length() && (
+ 	 							expression.charAt(i+2) == '/'
+ 	 		 					|| expression.charAt(i+2) == '*'
+ 	 		 					|| expression.charAt(i+2) == '+'
+ 	 		 					|| expression.charAt(i+2) == '-')) {
  	 						throw new RuntimeException();
  	 					}    
  						if(!s.isEmpty()) {
@@ -220,11 +220,11 @@
  					val = 1;
  					} else if (
  					expression.charAt(i) == '-') {
- 						if ( i+1 < expression.length() && (
- 	 							expression.charAt(i+1) == '/'
- 	 		 					|| expression.charAt(i+1) == '*'
- 	 		 					|| expression.charAt(i+1) == '+'
- 	 		 					|| expression.charAt(i+1) == '-')) {
+ 						if ( i+2 < expression.length() && (
+ 	 							expression.charAt(i+2) == '/'
+ 	 		 					|| expression.charAt(i+2) == '*'
+ 	 		 					|| expression.charAt(i+2) == '+'
+ 	 		 					|| expression.charAt(i+2) == '-')) {
  	 						throw new RuntimeException();
  	 					}
  						if(!s.isEmpty()) {

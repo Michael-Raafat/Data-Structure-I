@@ -33,12 +33,10 @@ public class MyExpression implements IExpressionEvaluator {
 					|| expression.charAt(i) == '+'
 					|| expression.charAt(i) == '-') {
 				if (expression.charAt(i) == '/') {
-				  if (String.valueOf(s.peek()).equals("*")) {
+				  if (!s.isEmpty() && String.valueOf(s.peek()).equals("*")) {
 					  zew.append(s.pop());
+					  zew.append(" ");
 					  s.push("/");
-				  } else if (String.valueOf(s.peek()).equals("+") 
-						  || String.valueOf(s.peek()).equals("-")) {
-					  zew.append("/");
 				  } else {
 					  s.push("/");
 				  }
@@ -46,6 +44,7 @@ public class MyExpression implements IExpressionEvaluator {
 					if (!s.isEmpty() && (String.valueOf(s.peek()).equals("/"))) {
 						  zew.append(s.pop());
 						  s.push("*");
+						  zew.append(" ");
 					  } else {
 						  s.push("*");
 					  }
@@ -55,9 +54,7 @@ public class MyExpression implements IExpressionEvaluator {
 								|| String.valueOf(s.peek()).equals("/"))) {
 							  zew.append(s.pop());
 							  s.push("+");
-						  } else if (!s.isEmpty() && (String.valueOf(s.peek()).equals("+") 
-								  || String.valueOf(s.peek()).equals("-"))) {
-							  zew.append("+");
+							  zew.append(" ");
 						  } else {
 							  s.push("+");
 						  }
@@ -67,9 +64,7 @@ public class MyExpression implements IExpressionEvaluator {
 								|| String.valueOf(s.peek()).equals("/")) {
 							  zew.append(s.pop());
 							  s.push("-");
-						  } else if (String.valueOf(s.peek()).equals("+") 
-								  || String.valueOf(s.peek()).equals("-")) {
-							  zew.append("-");
+							  zew.append(" ");
 						  } else {
 							  s.push("-");
 						  }
@@ -78,6 +73,7 @@ public class MyExpression implements IExpressionEvaluator {
 				if (expression.charAt(i) != ' ') {
 	 				zew.append(String.valueOf(
 	 						expression.charAt(i)));
+	 				zew.append(" ");
 	 				}
 			}
 		}

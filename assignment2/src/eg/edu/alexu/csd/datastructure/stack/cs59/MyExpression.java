@@ -28,69 +28,55 @@ public class MyExpression implements IExpressionEvaluator {
 		// TODO Auto-generated method stub
 		StringBuilder zew = new StringBuilder();
 		for (int i = 0; i < expression.length(); i++) {
-			if (arr.toString().indexOf(
-					expression.charAt(i)) >= 0) {
-				switch (expression.charAt(i)) {
-					case '(' :
-						s.push('(');
-						p++;
-						break;
-					case ')' :
-					    if (p == 0) {
-					    	throw new RuntimeException();
-					    }
-					    p--;
-						while (String.valueOf(
-							s.peek()) != "(") {
-							zew.append(s.pop());
-						}
-						s.pop();
-						break;
-					case '*' :
-						if (!s.isEmpty() && (
-							String.valueOf(
-							s.peek()) == "+"
-							|| String.valueOf(
-							s.peek()) == "-"
-							|| String.valueOf(
-							s.peek()) != "/")) {
-							zew.append("*");
-						} else {
-							s.push("*");
-						}
-						break;
-					case '/' :
-						if (!s.isEmpty() && (
-								String.valueOf(
-								s.peek()) == "+"
-						|| String.valueOf(
-							s.peek()) == "-")) {
-							zew.append("/");
-						} else {
-							s.push("/");
-						}
-						break;
-					case '-' :
-						if (!s.isEmpty() && (
-							String.valueOf(
-							s.peek()) == "+")) {
-							zew.append("-");
-						} else {
-							s.push("-");
-						}
-						break;
-					case '+' :
-						if (!s.isEmpty() && (
-								String.valueOf(
-							s.peek()) == "+")) {
-							zew.append("+");
-						} else {
-							s.push("+");
-						}
-						break;
-					default :
-						break;
-				}
+			if (expression.charAt(i) == '/'
+					|| expression.charAt(i) == '*'
+					|| expression.charAt(i) == '+'
+					|| expression.charAt(i) == '-') {
+				if (expression.charAt(i) == '/') {
+				  if (String.valueOf(s.peek()).equals("*")) {
+					  zew.append(s.pop());
+					  s.push("/");
+				  } else if (String.valueOf(s.peek()).equals("+") 
+						  || String.valueOf(s.peek()).equals("-")) {
+					  zew.append("/");
+				  } else {
+					  s.push("/");
+				  }
+				} else if (expression.charAt(i) == '*') {
+					if (String.valueOf(s.peek()).equals("/")) {
+						  zew.append(s.pop());
+						  s.push("*");
+					  } else if (String.valueOf(s.peek()).equals("+") 
+							  || String.valueOf(s.peek()).equals("-")) {
+						  zew.append("*");
+					  } else {
+						  s.push("*");
+					  }
+					} else if (
+						expression.charAt(i) == '+') {
+						if (String.valueOf(s.peek()).equals("*")
+								|| String.valueOf(s.peek()).equals("/")) {
+							  zew.append(s.pop());
+							  s.push("+");
+						  } else if (String.valueOf(s.peek()).equals("+") 
+								  || String.valueOf(s.peek()).equals("-")) {
+							  zew.append("+");
+						  } else {
+							  s.push("+");
+						  }
+					} else if (
+							expression.charAt(i) == '-') {
+						if (String.valueOf(s.peek()).equals("*")
+								|| String.valueOf(s.peek()).equals("/")) {
+							  zew.append(s.pop());
+							  s.push("-");
+						  } else if (String.valueOf(s.peek()).equals("+") 
+								  || String.valueOf(s.peek()).equals("-")) {
+							  zew.append("-");
+						  } else {
+							  s.push("-");
+						  }
+					}
 			} else {
 				if (expression.charAt(i) != ' ') {
 	 				zew.append(String.valueOf(

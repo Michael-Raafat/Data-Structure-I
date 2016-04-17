@@ -175,7 +175,7 @@
  		}
  		float h = Float.parseFloat((String.valueOf(s.pop())));
  		if (s.size() != 0) {
- 			return null;
+ 			return (Integer) null;
  		}
  		return (int) h;
  	}

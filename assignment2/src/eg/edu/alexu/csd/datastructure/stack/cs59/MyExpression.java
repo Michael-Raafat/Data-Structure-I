@@ -128,6 +128,13 @@
  					|| expression.charAt(i) == '+'
  					|| expression.charAt(i) == '-') {
  				if (expression.charAt(i) == '/') {
+ 					if ( i+1 < expression.length() && (
+ 							expression.charAt(i+1) == '/'
+ 		 					|| expression.charAt(i+1) == '*'
+ 		 					|| expression.charAt(i+1) == '+'
+ 		 					|| expression.charAt(i+1) == '-')) {
+ 						throw new RuntimeException();
+ 					}
  					if(!s.isEmpty()) {
 	 						f = s.pop();
 						    } else {
@@ -146,6 +153,13 @@
  				s.push(k);
  				val = 1;
  				} else if (expression.charAt(i) == '*') {
+ 					if ( i+1 < expression.length() && (
+ 							expression.charAt(i+1) == '/'
+ 		 					|| expression.charAt(i+1) == '*'
+ 		 					|| expression.charAt(i+1) == '+'
+ 		 					|| expression.charAt(i+1) == '-')) {
+ 						throw new RuntimeException();
+ 					}
  					if(!s.isEmpty()) {
 	 						f = s.pop();
 						    } else {
@@ -164,7 +178,14 @@
  					val = 1;
  					} else if (
  						expression.charAt(i) == '+') {
- 						    if(!s.isEmpty()) {
+ 						if ( i+1 < expression.length() && (
+ 	 							expression.charAt(i+1) == '/'
+ 	 		 					|| expression.charAt(i+1) == '*'
+ 	 		 					|| expression.charAt(i+1) == '+'
+ 	 		 					|| expression.charAt(i+1) == '-')) {
+ 	 						throw new RuntimeException();
+ 	 					}    
+ 						if(!s.isEmpty()) {
  	 						f = s.pop();
  						    } else {
 	 						    	throw new RuntimeException();
@@ -183,6 +204,13 @@
  					val = 1;
  					} else if (
  					expression.charAt(i) == '-') {
+ 						if ( i+1 < expression.length() && (
+ 	 							expression.charAt(i+1) == '/'
+ 	 		 					|| expression.charAt(i+1) == '*'
+ 	 		 					|| expression.charAt(i+1) == '+'
+ 	 		 					|| expression.charAt(i+1) == '-')) {
+ 	 						throw new RuntimeException();
+ 	 					}
  						if(!s.isEmpty()) {
  	 						f = s.pop();
  						    } else {

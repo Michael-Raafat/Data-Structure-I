@@ -46,7 +46,7 @@
 					    	s.pop();
 					    } else {
 					    	zew.append(String.valueOf(s.pop()));
-					    	zew.append(" ");
+					    	zew.append(' ');
 					    	s.pop();
  					}
  					
@@ -128,22 +128,16 @@
  					|| expression.charAt(i) == '+'
  					|| expression.charAt(i) == '-') {
  				if (expression.charAt(i) == '/') {
- 					if(!String.valueOf(s.peek()).equals("*")
- 							&& !String.valueOf(s.peek()).equals("/")
- 							&& !String.valueOf(s.peek()).equals("+")
- 							&& !String.valueOf(s.peek()).equals("-")) {
- 						f = s.pop();
- 					} else {
- 						throw new RuntimeException();
- 					}
- 					if(!String.valueOf(s.peek()).equals("*")
- 							&& !String.valueOf(s.peek()).equals("/")
- 							&& !String.valueOf(s.peek()).equals("+")
- 							&& !String.valueOf(s.peek()).equals("-")) {
- 						v = s.pop();
- 					} else {
- 						throw new RuntimeException();
- 					}
+ 					if(!s.isEmpty()) {
+	 						f = s.pop();
+						    } else {
+ 						    	throw new RuntimeException();
+ 						    }
+						   if(!s.isEmpty()) {
+	 	 						v = s.pop();
+	 						    } else {
+	 						    	throw new RuntimeException();
+	 						    }
  				
  				float k = (Float.valueOf(
  						String.valueOf(v))
@@ -152,22 +146,16 @@
  				s.push(k);
  				val = 1;
  				} else if (expression.charAt(i) == '*') {
- 					if(!String.valueOf(s.peek()).equals("*")
- 							&& !String.valueOf(s.peek()).equals("/")
- 							&& !String.valueOf(s.peek()).equals("+")
- 							&& !String.valueOf(s.peek()).equals("-")) {
- 						f = s.pop();
- 					} else {
- 						throw new RuntimeException();
- 					}
- 					if(!String.valueOf(s.peek()).equals("*")
- 							&& !String.valueOf(s.peek()).equals("/")
- 							&& !String.valueOf(s.peek()).equals("+")
- 							&& !String.valueOf(s.peek()).equals("-")) {
- 						v = s.pop();
- 					} else {
- 						throw new RuntimeException();
- 					}
+ 					if(!s.isEmpty()) {
+	 						f = s.pop();
+						    } else {
+ 						    	throw new RuntimeException();
+ 						    }
+						   if(!s.isEmpty()) {
+	 	 						v = s.pop();
+	 						    } else {
+	 						    	throw new RuntimeException();
+	 						    }
  					float k = (Float.valueOf(
  							String.valueOf(v))
  							* (Float.valueOf(
@@ -176,22 +164,17 @@
  					val = 1;
  					} else if (
  						expression.charAt(i) == '+') {
- 						if(!String.valueOf(s.peek()).equals("*")
- 	 							&& !String.valueOf(s.peek()).equals("/")
- 	 							&& !String.valueOf(s.peek()).equals("+")
- 	 							&& !String.valueOf(s.peek()).equals("-")) {
+ 						    if(!s.isEmpty()) {
  	 						f = s.pop();
- 	 					} else {
- 	 						throw new RuntimeException();
- 	 					}
- 	 					if(!String.valueOf(s.peek()).equals("*")
- 	 							&& !String.valueOf(s.peek()).equals("/")
- 	 							&& !String.valueOf(s.peek()).equals("+")
- 	 							&& !String.valueOf(s.peek()).equals("-")) {
- 	 						v = s.pop();
- 	 					} else {
- 	 						throw new RuntimeException();
- 	 					}
+ 						    } else {
+	 						    	throw new RuntimeException();
+	 						    }
+ 						   if(!s.isEmpty()) {
+ 	 	 						v = s.pop();
+ 	 						    } else {
+ 	 						    	throw new RuntimeException();
+ 	 						    }
+ 	 					
  					float k = (Float.valueOf(
  							String.valueOf(v))
  							+ (Float.valueOf(
@@ -200,22 +183,16 @@
  					val = 1;
  					} else if (
  					expression.charAt(i) == '-') {
- 						if(!String.valueOf(s.peek()).equals("*")
- 	 							&& !String.valueOf(s.peek()).equals("/")
- 	 							&& !String.valueOf(s.peek()).equals("+")
- 	 							&& !String.valueOf(s.peek()).equals("-")) {
+ 						if(!s.isEmpty()) {
  	 						f = s.pop();
- 	 					} else {
- 	 						throw new RuntimeException();
- 	 					}
- 	 					if(!String.valueOf(s.peek()).equals("*")
- 	 							&& !String.valueOf(s.peek()).equals("/")
- 	 							&& !String.valueOf(s.peek()).equals("+")
- 	 							&& !String.valueOf(s.peek()).equals("-")) {
- 	 						v = s.pop();
- 	 					} else {
- 	 						throw new RuntimeException();
- 	 					}
+ 						    } else {
+	 						    	throw new RuntimeException();
+	 						    }
+ 						   if(!s.isEmpty()) {
+ 	 	 						v = s.pop();
+ 	 						    } else {
+ 	 						    	throw new RuntimeException();
+ 	 						    }
  					float k = (Float.valueOf(
  							String.valueOf(v))
  							- (Float.valueOf(

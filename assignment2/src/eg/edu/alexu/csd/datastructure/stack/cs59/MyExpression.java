@@ -34,7 +34,7 @@
  					|| expression.charAt(i) == '-'
  					|| expression.charAt(i) == ')'
  					|| expression.charAt(i) == '(') {
- 				if (!s.isEmpty() && expression.charAt(i) == '(') {
+ 				if (expression.charAt(i) == '(') {
  					p++;
  					s.push("(");
  				}  else if (!s.isEmpty() && expression.charAt(i) == ')') {

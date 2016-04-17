@@ -31,8 +31,20 @@ public class MyExpression implements IExpressionEvaluator {
 			if (expression.charAt(i) == '/'
 					|| expression.charAt(i) == '*'
 					|| expression.charAt(i) == '+'
-					|| expression.charAt(i) == '-') {
-				if (expression.charAt(i) == '/') {
+					|| expression.charAt(i) == '-'
+					|| expression.charAt(i) == ')'
+					|| expression.charAt(i) == '(') {
+				if (expression.charAt(i) == '(') {
+					p++;
+					s.push("(");
+				} else if ( expression.charAt(i) == ')') {
+					p--;
+					while (!String.valueOf(s.peek()).equals(")")) {
+						zew.append(s.pop());
+					    zew.append(" ");
+					}
+					s.pop();
+				} else if (expression.charAt(i) == '/') {
 				  if (!s.isEmpty() && String.valueOf(s.peek()).equals("*")) {
 					  zew.append(s.pop());
 					  zew.append(" ");

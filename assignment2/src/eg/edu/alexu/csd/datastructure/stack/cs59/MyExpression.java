@@ -27,6 +27,8 @@
  	public String infixToPostfix(final String expression) {
  		// TODO Auto-generated method stub
  		StringBuilder zew = new StringBuilder();
+ 		if (expression.isEmpty()) {
+ 			throw new RuntimeException();
  		for (int i = 0; i < expression.length(); i++) {
  			if (expression.charAt(i) == '/'
  					|| expression.charAt(i) == '*'

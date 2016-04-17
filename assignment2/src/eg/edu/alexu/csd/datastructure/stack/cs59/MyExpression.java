@@ -78,8 +78,12 @@ public class MyExpression implements IExpressionEvaluator {
 			}
 		}
 		while (s.size() > 0) {
+			if(!String.valueOf(s.peek()).equals("(")
+					|| !String.valueOf(s.peek()).equals(")")) {
 			zew.append(s.pop());
-			zew.append(" ");
+			} else {
+				zew.append(s.pop());
+			}
 		}
 		return zew.toString();
 	}

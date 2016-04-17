@@ -34,10 +34,10 @@ public class MyExpression implements IExpressionEvaluator {
 					|| expression.charAt(i) == '-'
 					|| expression.charAt(i) == ')'
 					|| expression.charAt(i) == '(') {
-				if (expression.charAt(i) == '(') {
+				if (!s.isEmpty() && expression.charAt(i) == '(') {
 					p++;
 					s.push("(");
-				} else if ( expression.charAt(i) == ')') {
+				} else if (!s.isEmpty() && expression.charAt(i) == ')') {
 					p--;
 					while (!String.valueOf(s.peek()).equals(")")) {
 						zew.append(s.pop());

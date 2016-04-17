@@ -60,8 +60,8 @@ public class MyExpression implements IExpressionEvaluator {
 						  }
 					} else if (
 							expression.charAt(i) == '-') {
-						if (String.valueOf(s.peek()).equals("*")
-								|| String.valueOf(s.peek()).equals("/")) {
+						if (!s.isEmpty() && (String.valueOf(s.peek()).equals("*")
+								|| String.valueOf(s.peek()).equals("/"))) {
 							  zew.append(s.pop());
 							  s.push("-");
 							  zew.append(" ");
@@ -79,6 +79,7 @@ public class MyExpression implements IExpressionEvaluator {
 		}
 		while (s.size() > 0) {
 			zew.append(s.pop());
+			zew.append(" ");
 		}
 		return zew.toString();
 	}

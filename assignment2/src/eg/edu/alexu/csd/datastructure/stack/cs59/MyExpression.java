@@ -101,6 +101,9 @@
  	 				}
  			}
  		}
+ 		if (p != 0) {
+ 			throw new RuntimeException();
+ 		}
  		while (s.size() != 0) {
  			zew.append(String.valueOf(s.pop()));
  			if (s.size() != 0) {

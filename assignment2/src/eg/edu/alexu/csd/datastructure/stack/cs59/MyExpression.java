@@ -97,7 +97,7 @@ public class MyExpression implements IExpressionEvaluator {
 	 				}
 			}
 		}
-		if(p > 0 || s.isEmpty()) {
+		if(p > 0) {
 		 throw new RuntimeException();
 		}
 		while (s.size() > 0) {

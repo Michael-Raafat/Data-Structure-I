@@ -48,7 +48,8 @@
  					}
  					
  				} else if (expression.charAt(i) == '/') {
- 				  if (!s.isEmpty() && String.valueOf(s.peek()).equals("*")) {
+ 					if (!s.isEmpty() && (String.valueOf(s.peek()).equals("/")
+ 							|| String.valueOf(s.peek()).equals("*"))) {
  					  zew.append(s.pop());
  					  zew.append(" ");
  					  s.push("/");
@@ -56,7 +57,8 @@
  					  s.push("/");
  				  }
  				} else if (expression.charAt(i) == '*') {
- 					if (!s.isEmpty() && (String.valueOf(s.peek()).equals("/"))) {
+ 					if (!s.isEmpty() && (String.valueOf(s.peek()).equals("/")
+ 							|| String.valueOf(s.peek()).equals("*"))) {
  						  zew.append(s.pop());
  						  s.push("*");
  						  zew.append(" ");
@@ -66,7 +68,9 @@
  					} else if (
  						expression.charAt(i) == '+') {
  						if (!s.isEmpty() && (String.valueOf(s.peek()).equals("*")
- 								|| String.valueOf(s.peek()).equals("/"))) {
+ 								|| String.valueOf(s.peek()).equals("/")
+ 								|| String.valueOf(s.peek()).equals("-")
+ 								|| String.valueOf(s.peek()).equals("+"))) {
  							  zew.append(s.pop());
  							  s.push("+");
  							  zew.append(" ");
@@ -76,8 +80,10 @@
  					} else if (
  							expression.charAt(i) == '-') {
  						if (!s.isEmpty() && (String.valueOf(s.peek()).equals("*")
- 								|| String.valueOf(s.peek()).equals("/"))) {
- 							  zew.append(s.pop());
+ 								|| String.valueOf(s.peek()).equals("/")
+ 								|| String.valueOf(s.peek()).equals("-")
+ 								|| String.valueOf(s.peek()).equals("+"))) { 
+ 						      zew.append(s.pop());
  							  s.push("-");
  							  zew.append(" ");
  						  } else {
@@ -92,18 +98,13 @@
  	 				}
  			}
  		}
- 		while (s.size() > 0) {
- 			if(!String.valueOf(s.peek()).equals("(")
- 					|| !String.valueOf(s.peek()).equals(")")) {
+ 		while (s.size() != 0) {
  			zew.append(s.pop());
- 			if (s.size() > 0 || (s.size() == 1
- 					&& String.valueOf(s.peek()).equals("(" ))) {
- 			   zew.append(" ");
- 			}
- 			} else {
- 				s.pop();
+ 			if (s.size() != 0) {
+ 				zew.append(" ");
  			}
  		}
+ 		
  		return zew.toString();
  	}
  

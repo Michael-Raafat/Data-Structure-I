@@ -27,6 +27,9 @@ public class MyExpression implements IExpressionEvaluator {
 	public String infixToPostfix(final String expression) {
 		// TODO Auto-generated method stub
 		StringBuilder zew = new StringBuilder();
+		if(expression.length() == 0) {
+			throw new RuntimeException();
+		}
 		for (int i = 0; i < expression.length(); i++) {
 			if (expression.charAt(i) == '/'
 					|| expression.charAt(i) == '*'
@@ -93,6 +96,9 @@ public class MyExpression implements IExpressionEvaluator {
 	 				zew.append(" ");
 	 				}
 			}
+		}
+		if(p > 0 || s.isEmpty()) {
+		 throw new RuntimeException();
 		}
 		while (s.size() > 0) {
 			if(!String.valueOf(s.peek()).equals("(")

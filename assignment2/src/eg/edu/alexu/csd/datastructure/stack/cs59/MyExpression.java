@@ -42,7 +42,9 @@
 				 if (!s.isEmpty() && String.valueOf(s.peek()).equals("(")) {
 					    	s.pop();
 					    } else {
-					    	zew.append(s.pop());	    	
+					    	zew.append(s.pop());
+					    	zew.append(" ");
+					    	s.pop();
  					}
  					
  				} else if (expression.charAt(i) == '/') {

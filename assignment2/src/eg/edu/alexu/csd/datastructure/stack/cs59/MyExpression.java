@@ -73,10 +73,18 @@
  						if (!s.isEmpty() && (String.valueOf(s.peek()).equals("*")
  								|| String.valueOf(s.peek()).equals("/")
  								|| String.valueOf(s.peek()).equals("-")
+ 								|| String.valueOf(s.peek()).equals("+"))) { 
+ 							zew.append(String.valueOf(s.pop()));
+ 							zew.append(" ");
+ 							while(!s.isEmpty() && (String.valueOf(s.peek()).equals("*")
+ 								|| String.valueOf(s.peek()).equals("/")
+ 								|| String.valueOf(s.peek()).equals("-")
  								|| String.valueOf(s.peek()).equals("+"))) {
- 							  zew.append(String.valueOf(s.pop()));
+ 								zew.append(String.valueOf(s.pop()));
+ 								zew.append(" ");
+ 							}
  							  s.push("+");
- 							  zew.append(" ");
+ 							  
  						  } else {
  							  s.push("+");
  						  }

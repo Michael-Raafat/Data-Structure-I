@@ -46,9 +46,6 @@ public class MyExpression implements IExpressionEvaluator {
 					if (!s.isEmpty() && (String.valueOf(s.peek()).equals("/"))) {
 						  zew.append(s.pop());
 						  s.push("*");
-					  } else if (!s.isEmpty() && (String.valueOf(s.peek()).equals("+") 
-							  || String.valueOf(s.peek()).equals("-"))) {
-						  zew.append("*");
 					  } else {
 						  s.push("*");
 					  }

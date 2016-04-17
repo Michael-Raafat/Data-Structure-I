@@ -112,7 +112,7 @@
  	public int evaluate(final String expression) {
  		// TODO Auto-generated method stub
  		int val = 0;
- 		if (expression.length() == 0) {
+ 		if (expression.isEmpty()) {
  			throw new RuntimeException();
  		}
  		for (int i = 0; i < expression.length(); i++) {

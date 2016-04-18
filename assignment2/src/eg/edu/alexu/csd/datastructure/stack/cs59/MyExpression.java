@@ -1,5 +1,4 @@
  package eg.edu.alexu.csd.datastructure.stack.cs59;
- 
  import eg.edu.alexu.csd.datastructure.stack.IExpressionEvaluator;
  /**
   *
@@ -41,7 +40,7 @@
  				d = 1;
  			} else if (expression.charAt(i) == '('
  					|| expression.charAt(i) == ')') {
- 				if (d == 1 && expression.charAt(i) == ')' ) {
+ 				if (d == 1 && expression.charAt(i) == ')') {
  					throw new RuntimeException();
  				}
  			} else  if (expression.charAt(i) != ' ') {
@@ -63,27 +62,35 @@
  					s.push("(");
  				}  else if (expression.charAt(i) == ')') {
  					p--;
-				 if (!s.isEmpty() && String.valueOf(s.peek()).equals("(")) {
+				 if (!s.isEmpty() && String.valueOf(
+						 s.peek()).equals("(")) {
 					    	s.pop();
 					    } else {
-					    	zew.append(String.valueOf(s.pop()));
+					    	zew.append(String.valueOf(
+					    			s.pop()));
 					    	zew.append(' ');
 					    	s.pop();
  					}
- 					
  				} else if (expression.charAt(i) == '/') {
- 					if (!s.isEmpty() && (String.valueOf(s.peek()).equals("/")
- 							|| String.valueOf(s.peek()).equals("*"))) {
- 						zew.append(String.valueOf(s.pop()));
+ 					if (!s.isEmpty() && (String.valueOf(
+ 						s.peek()).equals("/")
+ 						|| String.valueOf(
+ 						s.peek()).equals("*"))) {
+ 						zew.append(
+ 						String.valueOf(s.pop()));
  					  zew.append(" ");
  					  s.push("/");
  				  } else {
  					  s.push("/");
  				  }
  				} else if (expression.charAt(i) == '*') {
- 					if (!s.isEmpty() && (String.valueOf(s.peek()).equals("/")
- 							|| String.valueOf(s.peek()).equals("*"))) {
- 						zew.append(String.valueOf(s.pop()));
+ 					if (!s.isEmpty() && (
+ 							String.valueOf(
+ 							s.peek()).equals("/")
+ 							|| String.valueOf(
+ 						   s.peek()).equals("*"))) {
+ 						zew.append(
+ 						String.valueOf(s.pop()));
  						  s.push("*");
  						  zew.append(" ");
  					  } else {
@@ -91,41 +98,62 @@
  					  }
  					} else if (
  						expression.charAt(i) == '+') {
- 						if (!s.isEmpty() && (String.valueOf(s.peek()).equals("*")
- 								|| String.valueOf(s.peek()).equals("/")
- 								|| String.valueOf(s.peek()).equals("-")
- 								|| String.valueOf(s.peek()).equals("+"))) { 
- 							zew.append(String.valueOf(s.pop()));
+ 						if (!s.isEmpty() && (
+ 							String.valueOf(
+ 							s.peek()).equals("*")
+ 							|| String.valueOf(
+ 							s.peek()).equals("/")
+ 							|| String.valueOf(
+ 							s.peek()).equals("-")
+ 							|| String.valueOf(
+ 						   s.peek()).equals("+"))) {
+ 							zew.append(
+ 						   String.valueOf(s.pop()));
  							zew.append(" ");
- 							while(!s.isEmpty() && (String.valueOf(s.peek()).equals("*")
- 								|| String.valueOf(s.peek()).equals("/")
- 								|| String.valueOf(s.peek()).equals("-")
- 								|| String.valueOf(s.peek()).equals("+"))) {
- 								zew.append(String.valueOf(s.pop()));
- 								zew.append(" ");
+ 							while (!s.isEmpty() && (
+ 							String.valueOf(
+ 							s.peek()).equals("*")
+ 							|| String.valueOf(
+ 							s.peek()).equals("/")
+ 							|| String.valueOf(
+ 							s.peek()).equals("-")
+ 							|| String.valueOf(
+ 						   s.peek()).equals("+"))) {
+ 							zew.append(
+ 						   String.valueOf(s.pop()));
+ 							zew.append(" ");
  							}
  							  s.push("+");
- 							  
  						  } else {
  							  s.push("+");
  						  }
  					} else if (
- 							expression.charAt(i) == '-') {
- 						if (!s.isEmpty() && (String.valueOf(s.peek()).equals("*")
- 								|| String.valueOf(s.peek()).equals("/")
- 								|| String.valueOf(s.peek()).equals("-")
- 								|| String.valueOf(s.peek()).equals("+"))) { 
- 							zew.append(String.valueOf(s.pop()));
- 							zew.append(" ");
- 							while(!s.isEmpty() && (String.valueOf(s.peek()).equals("*")
- 								|| String.valueOf(s.peek()).equals("/")
- 								|| String.valueOf(s.peek()).equals("-")
- 								|| String.valueOf(s.peek()).equals("+"))) {
- 								zew.append(String.valueOf(s.pop()));
+ 					  expression.charAt(i) == '-') {
+ 					 if (!s.isEmpty() && (
+ 					 String.valueOf(
+ 					 s.peek()).equals("*")
+ 					 || String.valueOf(
+ 					 s.peek()).equals("/")
+ 					 || String.valueOf(
+ 					 s.peek()).equals("-")
+ 					 || String.valueOf(
+ 					 s.peek()).equals("+"))) {
+ 					 zew.append(String.valueOf(s.pop()));
+ 			     	 zew.append(" ");
+ 					 while (!s.isEmpty() && (
+ 					 String.valueOf(
+ 					 s.peek()).equals("*")
+ 					 || String.valueOf(
+ 					 s.peek()).equals("/")
+ 					 || String.valueOf(
+ 					 s.peek()).equals("-")
+ 					 || String.valueOf(
+ 					 s.peek()).equals("+"))) {
+ 					 zew.append(
+ 					  String.valueOf(s.pop()));
  								zew.append(" ");
  							}
  							  s.push("-");
- 							  
  						  } else {
  							  s.push("-");
  						  }
@@ -147,10 +175,8 @@
  				zew.append(" ");
  			}
  		}
- 		
  		return zew.toString();
  	}
- 
  	@Override
  	public int evaluate(final String expression) {
  		// TODO Auto-generated method stub
@@ -158,24 +184,23 @@
  		if (expression.isEmpty()) {
  			throw new RuntimeException();
  		}
- 		Object v , f;
+ 		Object v, f;
  		for (int i = 0; i < expression.length(); i++) {
  			if (expression.charAt(i) == '/'
  					|| expression.charAt(i) == '*'
  					|| expression.charAt(i) == '+'
  					|| expression.charAt(i) == '-') {
  				if (expression.charAt(i) == '/') {
- 					if(!s.isEmpty()) {
+ 					if (!s.isEmpty()) {
 	 						f = s.pop();
 						    } else {
- 						    	throw new RuntimeException();
+ 						   throw new RuntimeException();
  						    }
-						   if(!s.isEmpty()) {
+						   if (!s.isEmpty()) {
 	 	 						v = s.pop();
 	 						    } else {
-	 						    	throw new RuntimeException();
+	 				  throw new RuntimeException();
 	 						    }
- 				
  				float k = (Float.valueOf(
  						String.valueOf(v))
  						/ (Float.valueOf(
@@ -183,15 +208,15 @@
  				s.push(k);
  				val = 1;
  				} else if (expression.charAt(i) == '*') {
- 					if(!s.isEmpty()) {
+ 					if (!s.isEmpty()) {
 	 						f = s.pop();
 						    } else {
- 						    	throw new RuntimeException();
+ 						   throw new RuntimeException();
  						    }
-						   if(!s.isEmpty()) {
+						   if (!s.isEmpty()) {
 	 	 						v = s.pop();
 	 						    } else {
-	 						    	throw new RuntimeException();
+	 	    		   throw new RuntimeException();
 	 						    }
  					float k = (Float.valueOf(
  							String.valueOf(v))
@@ -201,17 +226,16 @@
  					val = 1;
  					} else if (
  						expression.charAt(i) == '+') {
- 						if(!s.isEmpty()) {
+ 						if (!s.isEmpty()) {
  	 						f = s.pop();
  						    } else {
-	 						    	throw new RuntimeException();
+	 					throw new RuntimeException();
 	 						    }
- 						   if(!s.isEmpty()) {
+ 						   if (!s.isEmpty()) {
  	 	 						v = s.pop();
  	 						    } else {
- 	 						    	throw new RuntimeException();
+ 	 				   throw new RuntimeException();
  	 						    }
- 	 					
  					float k = (Float.valueOf(
  							String.valueOf(v))
  							+ (Float.valueOf(
@@ -220,16 +244,15 @@
  					val = 1;
  					} else if (
  					expression.charAt(i) == '-') {
- 					
- 						if(!s.isEmpty()) {
+ 						if (!s.isEmpty()) {
  	 						f = s.pop();
  						    } else {
-	 						    	throw new RuntimeException();
+	 				   throw new RuntimeException();
 	 						    }
- 						   if(!s.isEmpty()) {
+ 						   if (!s.isEmpty()) {
  	 	 						v = s.pop();
  	 						    } else {
- 	 						    	throw new RuntimeException();
+ 					   throw new RuntimeException();
  	 						    }
  					float k = (Float.valueOf(
  							String.valueOf(v))
@@ -266,5 +289,4 @@
  		}
  		return (int) h;
  	}
- 
  }

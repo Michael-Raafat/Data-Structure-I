@@ -14,7 +14,7 @@
  	/**
       * integer.
       */
- 	int p = 0, zaki = 0;
+ 	int p = 0;
      /**
       * stacks.
       */
@@ -38,17 +38,10 @@
  					|| expression.charAt(i) == ')'
  					|| expression.charAt(i) == '(') {
  				if (expression.charAt(i) == '(') {
- 					if(zaki == 1) {
- 						throw new RuntimeException();
- 					}
- 					zaki = 1;
+ 					
  					p++;
  					s.push("(");
  				}  else if (expression.charAt(i) == ')') {
- 					if(zaki == 1) {
- 						throw new RuntimeException();
- 					}
- 					zaki = 1;
  					p--;
 				 if (!s.isEmpty() && String.valueOf(s.peek()).equals("(")) {
 					    	s.pop();
@@ -59,10 +52,6 @@
  					}
  					
  				} else if (expression.charAt(i) == '/') {
- 					if(zaki == 1) {
- 						throw new RuntimeException();
- 					}
- 					zaki = 1;
  					if (!s.isEmpty() && (String.valueOf(s.peek()).equals("/")
  							|| String.valueOf(s.peek()).equals("*"))) {
  						zew.append(String.valueOf(s.pop()));
@@ -72,10 +61,6 @@
  					  s.push("/");
  				  }
  				} else if (expression.charAt(i) == '*') {
- 					if(zaki == 1) {
- 						throw new RuntimeException();
- 					}
- 					zaki = 1;
  					if (!s.isEmpty() && (String.valueOf(s.peek()).equals("/")
  							|| String.valueOf(s.peek()).equals("*"))) {
  						zew.append(String.valueOf(s.pop()));
@@ -86,10 +71,6 @@
  					  }
  					} else if (
  						expression.charAt(i) == '+') {
- 						if(zaki == 1) {
- 	 						throw new RuntimeException();
- 	 					}
- 						zaki = 1;
  						if (!s.isEmpty() && (String.valueOf(s.peek()).equals("*")
  								|| String.valueOf(s.peek()).equals("/")
  								|| String.valueOf(s.peek()).equals("-")
@@ -110,10 +91,6 @@
  						  }
  					} else if (
  							expression.charAt(i) == '-') {
- 						if(zaki == 1) {
- 	 						throw new RuntimeException();
- 	 					}
- 						zaki = 1;
  						if (!s.isEmpty() && (String.valueOf(s.peek()).equals("*")
  								|| String.valueOf(s.peek()).equals("/")
  								|| String.valueOf(s.peek()).equals("-")
@@ -138,7 +115,6 @@
  	 				zew.append(String.valueOf(
  	 						expression.charAt(i)));
  	 				zew.append(" ");
- 	 				zaki = 0;
  	 				}
  			}
  		}

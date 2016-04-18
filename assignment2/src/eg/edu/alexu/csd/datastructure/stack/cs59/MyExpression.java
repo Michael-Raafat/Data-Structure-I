@@ -48,6 +48,9 @@
  				d = 0;
  			}
  		}
+ 		if (d == 1) {
+ 			throw new RuntimeException();
+ 		}
  		for (int i = 0; i < expression.length(); i++) {
  			if (expression.charAt(i) == '/'
  					|| expression.charAt(i) == '*'

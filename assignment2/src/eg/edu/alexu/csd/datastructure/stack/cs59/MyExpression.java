@@ -148,7 +148,8 @@
  						&& i-1 >= 0
  						&& i+1 <expression.length()
  						&& expression.charAt(i-1) == ' '
- 						&& expression.charAt(i+1) == ' ') {
+ 						&& ( expression.charAt(i+1) == ' ' 
+ 		 				|| i + 1 == expression.length() - 1 )) {
  					if(!s.isEmpty()) {
 	 						f = s.pop();
 						    } else {
@@ -170,7 +171,8 @@
  						&& i-1 >= 0
  						&& i+1 <expression.length()
  						&& expression.charAt(i-1) == ' '
- 						&& expression.charAt(i+1) == ' ') {
+ 						&& ( expression.charAt(i+1) == ' ' 
+  						|| i + 1 == expression.length() - 1 )) {
  					if(!s.isEmpty()) {
 	 						f = s.pop();
 						    } else {
@@ -192,7 +194,8 @@
  						&& i-1 >= 0
  						&& i+1 <expression.length()
  						&& expression.charAt(i-1) == ' '
- 						&& expression.charAt(i+1) == ' ') {
+ 						&& ( expression.charAt(i+1) == ' ' 
+ 						|| i + 1 == expression.length() - 1 )) {
  						if(!s.isEmpty()) {
  	 						f = s.pop();
  						    } else {
@@ -215,7 +218,8 @@
  					&& i-1 >= 0
 						&& i+1 <expression.length()
 						&& expression.charAt(i-1) == ' '
-						&& expression.charAt(i+1) == ' ') {
+								&& ( expression.charAt(i+1) == ' ' 
+		 						|| i + 1 == expression.length() - 1 )) {
  					
  						if(!s.isEmpty()) {
  	 						f = s.pop();

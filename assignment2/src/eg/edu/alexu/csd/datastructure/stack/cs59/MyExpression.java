@@ -144,7 +144,11 @@
  					|| expression.charAt(i) == '*'
  					|| expression.charAt(i) == '+'
  					|| expression.charAt(i) == '-') {
- 				if (expression.charAt(i) == '/') {
+ 				if (expression.charAt(i) == '/'
+ 						&& i-1 >= 0
+ 						&& i+1 <expression.length()
+ 						&& expression.charAt(i-1) == ' '
+ 						&& expression.charAt(i+1) == ' ') {
  					if(!s.isEmpty()) {
 	 						f = s.pop();
 						    } else {
@@ -162,7 +166,11 @@
  						 String.valueOf(f))));
  				s.push(k);
  				val = 1;
- 				} else if (expression.charAt(i) == '*') {
+ 				} else if (expression.charAt(i) == '*'
+ 						&& i-1 >= 0
+ 						&& i+1 <expression.length()
+ 						&& expression.charAt(i-1) == ' '
+ 						&& expression.charAt(i+1) == ' ') {
  					if(!s.isEmpty()) {
 	 						f = s.pop();
 						    } else {
@@ -180,7 +188,11 @@
  					s.push(k);
  					val = 1;
  					} else if (
- 						expression.charAt(i) == '+') {
+ 						expression.charAt(i) == '+'
+ 						&& i-1 >= 0
+ 						&& i+1 <expression.length()
+ 						&& expression.charAt(i-1) == ' '
+ 						&& expression.charAt(i+1) == ' ') {
  						if(!s.isEmpty()) {
  	 						f = s.pop();
  						    } else {
@@ -199,7 +211,11 @@
  					s.push(k);
  					val = 1;
  					} else if (
- 					expression.charAt(i) == '-') {
+ 					expression.charAt(i) == '-'
+ 					&& i-1 >= 0
+						&& i+1 <expression.length()
+						&& expression.charAt(i-1) == ' '
+						&& expression.charAt(i+1) == ' ') {
  					
  						if(!s.isEmpty()) {
  	 						f = s.pop();
@@ -217,6 +233,8 @@
  							 String.valueOf(f))));
  					s.push(k);
  					val = 1;
+ 					} else {
+ 						throw new RuntimeException();
  					}
  			} else {
  				if (expression.charAt(i) != ' ') {

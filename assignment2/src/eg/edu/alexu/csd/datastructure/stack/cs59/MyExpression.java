@@ -98,17 +98,12 @@
  					  }
  					} else if (
  						expression.charAt(i) == '+') {
- 						if (!s.isEmpty() && (
- 							String.valueOf(
+ 				if (!s.isEmpty() && (String.valueOf(
  							s.peek()).equals("*")
- 							|| String.valueOf(
- 							s.peek()).equals("/")
- 							|| String.valueOf(
- 							s.peek()).equals("-")
- 							|| String.valueOf(
- 						   s.peek()).equals("+"))) {
- 							zew.append(
- 						   String.valueOf(s.pop()));
+ 				|| String.valueOf(s.peek()).equals("/")
+ 				|| String.valueOf(s.peek()).equals("-")
+ 				|| String.valueOf(s.peek()).equals("+"))) {
+ 					zew.append(String.valueOf(s.pop()));
  							zew.append(" ");
  							while (!s.isEmpty() && (
  							String.valueOf(

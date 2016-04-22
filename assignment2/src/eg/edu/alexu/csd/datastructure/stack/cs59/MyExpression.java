@@ -21,7 +21,6 @@
  	/**
  	 * array of characters.
  	 */
- 	char[] arr = {'(', ')', '-', '+', '*', '/'};
  	@Override
  	public String infixToPostfix(final String expression) {
  		// TODO Auto-generated method stub
@@ -101,14 +100,9 @@
  					zew.append(String.valueOf(s.pop()));
  							zew.append(" ");
  							while (!s.isEmpty() && (
- 							String.valueOf(
- 							s.peek()).equals("*")
- 							|| String.valueOf(
- 							s.peek()).equals("/")
- 							|| String.valueOf(
- 							s.peek()).equals("-")
- 							|| String.valueOf(
- 						   s.peek()).equals("+"))) {
+ 							!String.valueOf(
+ 							s.peek()).equals("(")
+ 							)) {
  							zew.append(
  						   String.valueOf(s.pop()));
  							zew.append(" ");

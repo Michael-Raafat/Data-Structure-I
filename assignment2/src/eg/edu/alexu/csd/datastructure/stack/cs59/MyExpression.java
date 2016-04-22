@@ -186,16 +186,12 @@
  					|| expression.charAt(i) == '+'
  					|| expression.charAt(i) == '-') {
  				if (expression.charAt(i) == '/') {
- 					if (!s.isEmpty()) {
-	 						f = s.pop();
-						    } else {
- 						   throw new RuntimeException();
- 						    }
-						   if (!s.isEmpty()) {
-	 	 						v = s.pop();
-	 						    } else {
-	 				  throw new RuntimeException();
-	 						    }
+ 					if (s.size() >= 2) {
+ 						f = s.pop();
+ 						v = s.pop();
+ 					} else {
+ 						throw new RuntimeException();
+ 					}
  				float k = (Float.valueOf(
  						String.valueOf(v))
  						/ (Float.valueOf(
@@ -203,16 +199,12 @@
  				s.push(k);
  				val = 1;
  				} else if (expression.charAt(i) == '*') {
- 					if (!s.isEmpty()) {
-	 						f = s.pop();
-						    } else {
- 						   throw new RuntimeException();
- 						    }
-						   if (!s.isEmpty()) {
-	 	 						v = s.pop();
-	 						    } else {
-	 	    		   throw new RuntimeException();
-	 						    }
+ 					if (s.size() >= 2) {
+ 						f = s.pop();
+ 						v = s.pop();
+ 					} else {
+ 						throw new RuntimeException();
+ 					}
  					float k = (Float.valueOf(
  							String.valueOf(v))
  							* (Float.valueOf(
@@ -221,16 +213,12 @@
  					val = 1;
  					} else if (
  						expression.charAt(i) == '+') {
- 						if (!s.isEmpty()) {
+ 						if (s.size() >= 2) {
  	 						f = s.pop();
- 						    } else {
-	 					throw new RuntimeException();
-	 						    }
- 						   if (!s.isEmpty()) {
- 	 	 						v = s.pop();
- 	 						    } else {
- 	 				   throw new RuntimeException();
- 	 						    }
+ 	 						v = s.pop();
+ 	 					} else {
+ 	 						throw new RuntimeException();
+ 	 					}
  					float k = (Float.valueOf(
  							String.valueOf(v))
  							+ (Float.valueOf(
@@ -239,16 +227,12 @@
  					val = 1;
  					} else if (
  					expression.charAt(i) == '-') {
- 						if (!s.isEmpty()) {
+ 						if (s.size() >= 2) {
  	 						f = s.pop();
- 						    } else {
-	 				   throw new RuntimeException();
-	 						    }
- 						   if (!s.isEmpty()) {
- 	 	 						v = s.pop();
- 	 						    } else {
- 					   throw new RuntimeException();
- 	 						    }
+ 	 						v = s.pop();
+ 	 					} else {
+ 	 						throw new RuntimeException();
+ 	 					}
  					float k = (Float.valueOf(
  							String.valueOf(v))
  							- (Float.valueOf(

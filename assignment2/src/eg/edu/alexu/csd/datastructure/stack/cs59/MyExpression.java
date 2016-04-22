@@ -29,27 +29,7 @@
  		if (expression.isEmpty()) {
  			throw new RuntimeException();
  		}
- 		for (int i = 0; i < expression.length(); i++) {
- 			if (expression.charAt(i) == '/'
- 					|| expression.charAt(i) == '*'
- 					|| expression.charAt(i) == '+'
- 					|| expression.charAt(i) == '-') {
- 				if (d == 1) {
- 					throw new RuntimeException();
- 				}
- 				d = 1;
- 			} else if (expression.charAt(i) == '('
- 					|| expression.charAt(i) == ')') {
- 				if (d == 1 && expression.charAt(i) == ')') {
- 					throw new RuntimeException();
- 				}
- 			} else  if (expression.charAt(i) != ' ') {
- 				d = 0;
- 			}
- 		}
- 		if (d == 1) {
- 			throw new RuntimeException();
- 		}
+ 		
  		for (int i = 0; i < expression.length(); i++) {
  			if (expression.charAt(i) == '/'
  					|| expression.charAt(i) == '*'
@@ -61,6 +41,9 @@
  					p++;
  					s.push("(");
  				}  else if (expression.charAt(i) == ')') {
+ 					if (d == 1 ) {
+ 	 					throw new RuntimeException();
+ 	 				}
  					p--;
 				 if (!s.isEmpty() && String.valueOf(
 						 s.peek()).equals("(")) {
@@ -72,6 +55,10 @@
 					    	s.pop();
  					}
  				} else if (expression.charAt(i) == '/') {
+ 					if (d == 1) {
+ 	 					throw new RuntimeException();
+ 	 				}
+ 	 				d = 1;
  					if (!s.isEmpty() && (String.valueOf(
  						s.peek()).equals("/")
  						|| String.valueOf(
@@ -84,6 +71,10 @@
  					  s.push("/");
  				  }
  				} else if (expression.charAt(i) == '*') {
+ 					if (d == 1) {
+ 	 					throw new RuntimeException();
+ 	 				}
+ 	 				d = 1;
  					if (!s.isEmpty() && (
  							String.valueOf(
  							s.peek()).equals("/")
@@ -98,7 +89,11 @@
  					  }
  					} else if (
  						expression.charAt(i) == '+') {
- 				if (!s.isEmpty() && (String.valueOf(
+ 						if (d == 1) {
+ 		 					throw new RuntimeException();
+ 		 				}
+ 		 				d = 1;
+ 						if (!s.isEmpty() && (String.valueOf(
  							s.peek()).equals("*")
  				|| String.valueOf(s.peek()).equals("/")
  				|| String.valueOf(s.peek()).equals("-")
@@ -124,7 +119,11 @@
  						  }
  					} else if (
  					  expression.charAt(i) == '-') {
- 					 if (!s.isEmpty() && (
+ 						if (d == 1) {
+ 		 					throw new RuntimeException();
+ 		 				}
+ 		 				d = 1;
+ 						if (!s.isEmpty() && (
  					 String.valueOf(
  					 s.peek()).equals("*")
  					 || String.valueOf(
@@ -158,8 +157,12 @@
  	 				zew.append(String.valueOf(
  	 						expression.charAt(i)));
  	 				zew.append(" ");
+ 	 				d = 0;
  	 				}
  			}
+ 		}
+ 		if (d == 1) {
+ 			throw new RuntimeException();
  		}
  		if (p != 0) {
  			throw new RuntimeException();

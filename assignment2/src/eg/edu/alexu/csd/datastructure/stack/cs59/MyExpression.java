@@ -152,7 +152,6 @@
  						/ (Float.valueOf(
  						 String.valueOf(f))));
  				s.push(k);
- 				val = 1;
  				} else if (expression.charAt(i) == '*') {
  					if (s.size() >= 2) {
  						f = s.pop();
@@ -165,7 +164,6 @@
  							* (Float.valueOf(
  							 String.valueOf(f))));
  					s.push(k);
- 					val = 1;
  					} else if (
  						expression.charAt(i) == '+') {
  						if (s.size() >= 2) {
@@ -179,7 +177,6 @@
  							+ (Float.valueOf(
  							 String.valueOf(f))));
  					s.push(k);
- 					val = 1;
  					} else if (
  					expression.charAt(i) == '-') {
  						if (s.size() >= 2) {
@@ -193,11 +190,9 @@
  							- (Float.valueOf(
  							 String.valueOf(f))));
  					s.push(k);
- 					val = 1;
  					} else {
  				if (expression.charAt(i) != ' ') {
  					int r = 0;
- 					val = 1;
  					r += Integer.valueOf(
  						String.valueOf(
  						expression.charAt(i)));
@@ -213,7 +208,7 @@
  				}
  			}
  		}
-        if (s.size() == 0 || val == 0) {
+        if (s.size() == 0) {
  			throw new RuntimeException();
  		}
  		float h = Float.parseFloat((String.valueOf(s.pop())));

@@ -85,13 +85,6 @@
  		 			   throw new RuntimeException();
  		 				}
  		 				d = 1;
- 					if (!s.isEmpty() && (String.valueOf(
- 							s.peek()).equals("*")
- 				|| String.valueOf(s.peek()).equals("/")
- 				|| String.valueOf(s.peek()).equals("-")
- 				|| String.valueOf(s.peek()).equals("+"))) {
- 					zew.append(String.valueOf(s.pop()));
- 							zew.append(" ");
  							while (!s.isEmpty() && (
  							!String.valueOf(
  							s.peek()).equals("(")
@@ -101,26 +94,13 @@
  							zew.append(" ");
  							}
  							  s.push("+");
- 						  } else {
- 							  s.push("+");
- 						  }
  					} else if (
  					  expression.charAt(i) == '-') {
  						if (d == 1) {
  		 			   throw new RuntimeException();
  		 				}
  		 				d = 1;
- 						if (!s.isEmpty() && (
- 					 String.valueOf(
- 					 s.peek()).equals("*")
- 					 || String.valueOf(
- 					 s.peek()).equals("/")
- 					 || String.valueOf(
- 					 s.peek()).equals("-")
- 					 || String.valueOf(
- 					 s.peek()).equals("+"))) {
- 					 zew.append(String.valueOf(s.pop()));
- 			     	 zew.append(" ");
+
  					 while (!s.isEmpty() && (
  					 !String.valueOf(
  					 s.peek()).equals("(")
@@ -130,9 +110,6 @@
  								zew.append(" ");
  							}
  							  s.push("-");
- 						  } else {
- 							  s.push("-");
- 						  }
  		} else {
  				if (expression.charAt(i) != ' ') {
  	 				zew.append(String.valueOf(
@@ -142,10 +119,7 @@
  	 				}
  			}
  		}
- 		if (d == 1) {
- 			throw new RuntimeException();
- 		}
- 		if (p != 0) {
+ 		if (d == 1 || p!= 0) {
  			throw new RuntimeException();
  		}
  		while (s.size() != 0) {

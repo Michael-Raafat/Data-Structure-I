@@ -133,8 +133,7 @@
  						  } else {
  							  s.push("-");
  						  }
- 					}
- 			else {
+ 		} else {
  				if (expression.charAt(i) != ' ') {
  	 				zew.append(String.valueOf(
  	 						expression.charAt(i)));
@@ -166,7 +165,6 @@
  		}
  		Object v, f;
  		for (int i = 0; i < expression.length(); i++) {
- 			
  				if (expression.charAt(i) == '/') {
  					if (s.size() >= 2) {
  						f = s.pop();
@@ -221,8 +219,7 @@
  							 String.valueOf(f))));
  					s.push(k);
  					val = 1;
- 					}
- 			 else {
+ 					} else {
  				if (expression.charAt(i) != ' ') {
  					int r = 0;
  					val = 1;

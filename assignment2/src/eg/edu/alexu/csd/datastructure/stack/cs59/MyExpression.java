@@ -28,19 +28,12 @@
  		if (expression.isEmpty()) {
  			throw new RuntimeException();
  		}
- 		
  		for (int i = 0; i < expression.length(); i++) {
- 			if (expression.charAt(i) == '/'
- 					|| expression.charAt(i) == '*'
- 					|| expression.charAt(i) == '+'
- 					|| expression.charAt(i) == '-'
- 					|| expression.charAt(i) == ')'
- 					|| expression.charAt(i) == '(') {
  				if (expression.charAt(i) == '(') {
  					p++;
  					s.push("(");
  				}  else if (expression.charAt(i) == ')') {
- 					if (d == 1 ) {
+ 					if (d == 1) {
  	 					throw new RuntimeException();
  	 				}
  					p--;
@@ -89,10 +82,10 @@
  					} else if (
  						expression.charAt(i) == '+') {
  						if (d == 1) {
- 		 					throw new RuntimeException();
+ 		 			   throw new RuntimeException();
  		 				}
  		 				d = 1;
- 						if (!s.isEmpty() && (String.valueOf(
+ 					if (!s.isEmpty() && (String.valueOf(
  							s.peek()).equals("*")
  				|| String.valueOf(s.peek()).equals("/")
  				|| String.valueOf(s.peek()).equals("-")
@@ -114,7 +107,7 @@
  					} else if (
  					  expression.charAt(i) == '-') {
  						if (d == 1) {
- 		 					throw new RuntimeException();
+ 		 			   throw new RuntimeException();
  		 				}
  		 				d = 1;
  						if (!s.isEmpty() && (
@@ -141,7 +134,7 @@
  							  s.push("-");
  						  }
  					}
- 			} else {
+ 			else {
  				if (expression.charAt(i) != ' ') {
  	 				zew.append(String.valueOf(
  	 						expression.charAt(i)));
@@ -173,10 +166,7 @@
  		}
  		Object v, f;
  		for (int i = 0; i < expression.length(); i++) {
- 			if (expression.charAt(i) == '/'
- 					|| expression.charAt(i) == '*'
- 					|| expression.charAt(i) == '+'
- 					|| expression.charAt(i) == '-') {
+ 			
  				if (expression.charAt(i) == '/') {
  					if (s.size() >= 2) {
  						f = s.pop();
@@ -209,7 +199,7 @@
  	 						f = s.pop();
  	 						v = s.pop();
  	 					} else {
- 	 						throw new RuntimeException();
+ 	 				   throw new RuntimeException();
  	 					}
  					float k = (Float.valueOf(
  							String.valueOf(v))
@@ -223,7 +213,7 @@
  	 						f = s.pop();
  	 						v = s.pop();
  	 					} else {
- 	 						throw new RuntimeException();
+ 	 			   	   throw new RuntimeException();
  	 					}
  					float k = (Float.valueOf(
  							String.valueOf(v))
@@ -232,7 +222,7 @@
  					s.push(k);
  					val = 1;
  					}
- 			} else {
+ 			 else {
  				if (expression.charAt(i) != ' ') {
  					int r = 0;
  					val = 1;

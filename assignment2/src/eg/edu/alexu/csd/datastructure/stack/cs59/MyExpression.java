@@ -137,7 +137,7 @@
  			throw new RuntimeException();
  		}
  		Object v, f;
- 		int k;
+ 		float k;
  		for (int i = 0; i < expression.length(); i++) {
  				if (expression.charAt(i) == '/') {
  					if (s.size() >= 2) {
@@ -146,7 +146,7 @@
  					} else {
  						throw new RuntimeException();
  					}
- 				 k = (int) (Float.valueOf(
+ 				 k = (Float.valueOf(
  						String.valueOf(v))
  						/ (Float.valueOf(
  						 String.valueOf(f))));
@@ -158,7 +158,7 @@
  					} else {
  						throw new RuntimeException();
  					}
- 				 k = (int) (Float.valueOf(
+ 				 k = (Float.valueOf(
  							String.valueOf(v))
  							* (Float.valueOf(
  							 String.valueOf(f))));
@@ -171,7 +171,7 @@
  	 					} else {
  	 				   throw new RuntimeException();
  	 					}
- 				 k = (int) (Float.valueOf(
+ 				 k = (Float.valueOf(
  							String.valueOf(v))
  							+ (Float.valueOf(
  							 String.valueOf(f))));
@@ -184,7 +184,7 @@
  	 					} else {
  	 			   	   throw new RuntimeException();
  	 					}
- 					 k = (int) (Float.valueOf(
+ 					 k = (Float.valueOf(
  							String.valueOf(v))
  							- (Float.valueOf(
  							 String.valueOf(f))));

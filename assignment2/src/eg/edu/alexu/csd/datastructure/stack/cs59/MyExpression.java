@@ -137,7 +137,7 @@
  			throw new RuntimeException();
  		}
  		Object v, f;
- 		int k;
+ 		float k;
  		for (int i = 0; i < expression.length(); i++) {
  				if (expression.charAt(i) == '/') {
  					if (s.size() >= 2) {
@@ -146,9 +146,9 @@
  					} else {
  						throw new RuntimeException();
  					}
- 				 k = (Integer.valueOf(
+ 				 k = (Float.valueOf(
  						String.valueOf(v))
- 						/ (Integer.valueOf(
+ 						/ (Float.valueOf(
  						 String.valueOf(f))));
  				s.push(k);
  				} else if (expression.charAt(i) == '*') {
@@ -158,9 +158,9 @@
  					} else {
  						throw new RuntimeException();
  					}
- 				 k = (Integer.valueOf(
+ 				 k = (Float.valueOf(
  							String.valueOf(v))
- 							* (Integer.valueOf(
+ 							* (Float.valueOf(
  							 String.valueOf(f))));
  					s.push(k);
  					} else if (
@@ -171,9 +171,9 @@
  	 					} else {
  	 				   throw new RuntimeException();
  	 					}
- 				 k = (Integer.valueOf(
+ 				 k = (Float.valueOf(
  							String.valueOf(v))
- 							+ (Integer.valueOf(
+ 							+ (Float.valueOf(
  							 String.valueOf(f))));
  					s.push(k);
  					} else if (
@@ -184,9 +184,9 @@
  	 					} else {
  	 			   	   throw new RuntimeException();
  	 					}
- 					 k = (Integer.valueOf(
+ 					 k = (Float.valueOf(
  							String.valueOf(v))
- 							- (Integer.valueOf(
+ 							- (Float.valueOf(
  							 String.valueOf(f))));
  					s.push(k);
  					} else {
@@ -210,10 +210,10 @@
         if (s.size() == 0) {
  			throw new RuntimeException();
  		}
- 		int h = Integer.parseInt((String.valueOf(s.pop())));
+ 		float h = Float.parseFloat((String.valueOf(s.pop())));
  		if (!s.isEmpty()) {
  			return 0;
  		}
- 		return  h;
+ 		return (int) h;
  	}
  }

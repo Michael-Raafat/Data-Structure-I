@@ -41,10 +41,14 @@
 						 s.peek()).equals("(")) {
 					    	s.pop();
 					    } else {
+					    	while (!String.valueOf(
+						 s.peek()).equals("(")) {
 					    	zew.append(String.valueOf(
 					    			s.pop()));
 					    	zew.append(' ');
+					    	}
 					    	s.pop();
+					    	
  					}
  				} else if (expression.charAt(i) == '/') {
  					if (d == 1) {

@@ -48,7 +48,6 @@
 					    	zew.append(' ');
 					    	}
 					    	s.pop();
-					    	
  					}
  				} else if (expression.charAt(i) == '/') {
  					if (d == 1) {

@@ -29,6 +29,7 @@ public class LinkedListBased implements IQueue, ILinkedBased {
 						tail = temp;
 		    		} else {
 						tail.setNext(temp);
+						temp.setPrev(tail);
 						tail = temp;
 					}
 		 			size++;
@@ -44,7 +45,7 @@ public class LinkedListBased implements IQueue, ILinkedBased {
 		head = head.getNext();
 		size--;
 		if (isEmpty()) {
-			tail = new Node();
+			tail = null;
 		}
 		return q;
 	}

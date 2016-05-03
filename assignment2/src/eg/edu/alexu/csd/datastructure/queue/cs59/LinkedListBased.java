@@ -23,7 +23,7 @@ public class LinkedListBased implements IQueue, ILinkedBased {
 	@Override
 	public void enqueue(final Object item) {
 		// TODO Auto-generated method stub
-	            	Node temp = new Node (item);
+			            	Node temp = new Node (item);   	
 					if (isEmpty()) {
 						head = temp;
 						tail = temp;
@@ -33,6 +33,7 @@ public class LinkedListBased implements IQueue, ILinkedBased {
 						tail = temp;
 					}
 		 			size++;
+		 			throw new RuntimeException();
 	}
 
 	@Override
@@ -45,7 +46,7 @@ public class LinkedListBased implements IQueue, ILinkedBased {
 		head = head.getNext();
 		size--;
 		if (isEmpty()) {
-			tail = null;
+			tail = new Node();
 		}
 		return q;
 	}

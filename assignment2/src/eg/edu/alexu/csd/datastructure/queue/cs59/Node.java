@@ -22,6 +22,14 @@ public class Node {
 		this.prev = null;
 	}
 	/**
+	 * starting a node.
+	 */
+	public Node(Object val) {
+		this.vali = val;
+		this.next = null;
+		this.prev = null;
+	}
+	/**
 	 * setting a node with value and pointer to.
 	 * to next node and the previous node.
 	 * @param val of node.

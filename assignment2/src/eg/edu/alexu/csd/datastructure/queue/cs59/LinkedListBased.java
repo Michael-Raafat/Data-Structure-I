@@ -23,17 +23,15 @@ public class LinkedListBased implements IQueue, ILinkedBased {
 	@Override
 	public void enqueue(final Object item) {
 		// TODO Auto-generated method stub
-		    Node temp = new Node();
-			temp.setElement(item);
-			temp.setNext(null);
-			if (isEmpty()) {
-				head = temp;
-				tail = temp;
-			} else {
-				tail.setNext(temp);
-				tail = temp;
-			}
-			size++;
+	            	Node temp = new Node (item);
+					if (isEmpty()) {
+						head = temp;
+						tail = temp;
+		    		} else {
+						tail.setNext(temp);
+						tail = temp;
+					}
+		 			size++;
 	}
 
 	@Override

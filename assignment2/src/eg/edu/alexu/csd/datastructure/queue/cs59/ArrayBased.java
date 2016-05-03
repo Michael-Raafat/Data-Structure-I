@@ -35,7 +35,7 @@ public class ArrayBased implements IQueue,IArrayBased  {
 			throw new RuntimeException();
 		}
 		Object v = a[0];
-		for (int i = 0; i < r; i++) {
+		for (int i = 0; i < r-1; i++) {
 			a[i] = a[i+1];
 		}
 		return v;

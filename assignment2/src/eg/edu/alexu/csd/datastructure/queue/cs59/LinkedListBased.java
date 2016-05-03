@@ -2,7 +2,10 @@ package eg.edu.alexu.csd.datastructure.queue.cs59;
 
 import eg.edu.alexu.csd.datastructure.queue.ILinkedBased;
 import eg.edu.alexu.csd.datastructure.queue.IQueue;
-
+/**
+ * timeout.
+ * @author Michael.
+ */
 
 public class LinkedListBased implements IQueue, ILinkedBased {
 	/**

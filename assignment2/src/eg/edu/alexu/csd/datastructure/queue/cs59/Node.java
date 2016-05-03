@@ -8,7 +8,7 @@ public class Node {
 	/**
 	 * value of node.
 	 */
-	private Object val;
+	private Object vali;
 	/**
 	 * nodes.
 	 */
@@ -17,7 +17,7 @@ public class Node {
 	 * starting a node.
 	 */
 	public Node() {
-		this.val = null;
+		this.vali = null;
 		this.next = null;
 		this.prev = null;
 	}
@@ -29,7 +29,7 @@ public class Node {
 	 * @param from node.
 	 */
 	public Node(final Object val, final Node to, final Node from) {
-		this.val = val;
+		this.vali = val;
 		this.next = to;
 		this.prev = from;
 	}
@@ -39,7 +39,7 @@ public class Node {
 	 * the value of node
 	 */
 	public final void setElement(final Object val) {
-		this.val = val;
+		this.vali = val;
 	}
 	/**
 	 * set previous node.
@@ -62,7 +62,7 @@ public class Node {
 	 * @return value
 	 */
 	public final Object getElement() {
-		return this.val;
+		return this.vali;
 	}
 	/**
 	 * get next node.

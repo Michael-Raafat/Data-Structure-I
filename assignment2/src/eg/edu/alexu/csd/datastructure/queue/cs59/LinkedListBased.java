@@ -8,17 +8,18 @@ import eg.edu.alexu.csd.datastructure.queue.IQueue;
  */
 
 public class LinkedListBased implements IQueue, ILinkedBased {
+/*
 	/**
      * list size.
-     */
+     *//*
 	private int size = 0;
 	/**
 	 * list head.
-	 */
+	 *//*
 	private Node head = new Node();
 	/**
 	 * list tail.
-	 */
+	 *//*
 	private Node tail = new Node();
 	@Override
 	public void enqueue(final Object item) {
@@ -68,5 +69,5 @@ public class LinkedListBased implements IQueue, ILinkedBased {
 		// TODO Auto-generated method stub
 		return size;
 	}
-
+*/
 }

@@ -41,6 +41,7 @@ public class ArrayBased implements IQueue,IArrayBased  {
 		for (int i = 0; i < r-1; i++) {
 			a[i] = a[i+1];
 		}
+		r--;
 		return v;
 	}
 

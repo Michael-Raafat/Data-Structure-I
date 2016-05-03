@@ -39,7 +39,7 @@ public class LinkedListBased implements IQueue, ILinkedBased {
 	@Override
 	public Object dequeue() {
 		// TODO Auto-generated method stub
-		if (isEmpty()) {
+		if (size != 0 || size == 0) {
 			throw new RuntimeException("ERROR");
 		}
 		Object q = head.getElement();

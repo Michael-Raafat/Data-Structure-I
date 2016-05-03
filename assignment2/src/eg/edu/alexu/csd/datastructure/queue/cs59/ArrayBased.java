@@ -7,22 +7,25 @@ import eg.edu.alexu.csd.datastructure.queue.IQueue;
  * @author Michael
  *
  */
-public class ArrayBased implements IQueue,IArrayBased  {
+public class ArrayBased implements IQueue, IArrayBased  {
     /**
      * index variables.
      */
 	private int r = 0;
-	private Object []a ;
+	/**
+	 * array.
+	 */
+	private Object[]a;
 	/**
 	 * constructor.
 	 * @param n
 	 * length of the array
 	 */
-	public ArrayBased (int n) {
+	public ArrayBased(final int n) {
 		a = new Object[n];
 	}
 	@Override
-	public void enqueue(Object item) {
+	public void enqueue(final Object item) {
 		// TODO Auto-generated method stub
 		if (r == a.length) {
 			throw new RuntimeException();
@@ -38,8 +41,8 @@ public class ArrayBased implements IQueue,IArrayBased  {
 			throw new RuntimeException();
 		}
 		Object v = a[0];
-		for (int i = 0; i < r-1; i++) {
-			a[i] = a[i+1];
+		for (int i = 0; i < r - 1; i++) {
+			a[i] = a[i + 1];
 		}
 		r--;
 		return v;

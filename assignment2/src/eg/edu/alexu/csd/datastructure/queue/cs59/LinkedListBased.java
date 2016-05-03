@@ -4,7 +4,7 @@ import eg.edu.alexu.csd.datastructure.queue.ILinkedBased;
 import eg.edu.alexu.csd.datastructure.queue.IQueue;
 
 
-public class LinkedListBased implements IQueue,ILinkedBased {
+public class LinkedListBased implements IQueue, ILinkedBased {
 	/**
      * list size.
      */
@@ -18,7 +18,7 @@ public class LinkedListBased implements IQueue,ILinkedBased {
 	 */
 	private Node tail = new Node();
 	@Override
-	public void enqueue(Object item) {
+	public void enqueue(final Object item) {
 		// TODO Auto-generated method stub
 		    Node temp = new Node();
 			temp.setElement(item);
@@ -42,7 +42,7 @@ public class LinkedListBased implements IQueue,ILinkedBased {
 		Object q = head.getElement();
 		head = head.getNext();
 		size--;
-		if(isEmpty()) {
+		if (isEmpty()) {
 			tail = new Node();
 		}
 		return q;

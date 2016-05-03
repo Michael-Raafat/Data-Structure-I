@@ -41,7 +41,17 @@ public class LinkedListBased implements IQueue, ILinkedBased {
 	@Override
 	public Object dequeue() {
 		// TODO Auto-generated method stub
-		return null;
+		if (isEmpty()) {
+			throw new RuntimeException("ERROR");
+		}
+		Object q = head.getElement();
+		head = head.getNext();
+		head.setPrev(null);
+		size--;
+		if (isEmpty()) {
+			tail = new Node();
+		}
+		return q;
 	}
 
 	@Override

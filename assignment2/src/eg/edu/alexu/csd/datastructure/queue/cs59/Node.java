@@ -23,8 +23,9 @@ public class Node {
 	}
 	/**
 	 * starting a node.
+	 * @param val is the value of node
 	 */
-	public Node(Object val) {
+	public Node(final Object val) {
 		this.vali = val;
 		this.next = null;
 		this.prev = null;

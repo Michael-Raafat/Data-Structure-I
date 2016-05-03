@@ -46,7 +46,7 @@ public class LinkedListBased implements IQueue, ILinkedBased {
 		}
 		Object q = head.getElement();
 		head = head.getNext();
-		head.setPrev(null);
+		//head.setPrev(null);
 		size--;
 		if (isEmpty()) {
 			tail = new Node();

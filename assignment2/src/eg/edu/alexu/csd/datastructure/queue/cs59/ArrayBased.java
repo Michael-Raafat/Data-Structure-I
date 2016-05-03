@@ -24,6 +24,9 @@ public class ArrayBased implements IQueue,IArrayBased  {
 	@Override
 	public void enqueue(Object item) {
 		// TODO Auto-generated method stub
+		if (r == a.length) {
+			throw new RuntimeException();
+		}
 		a[r] = item;
 		r++;
 	}

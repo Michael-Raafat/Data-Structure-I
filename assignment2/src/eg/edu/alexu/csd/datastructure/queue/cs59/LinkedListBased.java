@@ -20,7 +20,7 @@ public class LinkedListBased implements IQueue,ILinkedBased {
 	@Override
 	public void enqueue(Object item) {
 		// TODO Auto-generated method stub
-			Node temp;
+		    Node temp;
 			temp = tail;
 			tail = new Node(item, null,temp);
 			size++;
@@ -42,7 +42,10 @@ public class LinkedListBased implements IQueue,ILinkedBased {
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
-		return (size==0);
+		if (size == 0) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override

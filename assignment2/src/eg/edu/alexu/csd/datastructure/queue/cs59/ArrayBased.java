@@ -31,6 +31,9 @@ public class ArrayBased implements IQueue,IArrayBased  {
 	@Override
 	public Object dequeue() {
 		// TODO Auto-generated method stub
+		if (r == 0) {
+			throw new RuntimeException();
+		}
 		Object v = a[0];
 		for (int i = 0; i < r; i++) {
 			a[i] = a[i+1];

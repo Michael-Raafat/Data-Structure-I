@@ -23,9 +23,6 @@ public class LinkedListBased implements IQueue, ILinkedBased {
 	@Override
 	public void enqueue(final Object item) {
 		// TODO Auto-generated method stub
-		if (size > 1000) {
-			throw new RuntimeException();
-		}
 		Node temp = new Node(item);
 					if (isEmpty()) {
 						head = temp;
@@ -40,9 +37,6 @@ public class LinkedListBased implements IQueue, ILinkedBased {
 	@Override
 	public Object dequeue() {
 		// TODO Auto-generated method stub
-		if (size > 1000) {
-			throw new RuntimeException();
-		}
 		if (isEmpty()) {
 			throw new RuntimeException("ERROR");
 		}

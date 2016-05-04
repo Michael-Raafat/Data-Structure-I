@@ -1,5 +1,4 @@
 package eg.edu.alexu.csd.datastructure.queue.cs59;
-import java.util.Arrays;
 import eg.edu.alexu.csd.datastructure.queue.IArrayBased;
 import eg.edu.alexu.csd.datastructure.queue.IQueue;
 /**
@@ -25,7 +24,7 @@ public class ArrayBased implements IQueue, IArrayBased  {
 		a = new Object[n];
 	}
 	@Override
-	public void enqueue(Object item) {
+	public void enqueue(final Object item) {
 		// TODO Auto-generated method stub
 		if (c == a.length) {
 			throw new RuntimeException();

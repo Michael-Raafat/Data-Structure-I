@@ -77,7 +77,9 @@ public class ArrayBased implements IQueue, IArrayBased  {
 			throw new RuntimeException();
 		}
 		Object v = a[0];
+		if ( r > 1) {
 		a = Arrays.copyOfRange(a, 1, r-1);
+		}
 		r--;
 		return v;
 	}

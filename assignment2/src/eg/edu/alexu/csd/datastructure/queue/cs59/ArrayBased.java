@@ -24,6 +24,7 @@ public class ArrayBased implements IQueue, IArrayBased  {
 	public ArrayBased(final int n) {
 		a = new Object[n];
 	}
+	/*
 	@Override
 	public void enqueue(final Object item) {
 		// TODO Auto-generated method stub
@@ -59,5 +60,25 @@ public class ArrayBased implements IQueue, IArrayBased  {
 		// TODO Auto-generated method stub
 		return r;
 	}
-
+*/
+	@Override
+	public void enqueue(Object item) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Object dequeue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

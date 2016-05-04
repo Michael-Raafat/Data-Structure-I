@@ -64,7 +64,11 @@ public class ArrayBased implements IQueue, IArrayBased  {
 	@Override
 	public void enqueue(Object item) {
 		// TODO Auto-generated method stub
-		
+		if (r == a.length) {
+			throw new RuntimeException();
+		}
+		a[r] = item;
+		r++;
 	}
 	@Override
 	public Object dequeue() {
@@ -74,11 +78,11 @@ public class ArrayBased implements IQueue, IArrayBased  {
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
-		return false;
+		return (r == 0);
 	}
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		return r;
 	}
 }

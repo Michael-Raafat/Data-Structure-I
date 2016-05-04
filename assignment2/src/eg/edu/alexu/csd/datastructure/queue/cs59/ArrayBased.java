@@ -9,9 +9,9 @@ import eg.edu.alexu.csd.datastructure.queue.IQueue;
  */
 public class ArrayBased implements IQueue, IArrayBased  {
     /**
-     * index variables.
+     * index variables and counter.
      */
-	private int r = 0;
+	private int r = 0, f = 0, c = 0;
 	/**
 	 * array.
 	 */
@@ -24,73 +24,38 @@ public class ArrayBased implements IQueue, IArrayBased  {
 	public ArrayBased(final int n) {
 		a = new Object[n];
 	}
-	/*
-	@Override
-	public void enqueue(final Object item) {
-		// TODO Auto-generated method stub
-		if (r == a.length) {
-			throw new RuntimeException();
-		}
-		a[r] = item;
-		r++;
-	}
-
-	@Override
-	public Object dequeue() {
-		// TODO Auto-generated method stub
-		if (r == 0) {
-			throw new RuntimeException();
-		}
-		Object v = a[0];
-		for (int i = 0; i < r - 1; i++) {
-			a[i] = a[i + 1];
-		}
-		r--;
-		return v;
-	}
-
-	@Override
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return (r == 0);
-	}
-
-	@Override
-	public int size() {
-		// TODO Auto-generated method stub
-		return r;
-	}
-*/
 	@Override
 	public void enqueue(Object item) {
 		// TODO Auto-generated method stub
-		if (r == a.length) {
+		if (c == a.length) {
 			throw new RuntimeException();
 		}
 		a[r] = item;
 		r++;
+		if (r == a.length) {
+			r = 0;
+		}
+		c++;
 	}
 	@Override
 	public Object dequeue() {
 		// TODO Auto-generated method stub
-		if (r == 0) {
+		if (c == 0) {
 			throw new RuntimeException();
 		}
-		Object v = a[0];
-		if ( r > 1) {
-		a = Arrays.copyOfRange(a, 1, r-1);
-		}
-		r--;
+		Object v = a[f];
+		f++;
+		c--;
 		return v;
 	}
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
-		return (r == 0);
+		return (c == 0);
 	}
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return r;
+		return c;
 	}
 }

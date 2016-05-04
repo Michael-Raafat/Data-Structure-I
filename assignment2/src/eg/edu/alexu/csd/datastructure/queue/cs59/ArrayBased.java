@@ -45,6 +45,9 @@ public class ArrayBased implements IQueue, IArrayBased  {
 		}
 		Object v = a[f];
 		f++;
+		if (f == a.length) {
+			f = 0;
+		}
 		c--;
 		return v;
 	}

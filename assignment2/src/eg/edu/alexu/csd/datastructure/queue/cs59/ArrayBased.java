@@ -1,5 +1,5 @@
 package eg.edu.alexu.csd.datastructure.queue.cs59;
-
+import java.util.Arrays;
 import eg.edu.alexu.csd.datastructure.queue.IArrayBased;
 import eg.edu.alexu.csd.datastructure.queue.IQueue;
 /**
@@ -73,13 +73,11 @@ public class ArrayBased implements IQueue, IArrayBased  {
 	@Override
 	public Object dequeue() {
 		// TODO Auto-generated method stub
-		if (r == 0 || a.length > 1000) {
+		if (r == 0) {
 			throw new RuntimeException();
 		}
 		Object v = a[0];
-		for (int i = 0; i < r - 1; i++) {
-			a[i] = a[i + 1];
-		}
+		a = Arrays.copyOfRange(a, 1, r-1);
 		r--;
 		return v;
 	}

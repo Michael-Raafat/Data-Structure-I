@@ -17,7 +17,7 @@ public class MazeSolver implements IMazeSolver {
 	@Override
 	public int[][] solveBFS(final File maze) {
 		// TODO Auto-generated method stub
-		LinkedListBased q;
+		LinkedListBased q = new LinkedListBased();
 		StringBuilder h = new StringBuilder();
 		try {
 			String zew;
@@ -77,6 +77,37 @@ public class MazeSolver implements IMazeSolver {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		char [][] f = new char [n][m];
+		int b = 0;
+		for (int y = 0; y < n; y++) {
+			for (int z = 0; z < m; z++) {
+				f[y][z] = h.charAt(b);
+				b++;
+			}
+		}
+		boolean d = true;
+		for (int t = 0; t < n; t++) {
+			for (int r = 0; r < m; n++) {
+				if (f[t][r] == 's'){
+					d = false;
+					if (r + 1 < m && f[t][r+1] == '.') {
+						q.enqueue(f[t][r+1]);
+					} else if (t + 1 < n && f[t+1][r] == '.') {
+						q.enqueue(f[t+1][r]);
+					} else if (r - 1 >= 0 && f[t][r-1] == '.') {
+						q.enqueue(f[t][r-1]);
+					} else if (t - 1 >= 0 && f[t-1][r] == '.') {
+						q.enqueue(f[t-1][r]);
+					}
+					
+				}
+			}
+		}
+		if (d == true) {
+			throw new RuntimeException();
+		}
+		
+		
 		return null;
 	}
 	/**

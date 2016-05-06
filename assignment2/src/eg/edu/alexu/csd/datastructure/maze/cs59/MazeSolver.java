@@ -69,8 +69,8 @@ public class MazeSolver implements IMazeSolver {
 				for (int j = 0; j < n; j++) {
 					for (int k = 0; k < m; k++) {
 						h.append(zew.charAt(k));
-						if (k == m - 1 &&
-						zew.charAt(k + 1) != ' ') {
+						if (k == m - 1
+						&& zew.charAt(k + 1) != ' ') {
 						throw new RuntimeException();
 						}
 					}
@@ -84,7 +84,7 @@ public class MazeSolver implements IMazeSolver {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		char[][] f = new char [n][m];
+		char[][] f = new char[n][m];
 		int b = 0;
 		for (int y = 0; y < n; y++) {
 			for (int z = 0; z < m; z++) {
@@ -95,20 +95,23 @@ public class MazeSolver implements IMazeSolver {
 		boolean d = true;
 		for (int t = 0; t < n; t++) {
 			for (int r = 0; r < m; n++) {
-				if (f[t][r] == 's'){
+				if (f[t][r] == 's') {
 					d = false;
-					if (r + 1 < m &&
-							f[t][r + 1] == '.') {
+					if (r + 1 < m
+						&& f[t][r + 1] == '.') {
 						q.enqueue(f[t][r + 1]);
-					} if (t + 1 < n &&
-							f[t + 1][r] == '.') {
+					}
+					if (t + 1 < n
+							&& f[t + 1][r] == '.') {
 						q.enqueue(f[t + 1][r]);
-					} if (r - 1 >= 0 &&
-							f[t][r - 1] == '.') {
+					}
+					if (r - 1 >= 0
+							&& f[t][r - 1] == '.') {
 						q.enqueue(f[t][r - 1]);
-					} if (t - 1 >= 0 &&
-							f[t - 1][r] == '.') {
-						q.enqueue(f[t-1][r]);
+					}
+					if (t - 1 >= 0
+							&& f[t - 1][r] == '.') {
+						q.enqueue(f[t - 1][r]);
 					}
 				}
 			}
@@ -120,10 +123,10 @@ public class MazeSolver implements IMazeSolver {
 	}
 	/**
 	 * check.
-	 * @param c
+	 * @param c character.
 	 * @return true or false
 	 */
-	public boolean isNumber(char c) {
+	public boolean isNumber(final char c) {
 		if (c >= '0' && c <= '9') {
 			return true;
 		}
@@ -178,8 +181,8 @@ public class MazeSolver implements IMazeSolver {
 				for (int j = 0; j < n; j++) {
 					for (int k = 0; k < m; k++) {
 						h.append(zew.charAt(k));
-						if (k == m - 1 &&
-						zew.charAt(k + 1) != ' ') {
+						if (k == m - 1
+						&& zew.charAt(k + 1) != ' ') {
 						throw new RuntimeException();
 						}
 					}
@@ -193,7 +196,7 @@ public class MazeSolver implements IMazeSolver {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		char[][] f = new char [n][m];
+		char[][] f = new char[n][m];
 		int b = 0;
 		for (int y = 0; y < n; y++) {
 			for (int z = 0; z < m; z++) {

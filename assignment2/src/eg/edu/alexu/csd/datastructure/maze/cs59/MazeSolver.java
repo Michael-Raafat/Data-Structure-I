@@ -50,7 +50,8 @@ public class MazeSolver implements IMazeSolver {
 						 m += Integer.valueOf(
 			 					String.valueOf(
 			 		 			zew.charAt(i)));
-						while (isNumber(
+						while (i + 1 < zew.length()
+								&& isNumber(
 							zew.charAt(i + 1))) {
 							i++;
 							m *= boo;
@@ -92,6 +93,8 @@ public class MazeSolver implements IMazeSolver {
 				b++;
 			}
 		}
+		int[][][] s = new int [200][100][2];
+		int[][][] v = new int [200][100][2];
 		boolean d = true;
 		for (int t = 0; t < n; t++) {
 			for (int r = 0; r < m; n++) {
@@ -162,7 +165,8 @@ public class MazeSolver implements IMazeSolver {
 						 m += Integer.valueOf(
 			 					String.valueOf(
 			 		 			zew.charAt(i)));
-						while (isNumber(
+						while (i + 1 < zew.length()
+								&& isNumber(
 							zew.charAt(i + 1))) {
 							i++;
 							m *= boo;

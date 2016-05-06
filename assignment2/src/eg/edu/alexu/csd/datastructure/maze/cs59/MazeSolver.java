@@ -12,8 +12,14 @@ import eg.edu.alexu.csd.datastructure.maze.IMazeSolver;
  *
  */
 public class MazeSolver implements IMazeSolver {
- 
+    /**
+     * length of array.
+     */
 	int n = 0, m = 0;
+	/**
+	 * magic number.
+	 */
+	final int boo = 10;
 	@Override
 	public int[][] solveBFS(final File maze) {
 		// TODO Auto-generated method stub
@@ -24,35 +30,35 @@ public class MazeSolver implements IMazeSolver {
 			Scanner s = new Scanner(maze);
 			if (s.hasNext()) {
 				zew = s.nextLine();
-				for(int i = 0; i < zew.length(); i++) {
+				for (int i = 0; i < zew.length(); i++) {
 					if (n == 0) {
 						if (isNumber(zew.charAt(i))) {
+						n += Integer.valueOf(
+			 				String.valueOf(
+			 		 		zew.charAt(i)));
+						while (isNumber(
+							zew.charAt(i + 1))) {
+							i++;
+							n *= boo;
 							n += Integer.valueOf(
-			 						String.valueOf(
-			 		 				zew.charAt(i)));
-						while (isNumber(zew.charAt(i+1))) {
-								i++;
-								n *= 10;
-								n += Integer.valueOf(
-				 						String.valueOf(
-				 		 				zew.charAt(i)));
-								
+			 					String.valueOf(
+			 		 			zew.charAt(i)));
 							}
-						}	
+						}
 					} else if (m == 0) {
 						if (isNumber(zew.charAt(i))) {
+						 m += Integer.valueOf(
+			 					String.valueOf(
+			 		 			zew.charAt(i)));
+						while (isNumber(
+							zew.charAt(i + 1))) {
+							i++;
+							m *= boo;
 							m += Integer.valueOf(
-			 						String.valueOf(
-			 		 				zew.charAt(i)));
-						while (isNumber(zew.charAt(i+1))) {
-								i++;
-								m *= 10;
-								m += Integer.valueOf(
-				 						String.valueOf(
-				 		 				zew.charAt(i)));
-								
+			 				String.valueOf(
+			 		 		zew.charAt(i)));
 							}
-						}	
+						}
 					} else if (zew.charAt(i) != ' ') {
 						throw new RuntimeException();
 					}
@@ -63,8 +69,9 @@ public class MazeSolver implements IMazeSolver {
 				for (int j = 0; j < n; j++) {
 					for (int k = 0; k < m; k++) {
 						h.append(zew.charAt(k));
-						if (k == m - 1 && zew.charAt(k+1) != ' ') {
-							throw new RuntimeException();
+						if (k == m - 1 &&
+						zew.charAt(k + 1) != ' ') {
+						throw new RuntimeException();
 						}
 					}
 					zew = s.nextLine();
@@ -77,7 +84,7 @@ public class MazeSolver implements IMazeSolver {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		char [][] f = new char [n][m];
+		char[][] f = new char [n][m];
 		int b = 0;
 		for (int y = 0; y < n; y++) {
 			for (int z = 0; z < m; z++) {
@@ -90,24 +97,25 @@ public class MazeSolver implements IMazeSolver {
 			for (int r = 0; r < m; n++) {
 				if (f[t][r] == 's'){
 					d = false;
-					if (r + 1 < m && f[t][r+1] == '.') {
-						q.enqueue(f[t][r+1]);
-					} else if (t + 1 < n && f[t+1][r] == '.') {
-						q.enqueue(f[t+1][r]);
-					} else if (r - 1 >= 0 && f[t][r-1] == '.') {
-						q.enqueue(f[t][r-1]);
-					} else if (t - 1 >= 0 && f[t-1][r] == '.') {
+					if (r + 1 < m &&
+							f[t][r + 1] == '.') {
+						q.enqueue(f[t][r + 1]);
+					} if (t + 1 < n &&
+							f[t + 1][r] == '.') {
+						q.enqueue(f[t + 1][r]);
+					} if (r - 1 >= 0 &&
+							f[t][r - 1] == '.') {
+						q.enqueue(f[t][r - 1]);
+					} if (t - 1 >= 0 &&
+							f[t - 1][r] == '.') {
 						q.enqueue(f[t-1][r]);
 					}
-					
 				}
 			}
 		}
-		if (d == true) {
+		if (d) {
 			throw new RuntimeException();
 		}
-		
-		
 		return null;
 	}
 	/**
@@ -131,35 +139,35 @@ public class MazeSolver implements IMazeSolver {
 			Scanner s = new Scanner(maze);
 			if (s.hasNext()) {
 				zew = s.nextLine();
-				for(int i = 0; i < zew.length(); i++) {
+				for (int i = 0; i < zew.length(); i++) {
 					if (n == 0) {
 						if (isNumber(zew.charAt(i))) {
+						n += Integer.valueOf(
+			 				String.valueOf(
+			 		 		zew.charAt(i)));
+						while (isNumber(
+							zew.charAt(i + 1))) {
+							i++;
+							n *= boo;
 							n += Integer.valueOf(
-			 						String.valueOf(
-			 		 				zew.charAt(i)));
-						while (isNumber(zew.charAt(i+1))) {
-								i++;
-								n *= 10;
-								n += Integer.valueOf(
-				 						String.valueOf(
-				 		 				zew.charAt(i)));
-								
+			 					String.valueOf(
+			 		 			zew.charAt(i)));
 							}
-						}	
+						}
 					} else if (m == 0) {
 						if (isNumber(zew.charAt(i))) {
+						 m += Integer.valueOf(
+			 					String.valueOf(
+			 		 			zew.charAt(i)));
+						while (isNumber(
+							zew.charAt(i + 1))) {
+							i++;
+							m *= boo;
 							m += Integer.valueOf(
-			 						String.valueOf(
-			 		 				zew.charAt(i)));
-						while (isNumber(zew.charAt(i+1))) {
-								i++;
-								m *= 10;
-								m += Integer.valueOf(
-				 						String.valueOf(
-				 		 				zew.charAt(i)));
-								
+			 				String.valueOf(
+			 		 		zew.charAt(i)));
 							}
-						}	
+						}
 					} else if (zew.charAt(i) != ' ') {
 						throw new RuntimeException();
 					}
@@ -170,8 +178,9 @@ public class MazeSolver implements IMazeSolver {
 				for (int j = 0; j < n; j++) {
 					for (int k = 0; k < m; k++) {
 						h.append(zew.charAt(k));
-						if (k == m - 1 && zew.charAt(k+1) != ' ') {
-							throw new RuntimeException();
+						if (k == m - 1 &&
+						zew.charAt(k + 1) != ' ') {
+						throw new RuntimeException();
 						}
 					}
 					zew = s.nextLine();
@@ -183,6 +192,14 @@ public class MazeSolver implements IMazeSolver {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		char[][] f = new char [n][m];
+		int b = 0;
+		for (int y = 0; y < n; y++) {
+			for (int z = 0; z < m; z++) {
+				f[y][z] = h.charAt(b);
+				b++;
+			}
 		}
 		return null;
 	}

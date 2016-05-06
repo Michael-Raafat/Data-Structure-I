@@ -83,7 +83,7 @@ public class MazeSolver implements IMazeSolver {
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new RuntimeException();
 		}
 		char[][] f = new char[n][m];
 		int b = 0;
@@ -198,7 +198,7 @@ public class MazeSolver implements IMazeSolver {
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new RuntimeException();
 		}
 		char[][] f = new char[n][m];
 		int b = 0;

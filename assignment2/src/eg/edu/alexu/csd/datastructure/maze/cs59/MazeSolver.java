@@ -70,7 +70,7 @@ public class MazeSolver implements IMazeSolver {
 				for (int j = 0; j < n; j++) {
 					for (int k = 0; k < m; k++) {
 						h.append(zew.charAt(k));
-						if (k == m - 1
+						if (k + 1 < zew.length()
 						&& zew.charAt(k + 1) != ' ') {
 						throw new RuntimeException();
 						}
@@ -185,7 +185,7 @@ public class MazeSolver implements IMazeSolver {
 				for (int j = 0; j < n; j++) {
 					for (int k = 0; k < m; k++) {
 						h.append(zew.charAt(k));
-						if (k == m - 1
+						if (k + 1 < zew.length()
 						&& zew.charAt(k + 1) != ' ') {
 						throw new RuntimeException();
 						}

@@ -62,7 +62,7 @@ public class MazeSolver implements IMazeSolver {
 					}
 				}
 				if (me == 0 || you > 1) {
-					throw new RuntimeException();
+					return null;
 				}
 			} else {
 				throw new RuntimeException();

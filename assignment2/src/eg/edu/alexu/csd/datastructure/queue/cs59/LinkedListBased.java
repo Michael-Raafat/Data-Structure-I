@@ -48,10 +48,6 @@ public class LinkedListBased implements IQueue, ILinkedBased {
 		}
 		return q;
 	}
-	public Object front() {
-		return head;
-	}
-
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub

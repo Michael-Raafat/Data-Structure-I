@@ -189,8 +189,8 @@ public class MazeSolver implements IMazeSolver {
 		int[][] n = new int [size][2];
 		for (int a = size - 1; a >= 0; a--) {
 			Node v = (Node) s.dequeue();
-			n[a][0] = Integer.valueOf(String.valueOf(v.gety()));
-			n[a][1] = Integer.valueOf(String.valueOf(v.getx()));
+			n[a][0] = Integer.valueOf(String.valueOf(v.getx()));
+			n[a][1] = Integer.valueOf(String.valueOf(v.gety()));
 		}
 		return n;
 	}

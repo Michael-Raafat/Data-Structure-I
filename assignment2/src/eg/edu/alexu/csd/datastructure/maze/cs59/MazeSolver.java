@@ -250,6 +250,8 @@ public class MazeSolver implements IMazeSolver {
 						} else if (Character.valueOf(
 								zew.charAt(k)).equals('E')) {
 							me = 1;
+						} else if (k < zew.length()) {
+							throw new RuntimeException();
 						}
 					}
 				}

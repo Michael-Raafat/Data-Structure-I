@@ -54,9 +54,11 @@ public class MazeSolver implements IMazeSolver {
 					zew = s.nextLine();
 					for (int k = 0; k < m; k++) {
 						h.append(zew.charAt(k));
-						if (zew.charAt(k) == 'S') {
+						if (Character.valueOf(
+							zew.charAt(k)).equals('S')) {
 							you++;
-						} else if (zew.charAt(k) == 'E') {
+						} else if (Character.valueOf(
+								zew.charAt(k)).equals('E')) {
 							me = 1;
 						}
 					}

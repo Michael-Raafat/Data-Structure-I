@@ -74,9 +74,9 @@ public class MazeSolver implements IMazeSolver {
 					for (int k = 0; k < m; k++) {
 						h.append(zew.charAt(k));
 					}
-					if (j == n - 1 && s.hasNext()) {
+					/*if (j == n - 1 && s.hasNext()) {
 						throw new RuntimeException();
-					}
+					}*/
 				}
 			}
 		} catch (FileNotFoundException e) {

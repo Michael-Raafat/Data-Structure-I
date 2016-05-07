@@ -36,7 +36,7 @@ public class MazeSolver implements IMazeSolver {
 						n += Integer.valueOf(
 			 				String.valueOf(
 			 		 		zew.charAt(i)));
-						while (i + 1 < zew.length()
+						/*while (i + 1 < zew.length()
 								&& isNumber(
 							zew.charAt(i + 1))) {
 							i++;
@@ -44,7 +44,7 @@ public class MazeSolver implements IMazeSolver {
 							n += Integer.valueOf(
 			 					String.valueOf(
 			 		 			zew.charAt(i)));
-							}
+							}*/
 						}
 					} else if (m == 0) {
 						if (isNumber(zew.charAt(i))) {
@@ -196,7 +196,7 @@ public class MazeSolver implements IMazeSolver {
 						n += Integer.valueOf(
 			 				String.valueOf(
 			 		 		zew.charAt(i)));
-						while (i + 1 < zew.length()
+					/*	while (i + 1 < zew.length()
 								&& isNumber(
 							zew.charAt(i + 1))) {
 							i++;
@@ -204,14 +204,14 @@ public class MazeSolver implements IMazeSolver {
 							n += Integer.valueOf(
 			 					String.valueOf(
 			 		 			zew.charAt(i)));
-							}
+							}*/
 						}
 					} else if (m == 0) {
 						if (isNumber(zew.charAt(i))) {
 						 m += Integer.valueOf(
 			 					String.valueOf(
 			 		 			zew.charAt(i)));
-						while (i + 1 < zew.length()
+						/*while (i + 1 < zew.length()
 								&& isNumber(
 							zew.charAt(i + 1))) {
 							i++;
@@ -219,7 +219,7 @@ public class MazeSolver implements IMazeSolver {
 							m += Integer.valueOf(
 			 				String.valueOf(
 			 		 		zew.charAt(i)));
-							}
+							}*/
 						}
 					} else if (zew.charAt(i) != ' ') {
 						throw new RuntimeException();

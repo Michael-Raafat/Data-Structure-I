@@ -38,47 +38,36 @@ public class MazeSolver implements IMazeSolver {
 						n += Integer.valueOf(
 			 				String.valueOf(
 			 		 		zew.charAt(i)));
-				/*		while (i + 1 < zew.length()
-								&& isNumber(
-							zew.charAt(i + 1))) {
-							i++;
-							n *= boo;
-							n += Integer.valueOf(
-			 					String.valueOf(
-			 		 			zew.charAt(i)));
-							}*/
 						}
 					} else if (m == 0) {
 						if (isNumber(zew.charAt(i))) {
 						 m += Integer.valueOf(
 			 					String.valueOf(
 			 		 			zew.charAt(i)));
-					/*	while (i + 1 < zew.length()
-								&& isNumber(
-							zew.charAt(i + 1))) {
-							i++;
-							m *= boo;
-							m += Integer.valueOf(
-			 				String.valueOf(
-			 		 		zew.charAt(i)));
-							}*/
-						}
-					}/* else if (zew.charAt(i) != ' ') {
-						throw new RuntimeException();
-					}*/
+				       }
+		       	   }
 				}
-			}
+			}	
 			if (s.hasNext()) {
+				int you = 0, me = 0;
 				for (int j = 0; j < n; j++) {
 					zew = s.nextLine();
 					for (int k = 0; k < m; k++) {
 						h.append(zew.charAt(k));
+						if (zew.charAt(k) == 'S') {
+							you++;
+						} else if (zew.charAt(k) == 'E') {
+							me = 1;
+						}
 					}
-					/*if (j == n - 1 && s.hasNext()) {
-						throw new RuntimeException();
-					}*/
 				}
+				if (me == 0 || you > 1) {
+					throw new RuntimeException();
+				}
+			} else {
+				throw new RuntimeException();
 			}
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			throw new RuntimeException();
@@ -182,10 +171,6 @@ public class MazeSolver implements IMazeSolver {
 				}
 			}
 		}
-	/*	if (gg) {
-			 throw new RuntimeException();
-		}
-		*/
 		if (!d && p) {
 			return null;
 		}

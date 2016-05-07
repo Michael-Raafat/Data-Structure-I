@@ -38,7 +38,7 @@ public class MazeSolver implements IMazeSolver {
 						n += Integer.valueOf(
 			 				String.valueOf(
 			 		 		zew.charAt(i)));
-					/*	while (i + 1 < zew.length()
+						while (i + 1 < zew.length()
 								&& isNumber(
 							zew.charAt(i + 1))) {
 							i++;
@@ -46,14 +46,14 @@ public class MazeSolver implements IMazeSolver {
 							n += Integer.valueOf(
 			 					String.valueOf(
 			 		 			zew.charAt(i)));
-							}*/
+							}
 						}
 					} else if (m == 0) {
 						if (isNumber(zew.charAt(i))) {
 						 m += Integer.valueOf(
 			 					String.valueOf(
 			 		 			zew.charAt(i)));
-						/*while (i + 1 < zew.length()
+						while (i + 1 < zew.length()
 								&& isNumber(
 							zew.charAt(i + 1))) {
 							i++;
@@ -61,18 +61,25 @@ public class MazeSolver implements IMazeSolver {
 							m += Integer.valueOf(
 			 				String.valueOf(
 			 		 		zew.charAt(i)));
-							}*/
+							}
 						}
 					} else if (zew.charAt(i) != ' ') {
 						throw new RuntimeException();
 					}
 				}
 			}
+			boolean gg = false;
 			if (s.hasNext()) {
 				for (int j = 0; j < n; j++) {
 					zew = s.nextLine();
 					for (int k = 0; k < m; k++) {
 						h.append(zew.charAt(k));
+						if (zew.charAt(k) == 'E') {
+							gg = true;
+						}
+					}
+					if (!gg) {
+						throw new RuntimeException();
 					}
 					/*if (j == n - 1 && s.hasNext()) {
 						throw new RuntimeException();

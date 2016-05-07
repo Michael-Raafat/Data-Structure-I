@@ -242,6 +242,7 @@ public class MazeSolver implements IMazeSolver {
 				int you = 0, me = 0;
 				for (int j = 0; j < n; j++) {
 					zew = s.nextLine();
+					int vv = 0;
 					for (int k = 0; k < m; k++) {
 						h.append(zew.charAt(k));
 						if (Character.valueOf(
@@ -250,9 +251,11 @@ public class MazeSolver implements IMazeSolver {
 						} else if (Character.valueOf(
 								zew.charAt(k)).equals('E')) {
 							me = 1;
-						} else if (k < zew.length()) {
-							throw new RuntimeException();
-						}
+						} 
+						vv = k + 1;
+					}
+					if (vv < zew.length()) {
+						throw new RuntimeException();
 					}
 				}
 				if (me == 0 || you > 1) {

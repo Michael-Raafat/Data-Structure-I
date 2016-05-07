@@ -306,7 +306,7 @@ public class MazeSolver implements IMazeSolver {
 					q.push(f[t][r]);
 					while (!q.isEmpty()) {
 						Node temp = new Node();
-						temp = (Node) q.pop();
+						temp = (Node) q.peek();
 					    int x = Integer.valueOf(
 					    String.valueOf(temp.getx()));
 					    int y = Integer.valueOf(
@@ -334,8 +334,7 @@ public class MazeSolver implements IMazeSolver {
 							f[x - 1][y].setParent(f[x][y]);
 							q.push(f[x - 1][y]);
 							f[x - 1][y].setVisited(true);
-						}
-					    if (y + 1 < m
+						} else if (y + 1 < m
 								&& (String.valueOf(
 									f[x][y + 1].getVal(
 									)).toCharArray()[0] == '.'
@@ -347,8 +346,7 @@ public class MazeSolver implements IMazeSolver {
 							f[x][y + 1].setParent(f[x][y]);
 							q.push(f[x][y + 1]);
 							f[x][y + 1].setVisited(true);
-						}
-						if (x + 1 < n &&
+						} else if (x + 1 < n &&
 								(String.valueOf(
 								f[x + 1][y].getVal(
 								)).toCharArray()[0] == '.'
@@ -360,8 +358,7 @@ public class MazeSolver implements IMazeSolver {
 							f[x + 1][y].setParent(f[x][y]);
 							q.push(f[x + 1][y]);
 							f[x + 1][y].setVisited(true);
-						}
-						if (y - 1 >= 0
+						} else if (y - 1 >= 0
 								&& (String.valueOf(
 									f[x][y - 1].getVal(
 									)).toCharArray()[0] == '.'
@@ -373,8 +370,10 @@ public class MazeSolver implements IMazeSolver {
 							    f[x][y - 1].setParent(f[x][y]);
 								q.push(f[x][y - 1]);
 								f[x][y - 1].setVisited(true);
+							} else {
+								q.pop();
 							}
-						}
+						} 
 					
 				}
 			}
@@ -395,7 +394,7 @@ public class MazeSolver implements IMazeSolver {
 		s.push(t);
 		int size = s.size();
 		int[][] n = new int [size][2];
-		for (int a = size - 1; a >= 0; a--) {
+		for (int a = 0; a < size; a++) {
 			Node v = (Node) s.pop();
 			n[a][0] = Integer.valueOf(String.valueOf(v.gety()));
 			n[a][1] = Integer.valueOf(String.valueOf(v.getx()));

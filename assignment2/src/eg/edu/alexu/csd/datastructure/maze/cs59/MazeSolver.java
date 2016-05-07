@@ -182,9 +182,6 @@ public class MazeSolver implements IMazeSolver {
 				}
 			}
 		}
-		if (!gg) {
-			throw new RuntimeException();
-		}
 		if (!d && p) {
 			return null;
 		}

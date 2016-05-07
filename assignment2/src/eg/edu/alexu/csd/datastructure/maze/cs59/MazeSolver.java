@@ -63,9 +63,9 @@ public class MazeSolver implements IMazeSolver {
 			 		 		zew.charAt(i)));
 							}*/
 						}
-					} else if (zew.charAt(i) != ' ') {
+					}/* else if (zew.charAt(i) != ' ') {
 						throw new RuntimeException();
-					}
+					}*/
 				}
 			}
 			if (s.hasNext()) {

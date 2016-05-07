@@ -182,10 +182,13 @@ public class MazeSolver implements IMazeSolver {
 				}
 			}
 		}
+		if (gg) {
+			 throw new RuntimeException();
+		}
 		if (!d && p) {
 			return null;
 		}
-		if (d || p || kaza > 1 || gg) {
+		if (d || p || kaza > 1) {
 			 throw new RuntimeException();
 		}
 		LinkedListBased s = new LinkedListBased();

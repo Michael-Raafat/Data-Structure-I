@@ -17,24 +17,7 @@ public class Node {
 	 * parent and child.
 	 */
 	private Node child, parent;
-	/**
-	 * nodes.
-	 */
-	private Node next, prev;
-	/**
-	 * initialize a node.
-	 */
-	public Node() {
-		this.value = null;
-		this.x = null;
-		this.y = null;
-		this.parent = null;
-		this.child = null;
-		this.visited = false;
-		this.next = null;
-		this.prev = null;
-	}
-	/**
+		/**
 	 * set value of node.
 	 * @param val
 	 * new value

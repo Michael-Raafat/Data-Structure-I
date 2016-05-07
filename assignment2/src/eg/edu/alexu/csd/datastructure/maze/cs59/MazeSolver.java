@@ -232,6 +232,8 @@ public class MazeSolver implements IMazeSolver {
 						 m += Integer.valueOf(
 			 					String.valueOf(
 			 		 			zew.charAt(i)));
+				       } else if (isNumber(zew.charAt(i))) {
+				    	   throw new RuntimeException();
 				       }
 		       	   }
 				}

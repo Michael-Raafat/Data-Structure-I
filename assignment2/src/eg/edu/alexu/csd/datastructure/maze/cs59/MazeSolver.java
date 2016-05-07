@@ -186,7 +186,7 @@ public class MazeSolver implements IMazeSolver {
 			return null;
 		}
 		if (d || p || kaza > 1) {
-			throw new RuntimeException();
+			return null;
 		}
 		LinkedListBased s = new LinkedListBased();
 		Node t = f[fx][fy];

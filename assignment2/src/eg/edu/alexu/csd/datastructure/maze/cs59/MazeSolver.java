@@ -68,18 +68,11 @@ public class MazeSolver implements IMazeSolver {
 					}
 				}
 			}
-			boolean gg = false;
 			if (s.hasNext()) {
 				for (int j = 0; j < n; j++) {
 					zew = s.nextLine();
 					for (int k = 0; k < m; k++) {
 						h.append(zew.charAt(k));
-						if (zew.charAt(k) == 'E') {
-							gg = true;
-						}
-					}
-					if (!gg) {
-						throw new RuntimeException();
 					}
 					/*if (j == n - 1 && s.hasNext()) {
 						throw new RuntimeException();
@@ -101,7 +94,7 @@ public class MazeSolver implements IMazeSolver {
 			}
 		}
 		int fx = 0, fy = 0, kaza = 0;
-		boolean d = true, p = true;
+		boolean d = true, p = true, gg = true;
 		for (int t = 0; t < n; t++) {
 			for (int r = 0; r < m; r++) {
 				if (Character.valueOf((char)
@@ -183,7 +176,14 @@ public class MazeSolver implements IMazeSolver {
 						}
 					
 				}
+				if (Character.valueOf((char)
+						f[t][r].getVal()) == 'E') {
+					gg = false;
+				}
 			}
+		}
+		if (!gg) {
+			throw new RuntimeException();
 		}
 		if (!d && p) {
 			return null;

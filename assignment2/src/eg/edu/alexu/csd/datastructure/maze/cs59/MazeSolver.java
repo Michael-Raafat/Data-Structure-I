@@ -185,7 +185,7 @@ public class MazeSolver implements IMazeSolver {
 		if (!d && p) {
 			return null;
 		}
-		if (d || p || kaza > 1) {
+		if (d || p || kaza > 1 || gg) {
 			 throw new RuntimeException();
 		}
 		LinkedListBased s = new LinkedListBased();

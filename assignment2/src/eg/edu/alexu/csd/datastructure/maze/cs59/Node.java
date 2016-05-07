@@ -50,8 +50,8 @@ public class Node {
 		this.visited = v;
 	}
 	/**
-	 * 
-	 * @return
+	 *
+	 * @return state of visiting.
 	 */
 	public final boolean getVisited() {
 		return this.visited;

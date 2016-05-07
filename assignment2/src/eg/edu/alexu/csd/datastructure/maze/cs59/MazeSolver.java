@@ -248,7 +248,7 @@ public class MazeSolver implements IMazeSolver {
 					    int y = Integer.valueOf(
 					String.valueOf(temp.gety()));
 					    if (String.valueOf(
-				f[x][y].getVal()).toCharArray(
+				     f[x][y].getVal()).toCharArray(
 						)[0] == 'E') {
 					    	p = false;
 					    	fx = Integer.valueOf(

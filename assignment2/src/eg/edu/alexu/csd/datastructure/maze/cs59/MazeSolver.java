@@ -31,29 +31,13 @@ public class MazeSolver implements IMazeSolver {
 			String zew;
 			Scanner s = new Scanner(maze);
 			if (s.hasNext()) {
-				zew = s.nextLine();
-				for (int i = 0; i < zew.length(); i++) {
-					if (n == 0) {
-						if (isNumber(zew.charAt(i))) {
-						n += Integer.valueOf(
-			 				String.valueOf(
-			 		 		zew.charAt(i)));
-						}
-					} else if (m == 0) {
-						if (isNumber(zew.charAt(i))) {
-						 m += Integer.valueOf(
-			 					String.valueOf(
-			 		 			zew.charAt(i)));
-				       } else if (isNumber(zew.charAt(i))) {
-				    	   throw new RuntimeException();
-				       }
-		       	   }
-				}
+				n = s.nextInt();
+				m = s.nextInt();
 			}	
 			if (s.hasNext()) {
 				int you = 0, me = 0;
 				for (int j = 0; j < n; j++) {
-					zew = s.nextLine();
+					zew = s.next();
 					int vv = 0;
 					for (int k = 0; k < m; k++) {
 						h.append(zew.charAt(k));

@@ -258,36 +258,36 @@ public class MazeSolver implements IMazeSolver {
 					    	break;
 					    }
 					    if (y - 1 >= 0
-								&& (String.valueOf(
-								f[x][y - 1].getVal(
-								)).toCharArray()[0] == '.'
-								|| String.valueOf(f[x][y - 1].getVal(
-								)).toCharArray()[0] == 'E')
-								&& !f[x][y - 1].getVisited()) {
-							    f[x][y - 1].setParent(f[x][y]);
-								q.push(f[x][y - 1]);
-								f[x][y - 1].setVisited(true);
+					&& (String.valueOf(
+					f[x][y - 1].getVal(
+					)).toCharArray()[0] == '.'
+					|| String.valueOf(f[x][y - 1].getVal(
+					)).toCharArray()[0] == 'E')
+					&& !f[x][y - 1].getVisited()) {
+					f[x][y - 1].setParent(f[x][y]);
+					q.push(f[x][y - 1]);
+					f[x][y - 1].setVisited(true);
 									    }
 					    if (x + 1 < n
-								&& (String.valueOf(f[x + 1][y].getVal(
-								)).toCharArray()[0] == '.'
-								|| String.valueOf(f[x + 1][y].getVal(
-								)).toCharArray()[0] == 'E')
-								&& !f[x + 1][y].getVisited()) {
-							f[x + 1][y].setParent(f[x][y]);
-								q.push(f[x + 1][y]);
-							f[x + 1][y].setVisited(true);
+					 && (String.valueOf(f[x + 1][y].getVal(
+					 )).toCharArray()[0] == '.'
+					 || String.valueOf(f[x + 1][y].getVal(
+					 )).toCharArray()[0] == 'E')
+					 && !f[x + 1][y].getVisited()) {
+					 f[x + 1][y].setParent(f[x][y]);
+					 q.push(f[x + 1][y]);
+					 f[x + 1][y].setVisited(true);
 							}
 					    if (y + 1 < m
-								&& (String.valueOf(
-								f[x][y + 1].getVal(
-								)).toCharArray()[0] == '.'
-								|| String.valueOf(f[x][y + 1].getVal(
-								)).toCharArray()[0] == 'E')
-								&& !f[x][y + 1].getVisited()) {
-							   f[x][y + 1].setParent(f[x][y]);
-										q.push(f[x][y + 1]);
-							f[x][y + 1].setVisited(true);
+					 && (String.valueOf(
+					 f[x][y + 1].getVal(
+					 )).toCharArray()[0] == '.'
+					 || String.valueOf(f[x][y + 1].getVal(
+				     )).toCharArray()[0] == 'E')
+					 && !f[x][y + 1].getVisited()) {
+					 f[x][y + 1].setParent(f[x][y]);
+					 q.push(f[x][y + 1]);
+					 f[x][y + 1].setVisited(true);
 									}
 					    if (x - 1 >= 0
 						&& (String.valueOf(
@@ -299,7 +299,7 @@ public class MazeSolver implements IMazeSolver {
 				f[x - 1][y].setParent(f[x][y]);
 						q.push(f[x - 1][y]);
 					f[x - 1][y].setVisited(true);
-						} 
+						}
 						}
 				}
 			}

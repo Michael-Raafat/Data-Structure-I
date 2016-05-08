@@ -242,7 +242,7 @@ public class MazeSolver implements IMazeSolver {
 					q.push(f[t][r]);
 					while (!q.isEmpty()) {
 						Node temp = new Node();
-						temp = (Node) q.peek();
+						temp = (Node) q.pop();
 					    int x = Integer.valueOf(
 					    String.valueOf(temp.getx()));
 					    int y = Integer.valueOf(
@@ -257,6 +257,38 @@ public class MazeSolver implements IMazeSolver {
 					String.valueOf(f[x][y].gety()));
 					    	break;
 					    }
+					    if (y - 1 >= 0
+								&& (String.valueOf(
+								f[x][y - 1].getVal(
+								)).toCharArray()[0] == '.'
+								|| String.valueOf(f[x][y - 1].getVal(
+								)).toCharArray()[0] == 'E')
+								&& !f[x][y - 1].getVisited()) {
+							    f[x][y - 1].setParent(f[x][y]);
+								q.push(f[x][y - 1]);
+								f[x][y - 1].setVisited(true);
+									    }
+					    if (x + 1 < n
+								&& (String.valueOf(f[x + 1][y].getVal(
+								)).toCharArray()[0] == '.'
+								|| String.valueOf(f[x + 1][y].getVal(
+								)).toCharArray()[0] == 'E')
+								&& !f[x + 1][y].getVisited()) {
+							f[x + 1][y].setParent(f[x][y]);
+								q.push(f[x + 1][y]);
+							f[x + 1][y].setVisited(true);
+							}
+					    if (y + 1 < m
+								&& (String.valueOf(
+								f[x][y + 1].getVal(
+								)).toCharArray()[0] == '.'
+								|| String.valueOf(f[x][y + 1].getVal(
+								)).toCharArray()[0] == 'E')
+								&& !f[x][y + 1].getVisited()) {
+							   f[x][y + 1].setParent(f[x][y]);
+										q.push(f[x][y + 1]);
+							f[x][y + 1].setVisited(true);
+									}
 					    if (x - 1 >= 0
 						&& (String.valueOf(
 						f[x - 1][y].getVal()).
@@ -267,38 +299,7 @@ public class MazeSolver implements IMazeSolver {
 				f[x - 1][y].setParent(f[x][y]);
 						q.push(f[x - 1][y]);
 					f[x - 1][y].setVisited(true);
-						} else if (y + 1 < m
-					&& (String.valueOf(
-					f[x][y + 1].getVal(
-					)).toCharArray()[0] == '.'
-					|| String.valueOf(f[x][y + 1].getVal(
-					)).toCharArray()[0] == 'E')
-					&& !f[x][y + 1].getVisited()) {
-				   f[x][y + 1].setParent(f[x][y]);
-							q.push(f[x][y + 1]);
-				f[x][y + 1].setVisited(true);
-						} else if (x + 1 < n
-					&& (String.valueOf(f[x + 1][y].getVal(
-					)).toCharArray()[0] == '.'
-					|| String.valueOf(f[x + 1][y].getVal(
-					)).toCharArray()[0] == 'E')
-					&& !f[x + 1][y].getVisited()) {
-				f[x + 1][y].setParent(f[x][y]);
-					q.push(f[x + 1][y]);
-				f[x + 1][y].setVisited(true);
-				} else if (y - 1 >= 0
-				&& (String.valueOf(
-				f[x][y - 1].getVal(
-				)).toCharArray()[0] == '.'
-				|| String.valueOf(f[x][y - 1].getVal(
-				)).toCharArray()[0] == 'E')
-				&& !f[x][y - 1].getVisited()) {
-			    f[x][y - 1].setParent(f[x][y]);
-				q.push(f[x][y - 1]);
-				f[x][y - 1].setVisited(true);
-							} else {
-								q.pop();
-							}
+						} 
 						}
 				}
 			}

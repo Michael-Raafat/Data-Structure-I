@@ -60,5 +60,23 @@ public class Tests {
 			return;
 		}
 	}
+	@Test
+	public void testEmptyQueue() {
+		be.enqueue(three);
+		be.enqueue(four);
+		be.enqueue(seven);
+		Assert.assertEquals(seven, be.dequeue());
+		be.dequeue();
+		be.dequeue();
+		Assert.assertEquals(false, be.isEmpty());
+		try {
+			be.dequeue();
+			Assert.assertTrue("You didn't throw exception"
+					+ "queue is empty",
+					false);
+		} catch (RuntimeException e) {
+			return;
+		}
+	}
 
 }

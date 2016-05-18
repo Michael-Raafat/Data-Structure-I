@@ -60,6 +60,9 @@ public class Tests {
 			return;
 		}
 	}
+	/**
+	 * test 2.
+	 */
 	@Test
 	public void testEmptyQueue() {
 		be.enqueue(three);

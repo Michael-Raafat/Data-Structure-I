@@ -17,7 +17,7 @@ public class MazeSolver implements IMazeSolver {
      */
 	int n = 0, m = 0;
 	/**
-	 * magic number.
+	 * magic numbers.
 	 */
 	final int boo = 10;
 	@Override

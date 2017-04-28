@@ -68,10 +68,10 @@ public class Tests {
 		be.enqueue(three);
 		be.enqueue(four);
 		be.enqueue(seven);
-		Assert.assertEquals(seven, be.dequeue());
+		Assert.assertEquals(three, be.dequeue());
 		be.dequeue();
 		be.dequeue();
-		Assert.assertEquals(false, be.isEmpty());
+		Assert.assertEquals(true, be.isEmpty());
 		try {
 			be.dequeue();
 			Assert.assertTrue("You didn't throw exception"
